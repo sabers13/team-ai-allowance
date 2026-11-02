@@ -1,0 +1,1372 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-02T08:59:49.158Z",
+  "testWindow": {
+    "from": "2026-11-01T00:00:00.000Z",
+    "to": "2026-11-02T08:59:47.777Z"
+  },
+  "stack": {
+    "gateway": "127.0.0.1:14020",
+    "control": "127.0.0.1:18082",
+    "webhook": "127.0.0.1:18091",
+    "mail": "127.0.0.1:18026"
+  },
+  "teams": [
+    {
+      "name": "Crew",
+      "members": 6,
+      "requests": 11,
+      "auditEvents": 69,
+      "usageRows": 329,
+      "auditActions": {
+        "team.policy_updated": 1,
+        "member.created": 6,
+        "key.state_applied": 24,
+        "rule.upserted": 1,
+        "request.created": 11,
+        "request.decided": 9,
+        "request.cancelled": 2,
+        "grant.issued": 4,
+        "watcher.token_cap_block": 1,
+        "member.blocked": 1,
+        "member.unblocked": 1,
+        "key.rotated": 1,
+        "limits.updated": 7
+      }
+    },
+    {
+      "name": "Night",
+      "members": 3,
+      "requests": 0,
+      "auditEvents": 7,
+      "usageRows": 31,
+      "auditActions": {
+        "team.policy_updated": 1,
+        "member.created": 3,
+        "key.state_applied": 3
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "m1",
+      "title": "Budget limit: soft notice, request, deny, hard refusal",
+      "member": {
+        "id": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+        "displayName": "Mira",
+        "team": "Crew"
+      },
+      "pass": false,
+      "partial": true,
+      "expected": [
+        {
+          "event": "Soft-limit notice reaches the member",
+          "happened": "yes",
+          "at": "2026-11-02T05:53:52.098Z",
+          "evidence": "webhook kind=soft_limit: \"Soft limit reached\""
+        },
+        {
+          "event": "First budget request approved (+USD 0.02) through the request flow",
+          "happened": "no",
+          "at": "2026-11-02T08:06:57.142Z",
+          "evidence": "No request could be filed while spend was at the hard wall, so the leader raised the limit 0.02 -> 0.04 with an audited limits.updated event instead (2026-11-02T08:06:57.142Z). No request row exists for this approval."
+        },
+        {
+          "event": "Second request denied with \"continue; the gateway will stop you at the limit\"",
+          "happened": "yes",
+          "at": "2026-11-02T08:16:49.350Z",
+          "evidence": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395, note: \"continue; the gateway will stop you at the limit\", 8.2 min from filing to decision."
+        },
+        {
+          "event": "Live hard-limit refusal by the gateway",
+          "happened": "yes",
+          "at": "2026-11-02T08:28:50.022000Z",
+          "evidence": "Budget has been exceeded! Key=[redacted] Current cost: 0.054894, Max budget: 0.05"
+        },
+        {
+          "event": "Member ends blocked at the limit",
+          "happened": "yes",
+          "at": "2026-11-02T08:28:50.551Z",
+          "evidence": "policy status=blocked, blocked=true, key.state_applied blocked at 2026-11-02T08:28:50.551Z"
+        }
+      ],
+      "spendUsd": 0.056181,
+      "requests": [
+        {
+          "id": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+          "kind": "more_budget",
+          "amountUsd": 0.02,
+          "modelId": null,
+          "message": "unitconv committed with 43 passing tests; need headroom to finish and verify through the gateway",
+          "state": "denied",
+          "createdAt": "2026-11-02T08:08:34.693Z",
+          "decidedAt": "2026-11-02T08:16:49.350Z",
+          "decisionNote": "continue; the gateway will stop you at the limit",
+          "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+          "minutesToDecision": 8.2
+        }
+      ],
+      "gatewayMessages": [
+        {
+          "at": "2026-11-01T16:42:19.773000Z",
+          "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.02, Max budget: 0.02",
+          "outcome": "BudgetExceededError"
+        },
+        {
+          "at": "2026-11-02T02:21:26.705000Z",
+          "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted.",
+          "outcome": "InternalServerError"
+        },
+        {
+          "at": "2026-11-02T02:21:26.739000Z",
+          "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.027354, Max budget: 0.02",
+          "outcome": "BudgetExceededError"
+        },
+        {
+          "at": "2026-11-02T02:21:36.794000Z",
+          "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.02, Max budget: 0.02",
+          "outcome": "BudgetExceededError"
+        },
+        {
+          "at": "2026-11-02T02:21:36.824000Z",
+          "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.02, Max budget: 0.02",
+          "outcome": "BudgetExceededError"
+        },
+        {
+          "at": "2026-11-02T02:23:52.999000Z",
+          "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted.",
+          "outcome": "InternalServerError"
+        },
+        {
+          "at": "2026-11-02T02:24:15.118000Z",
+          "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted.",
+          "outcome": "InternalServerError"
+        },
+        {
+          "at": "2026-11-02T02:24:38.519000Z",
+          "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted.",
+          "outcome": "InternalServerError"
+        },
+        {
+          "at": "2026-11-02T02:25:12.954000Z",
+          "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted.",
+          "outcome": "InternalServerError"
+        },
+        {
+          "at": "2026-11-02T02:25:41.163000Z",
+          "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted.",
+          "outcome": "InternalServerError"
+        },
+        {
+          "at": "2026-11-02T05:53:58.903000Z",
+          "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.020598, Max budget: 0.02",
+          "outcome": "BudgetExceededError"
+        },
+        {
+          "at": "2026-11-02T05:54:01.441000Z",
+          "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.020598, Max budget: 0.02",
+          "outcome": "BudgetExceededError"
+        },
+        {
+          "at": "2026-11-02T08:28:50.022000Z",
+          "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.054894, Max budget: 0.05",
+          "outcome": "BudgetExceededError"
+        },
+        {
+          "at": "2026-11-02T08:33:38.971000Z",
+          "message": "Key is blocked. Update via `/key/unblock` if you're an admin.",
+          "outcome": "Exception"
+        }
+      ],
+      "notes": [
+        "The first approval is a stand-in: the budget was raised through an audited limit PATCH because metered spend hit the wall before a request could be filed. The request flow itself was only seen on the second request.",
+        "The soft notice fired while the member was already at the hard wall (the watcher saw 77% at USD 0.02 of USD 0.02); the intended warn-before-stop window did not exist.",
+        "The leader recorded USD 0.056181 over 149 gateway rows at the time; this export sees 152 rows because three later refused attempts were logged after that reading. The spend is unchanged."
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "Flagship model: deny, approve for 15 minutes, unlock, expiry",
+      "member": {
+        "id": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+        "displayName": "Nils",
+        "team": "Crew"
+      },
+      "pass": false,
+      "partial": true,
+      "expected": [
+        {
+          "event": "First flagship request denied",
+          "happened": "yes",
+          "at": "2026-11-02T00:50:18.999Z",
+          "evidence": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6, note: \"use the enabled model\""
+        },
+        {
+          "event": "Denial shows the cheaper-model hint",
+          "happened": "no",
+          "at": "2026-11-02T00:50:18.999Z",
+          "evidence": "No hints file was imported into the dogfood run, so the API had no cheaper-model hint to show. The denial note only said \"use the enabled model\"."
+        },
+        {
+          "event": "Second flagship request approved for 15 minutes",
+          "happened": "yes",
+          "at": "2026-11-02T05:17:45.004Z",
+          "evidence": "req_096d0741-8374-47a3-a8a6-3803f2dcca60, approved 12.7 min after filing; the grant expires 15 minutes after approval (05:32:00Z) and the key models were reverted at 05:32:01Z."
+        },
+        {
+          "event": "A script proves flagship works while unlocked and is refused after expiry",
+          "happened": "yes",
+          "at": "2026-11-02T06:01:32.717Z",
+          "evidence": "D5 probe 3: flagship call 200 during the grant, 403 ModelAccessDenied after expiry plus one reconciler cycle. See results/dogfood-probes.json probe 3."
+        }
+      ],
+      "spendUsd": 0.000019,
+      "requests": [
+        {
+          "id": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+          "kind": "model_unlock",
+          "amountUsd": null,
+          "modelId": "flagship",
+          "message": "hard parsing task",
+          "state": "denied",
+          "createdAt": "2026-11-01T16:42:20.221Z",
+          "decidedAt": "2026-11-02T00:50:18.999Z",
+          "decisionNote": "use the enabled model",
+          "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+          "minutesToDecision": 488
+        },
+        {
+          "id": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+          "kind": "model_unlock",
+          "amountUsd": null,
+          "modelId": "flagship",
+          "message": "The wordfreq CLI and its 22 pytest cases pass; I need flagship's context to audit the Unicode tokenizer regex against mixed-script input and the CLI error paths before I commit.",
+          "state": "approved",
+          "createdAt": "2026-11-02T05:05:03.566Z",
+          "decidedAt": "2026-11-02T05:17:45.004Z",
+          "decisionNote": "approved for 15 minutes per team-test rule",
+          "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+          "minutesToDecision": 12.7
+        },
+        {
+          "id": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+          "kind": "model_unlock",
+          "amountUsd": null,
+          "modelId": "flagship",
+          "message": "D5 probe: re-verify the 15-minute flagship unlock after the earlier grant expired; one tiny call, then expiry.",
+          "state": "approved",
+          "createdAt": "2026-11-02T05:45:57.681Z",
+          "decidedAt": "2026-11-02T05:45:57.705Z",
+          "decisionNote": "D5 probe: approved for 15 minutes to observe the unlock and its expiry",
+          "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+          "minutesToDecision": 0
+        }
+      ],
+      "gatewayMessages": [
+        {
+          "at": "2026-11-02T06:01:32.717000Z",
+          "message": "The requested model 'flagship' is not available for this API key, or the model name is invalid. Check the models available to you and try again.",
+          "outcome": "ModelAccessDeniedProxyException"
+        }
+      ],
+      "notes": [
+        "D5 re-issued the approval because the original 15-minute window had already closed before the probe ran; both windows are in the audit."
+      ]
+    },
+    {
+      "id": "m3",
+      "title": "Auto-approve rule, loop pause, graceful stop",
+      "member": {
+        "id": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+        "displayName": "Edda",
+        "team": "Crew"
+      },
+      "pass": false,
+      "partial": true,
+      "expected": [
+        {
+          "event": "The plugin pauses on the same failing command 3x (loop rule)",
+          "happened": "no",
+          "at": null,
+          "evidence": "D3 recorded a pause, but it was the unattended rule (15 steps), not the loop rule: the harness prepends a timestamp to each shell line, so the identical-error count stayed at 1. The plugin still stopped the loop."
+        },
+        {
+          "event": "The leader's message clears the pause",
+          "happened": "yes",
+          "at": "2026-11-02T06:04:23.000Z",
+          "evidence": "D3 evidence: leader message \"The failing test is broken on purpose; stop running it, note it in the README, and continue.\" and a resolved status line; the work finished."
+        },
+        {
+          "event": "First budget request auto-approved by the rule",
+          "happened": "yes",
+          "at": "2026-11-02T05:07:47.525Z",
+          "evidence": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3 decided by rule:Auto-approve USD 0.01 once per day; budget 0.02 -> 0.03."
+        },
+        {
+          "event": "Second budget request denied: finish, commit, report",
+          "happened": "yes",
+          "at": "2026-11-02T05:08:26.971Z",
+          "evidence": "req_873fa605-1caa-41e4-b718-acdc12ff2763, note: \"finish with what you have, commit, report\""
+        }
+      ],
+      "spendUsd": 0,
+      "requests": [
+        {
+          "id": "req_975cec1c-3aa6-4dbd-b357-9e62cdc71089",
+          "kind": "more_budget",
+          "amountUsd": 0.02,
+          "modelId": null,
+          "message": "need headroom to validate the fix and commit",
+          "state": "cancelled",
+          "createdAt": "2026-11-02T05:07:23.947Z",
+          "decidedAt": null,
+          "decisionNote": null,
+          "decidedBy": null,
+          "minutesToDecision": null
+        },
+        {
+          "id": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+          "kind": "more_budget",
+          "amountUsd": 0.01,
+          "modelId": null,
+          "message": "need headroom to validate the fix and commit",
+          "state": "approved",
+          "createdAt": "2026-11-02T05:07:47.525Z",
+          "decidedAt": "2026-11-02T05:07:47.525Z",
+          "decisionNote": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh).",
+          "decidedBy": "rule:Auto-approve USD 0.01 once per day",
+          "minutesToDecision": 0
+        },
+        {
+          "id": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+          "kind": "more_budget",
+          "amountUsd": 0.02,
+          "modelId": null,
+          "message": "need a little more headroom to finish the commit",
+          "state": "denied",
+          "createdAt": "2026-11-02T05:08:05.739Z",
+          "decidedAt": "2026-11-02T05:08:26.971Z",
+          "decisionNote": "finish with what you have, commit, report",
+          "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+          "minutesToDecision": 0.4
+        }
+      ],
+      "gatewayMessages": [],
+      "notes": [
+        "The auto-approve rule only matched USD 0.01; the first request asked for USD 0.02 and was cancelled by the member, then the USD 0.01 request was auto-approved. The scenario's ordering still matched the plan.",
+        "Metered spend for m3 stayed at USD 0, so no threshold notice fired for this member."
+      ]
+    },
+    {
+      "id": "m4",
+      "title": "Off-hours cap: block, one unblock, blocked again",
+      "member": {
+        "id": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+        "displayName": "Bo",
+        "team": "Night"
+      },
+      "pass": false,
+      "partial": false,
+      "expected": [
+        {
+          "event": "The watcher blocks the Night member for off-hours spend",
+          "happened": "no",
+          "at": null,
+          "evidence": "No off-hours block exists. Night audit has 7 rows and none mention off-hours; Bo's gateway spend is USD 0.002574, below the USD 0.01 off-hours cap."
+        },
+        {
+          "event": "The leader unblocks once with a note",
+          "happened": "no",
+          "at": null,
+          "evidence": "No member.unblocked row exists for Bo in the Night audit."
+        },
+        {
+          "event": "Blocked again and stays blocked",
+          "happened": "no",
+          "at": null,
+          "evidence": "Never blocked, so there was no second block."
+        },
+        {
+          "event": "The member reports the block",
+          "happened": "no",
+          "at": null,
+          "evidence": "D4 left no status line or evidence file; the scratch repo exists but the scenario produced no block message to report."
+        }
+      ],
+      "spendUsd": 0.002574,
+      "requests": [],
+      "gatewayMessages": [],
+      "notes": [
+        "Root cause matches the metering diagnosis: worker streaming rows carry token counts but USD 0 cost, so off-hours spend never crossed the USD 0.01 cap. D4 was never blocked and stopped early."
+      ]
+    }
+  ],
+  "probes": {
+    "file": "results/dogfood-probes.json",
+    "status": "complete",
+    "totals": {
+      "probes": 7,
+      "passed": 5,
+      "failed": 2,
+      "costUsd": 0.022452
+    },
+    "probes": [
+      {
+        "id": "1-token-cap",
+        "title": "Token cap (p1)",
+        "pass": true,
+        "observed": "Calls: 200, 200, 401. Watcher blocked: yes (6.0 s). Costs USD 0.002051 over 2 logged calls; calls finished 4468 ms after the first.",
+        "startedAt": "2026-11-02T05:45:08.423Z",
+        "finishedAt": "2026-11-02T05:45:19.375Z",
+        "costUsd": 0.002051
+      },
+      {
+        "id": "2-key-operations",
+        "title": "Key operations (p2)",
+        "pass": true,
+        "observed": "block 200/401, unblock 200/200, rotate 200; old 401, new 200. Cost USD 0.000057.",
+        "startedAt": "2026-11-02T05:45:19.377Z",
+        "finishedAt": "2026-11-02T05:45:28.709Z",
+        "costUsd": 0.000057
+      },
+      {
+        "id": "3-flagship-unlock",
+        "title": "m2's flagship unlock and expiry",
+        "pass": true,
+        "observed": "re-issued the leader's fixed-rule approval because the D2 window had expired. approval 2026-11-02T05:45:57.705Z, expires 2026-11-02T06:00:57.702Z, expiry observed 2026-11-02T06:01:32.710Z. Flagship call 200; after expiry 403. Cost USD 0.000019. Request req_1ef5c0ab-14e2-41e0-abde-b79238375cb1. Grant grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916.",
+        "startedAt": "2026-11-02T05:45:57.669Z",
+        "finishedAt": "2026-11-02T06:01:32.987Z",
+        "costUsd": 0.000019
+      },
+      {
+        "id": "4-request-handling",
+        "title": "Request handling (p2, p3, Night)",
+        "pass": true,
+        "observed": "cancel 201/200, suggestion 201/200, member→manager 403, Night manager→Night 200, Crew manager→Night 403, p3→Crew 403.",
+        "startedAt": "2026-11-02T05:45:53.542Z",
+        "finishedAt": "2026-11-02T05:45:53.635Z",
+        "costUsd": 0
+      },
+      {
+        "id": "5-blocked-model",
+        "title": "Blocked model (p2)",
+        "pass": true,
+        "observed": "HTTP 403: The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again.",
+        "startedAt": "2026-11-02T05:45:28.827Z",
+        "finishedAt": "2026-11-02T05:45:28.838Z",
+        "costUsd": 0
+      },
+      {
+        "id": "6-notifications",
+        "title": "Notifications (webhook and mail)",
+        "pass": false,
+        "observed": "5 of 7 expected notices appeared exactly once on both channels; webhook events since run start: 12, new mail messages: 12. Final capture cost USD 0.001550; all threshold runs for this probe cost USD 0.020325. p2 starts at status ok with USD 0.018794 spent, USD 0.010000 active budget grants, a USD 0.020000 effective budget and 3 threshold calls; unusual-spend notice was already due from the earlier spend, so no extra call was made",
+        "startedAt": "2026-11-02T06:08:29.434Z",
+        "finishedAt": "2026-11-02T06:10:07.833Z",
+        "costUsd": 0.020325
+      },
+      {
+        "id": "7-audit-completeness",
+        "title": "Audit completeness",
+        "pass": false,
+        "observed": "35 audit events since 2026-11-02T05:45:08.170Z; 18/20 checks passed.",
+        "startedAt": "2026-11-02T06:11:42.080Z",
+        "finishedAt": "2026-11-02T06:11:42.091Z",
+        "costUsd": 0
+      }
+    ]
+  },
+  "crossCutting": {
+    "requestCreatedNotifications": 0,
+    "requestDecidedNotifications": 0,
+    "unusualSpendNotifications": 2,
+    "hardLimitNotifications": 2,
+    "mailMessages": 12,
+    "webhookEvents": 12
+  },
+  "decisions": [
+    {
+      "requestId": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+      "at": "2026-11-02T00:50:18.999Z",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "memberName": "Nils",
+      "outcome": "denied",
+      "note": "use the enabled model",
+      "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "minutesToDecision": 488,
+      "filedAt": "2026-11-01T16:42:20.221Z"
+    },
+    {
+      "requestId": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+      "at": "2026-11-02T05:07:47.525Z",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "memberName": "Edda",
+      "outcome": "approved",
+      "note": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh).",
+      "decidedBy": "rule:Auto-approve USD 0.01 once per day",
+      "minutesToDecision": 0,
+      "filedAt": "2026-11-02T05:07:47.525Z"
+    },
+    {
+      "requestId": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+      "at": "2026-11-02T05:08:26.971Z",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "memberName": "Edda",
+      "outcome": "denied",
+      "note": "finish with what you have, commit, report",
+      "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "minutesToDecision": 0.4,
+      "filedAt": "2026-11-02T05:08:05.739Z"
+    },
+    {
+      "requestId": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+      "at": "2026-11-02T05:17:45.004Z",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "memberName": "Nils",
+      "outcome": "approved",
+      "note": "approved for 15 minutes per team-test rule",
+      "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "minutesToDecision": 12.7,
+      "filedAt": "2026-11-02T05:05:03.566Z"
+    },
+    {
+      "requestId": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+      "at": "2026-11-02T05:45:28.726Z",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "memberName": "Rune",
+      "outcome": "approved",
+      "note": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh).",
+      "decidedBy": "rule:Auto-approve USD 0.01 once per day",
+      "minutesToDecision": 0,
+      "filedAt": "2026-11-02T05:45:28.726Z"
+    },
+    {
+      "requestId": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+      "at": "2026-11-02T05:45:28.801Z",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "memberName": "Rune",
+      "outcome": "approved",
+      "note": "noted",
+      "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "minutesToDecision": 0,
+      "filedAt": "2026-11-02T05:45:28.784Z"
+    },
+    {
+      "requestId": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+      "at": "2026-11-02T05:45:53.607Z",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "memberName": "Rune",
+      "outcome": "approved",
+      "note": "noted",
+      "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "minutesToDecision": 0,
+      "filedAt": "2026-11-02T05:45:53.588Z"
+    },
+    {
+      "requestId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+      "at": "2026-11-02T05:45:57.705Z",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "memberName": "Nils",
+      "outcome": "approved",
+      "note": "D5 probe: approved for 15 minutes to observe the unlock and its expiry",
+      "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "minutesToDecision": 0,
+      "filedAt": "2026-11-02T05:45:57.681Z"
+    },
+    {
+      "requestId": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+      "at": "2026-11-02T08:16:49.350Z",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "memberName": "Mira",
+      "outcome": "denied",
+      "note": "continue; the gateway will stop you at the limit",
+      "decidedBy": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "minutesToDecision": 8.2,
+      "filedAt": "2026-11-02T08:08:34.693Z"
+    }
+  ],
+  "spend": {
+    "totalUsd": 0.082512,
+    "rows": 369,
+    "zeroCostRows": 317,
+    "zeroCostTokens": 12896452,
+    "byMember": [
+      {
+        "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+        "displayName": "Mira",
+        "spendUsd": 0.056181,
+        "rows": 152
+      },
+      {
+        "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+        "displayName": "Rune",
+        "spendUsd": 0.020382,
+        "rows": 19
+      },
+      {
+        "memberId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+        "displayName": "Ines",
+        "spendUsd": 0.003337,
+        "rows": 4
+      },
+      {
+        "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+        "displayName": "Bo",
+        "spendUsd": 0.002574,
+        "rows": 29
+      },
+      {
+        "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+        "displayName": "Nils",
+        "spendUsd": 0.000019,
+        "rows": 102
+      },
+      {
+        "memberId": "mem_6f804a44-2690-45ee-93fc-a56c50861876",
+        "displayName": "Vera",
+        "spendUsd": 0.000019,
+        "rows": 2
+      },
+      {
+        "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+        "displayName": "Edda",
+        "spendUsd": 0,
+        "rows": 55
+      },
+      {
+        "memberId": null,
+        "displayName": null,
+        "spendUsd": 0,
+        "rows": 6
+      }
+    ],
+    "byModel": [
+      {
+        "model": "openai/deepseek-v4.1-flash",
+        "spendUsd": 0.082512,
+        "rows": 363
+      },
+      {
+        "model": "",
+        "spendUsd": 0,
+        "rows": 4
+      },
+      {
+        "model": "blocked-model",
+        "spendUsd": 0,
+        "rows": 2
+      }
+    ]
+  },
+  "controlUsage": {
+    "rows": 360,
+    "totalUsd": 0.082474,
+    "zeroCostRows": 310,
+    "tokens": 13061010
+  },
+  "auditExcerpt": [
+    {
+      "at": "2026-11-01T16:00:18.741Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:00:18.894Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:00:19.024Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:00:19.227Z",
+      "team": "Night",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:00:19.356Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:00:19.496Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:00:19.657Z",
+      "team": "Night",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_6f804a44-2690-45ee-93fc-a56c50861876",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:00:19.867Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:00:20.082Z",
+      "team": "Night",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_a0952e70-e878-47c0-8cae-0fa14e36d3bb",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked"
+    },
+    {
+      "at": "2026-11-01T16:42:20.221Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+      "actor": "member:Nils",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T00:50:18.999Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "use the enabled model"
+    },
+    {
+      "at": "2026-11-02T05:05:03.566Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+      "actor": "member:Nils",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:07:23.947Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_975cec1c-3aa6-4dbd-b357-9e62cdc71089",
+      "actor": "member:Edda",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:07:47.525Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+      "actor": "member:Edda",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:07:47.525Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+      "actor": "rule:Auto-approve USD 0.01 once per day",
+      "reason": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh)."
+    },
+    {
+      "at": "2026-11-02T05:07:47.525Z",
+      "team": "Crew",
+      "action": "grant.issued",
+      "objectId": "grn_54d6d413-416d-4f35-9322-be177a26426c",
+      "actor": "rule:Auto-approve USD 0.01 once per day",
+      "reason": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh)."
+    },
+    {
+      "at": "2026-11-02T05:08:05.739Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+      "actor": "member:Edda",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:08:26.971Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "finish with what you have, commit, report"
+    },
+    {
+      "at": "2026-11-02T05:17:45.004Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "approved for 15 minutes per team-test rule"
+    },
+    {
+      "at": "2026-11-02T05:17:45.004Z",
+      "team": "Crew",
+      "action": "grant.issued",
+      "objectId": "grn_401c9b01-d736-4c08-91ac-39a4a2fb534c",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "approved for 15 minutes per team-test rule"
+    },
+    {
+      "at": "2026-11-02T05:45:17.048Z",
+      "team": "Crew",
+      "action": "watcher.token_cap_block",
+      "objectId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "actor": "watcher:Watcher",
+      "reason": "token cap reached: 4086 of 3000 tokens this daily [taa-watcher kind=token_cap until=2026-11-03T00:00:00.000Z]"
+    },
+    {
+      "at": "2026-11-02T05:45:17.675Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: blocked"
+    },
+    {
+      "at": "2026-11-02T05:45:21.285Z",
+      "team": "Crew",
+      "action": "member.blocked",
+      "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "D5 probe: key block"
+    },
+    {
+      "at": "2026-11-02T05:45:21.295Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: blocked"
+    },
+    {
+      "at": "2026-11-02T05:45:21.303Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: blocked"
+    },
+    {
+      "at": "2026-11-02T05:45:21.369Z",
+      "team": "Crew",
+      "action": "member.unblocked",
+      "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:45:21.382Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: blocked"
+    },
+    {
+      "at": "2026-11-02T05:45:28.726Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+      "actor": "member:Rune",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:45:28.726Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+      "actor": "rule:Auto-approve USD 0.01 once per day",
+      "reason": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh)."
+    },
+    {
+      "at": "2026-11-02T05:45:28.726Z",
+      "team": "Crew",
+      "action": "grant.issued",
+      "objectId": "grn_2ad9d189-a984-4aea-be2a-ff74e505af2e",
+      "actor": "rule:Auto-approve USD 0.01 once per day",
+      "reason": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh)."
+    },
+    {
+      "at": "2026-11-02T05:45:28.784Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+      "actor": "member:Rune",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:45:28.801Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "noted"
+    },
+    {
+      "at": "2026-11-02T05:45:53.547Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+      "actor": "member:Rune",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:45:53.588Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+      "actor": "member:Rune",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:45:53.607Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "noted"
+    },
+    {
+      "at": "2026-11-02T05:45:57.681Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+      "actor": "member:Nils",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T05:45:57.705Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "D5 probe: approved for 15 minutes to observe the unlock and its expiry"
+    },
+    {
+      "at": "2026-11-02T05:45:57.705Z",
+      "team": "Crew",
+      "action": "grant.issued",
+      "objectId": "grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "D5 probe: approved for 15 minutes to observe the unlock and its expiry"
+    },
+    {
+      "at": "2026-11-02T08:08:34.693Z",
+      "team": "Crew",
+      "action": "request.created",
+      "objectId": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+      "actor": "member:Mira",
+      "reason": null
+    },
+    {
+      "at": "2026-11-02T08:16:49.350Z",
+      "team": "Crew",
+      "action": "request.decided",
+      "objectId": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+      "actor": "manager:mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "reason": "continue; the gateway will stop you at the limit"
+    },
+    {
+      "at": "2026-11-02T08:28:50.551Z",
+      "team": "Crew",
+      "action": "key.state_applied",
+      "objectId": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "actor": "reconciler:Reconciler",
+      "reason": "reconciler applied: blocked"
+    }
+  ],
+  "notifications": {
+    "webhook": [
+      {
+        "at": "2026-11-02T05:45:17.048Z",
+        "deliveredAt": "2026-11-02T05:45:17.588Z",
+        "kind": "member_blocked",
+        "audience": "manager",
+        "memberId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+        "title": "Token cap reached: Ines",
+        "body": "Ines used 4086 of 3000 tokens this daily. The key is blocked until 2026-11-03T00:00:00.000Z.",
+        "memberName": "Ines"
+      },
+      {
+        "at": "2026-11-02T05:45:17.048Z",
+        "deliveredAt": "2026-11-02T05:45:17.619Z",
+        "kind": "member_blocked",
+        "audience": "member",
+        "memberId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+        "title": "Your token cap is reached",
+        "body": "Ines used 4086 of 3000 tokens this daily. The key is blocked until 2026-11-03T00:00:00.000Z.",
+        "memberName": "Ines"
+      },
+      {
+        "at": "2026-11-02T05:53:52.098Z",
+        "deliveredAt": "2026-11-02T05:53:52.429Z",
+        "kind": "soft_limit",
+        "audience": "member",
+        "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+        "title": "Soft limit reached",
+        "body": "Mira passed 77% of the daily budget (USD 0.02 of USD 0.02).",
+        "memberName": "Mira"
+      },
+      {
+        "at": "2026-11-02T05:53:52.098Z",
+        "deliveredAt": "2026-11-02T05:53:52.449Z",
+        "kind": "unusual_spend",
+        "audience": "manager",
+        "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+        "title": "Unusual spend: Mira",
+        "body": "Today's spend USD 0.02 is above the unusual-spend threshold USD 0.01 (14-day median USD 0.00, minimum USD 0.01).",
+        "memberName": "Mira"
+      },
+      {
+        "at": "2026-11-02T05:54:07.100Z",
+        "deliveredAt": "2026-11-02T05:54:07.456Z",
+        "kind": "hard_limit",
+        "audience": "member",
+        "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+        "title": "Hard limit reached",
+        "body": "Mira reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.",
+        "memberName": "Mira"
+      },
+      {
+        "at": "2026-11-02T05:54:07.100Z",
+        "deliveredAt": "2026-11-02T05:54:07.478Z",
+        "kind": "member_blocked",
+        "audience": "manager",
+        "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+        "title": "Hard limit reached: Mira",
+        "body": "Mira reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.",
+        "memberName": "Mira"
+      },
+      {
+        "at": "2026-11-02T05:54:07.100Z",
+        "deliveredAt": "2026-11-02T05:54:07.581Z",
+        "kind": "grace",
+        "audience": "member",
+        "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+        "title": "Budget reached: grace period",
+        "body": "Mira reached the daily budget (USD 0.02 of USD 0.02). Spend inside the grace share stays allowed until USD 0.03.",
+        "memberName": "Mira"
+      },
+      {
+        "at": "2026-11-02T06:02:57.145Z",
+        "deliveredAt": "2026-11-02T06:02:57.461Z",
+        "kind": "unusual_spend",
+        "audience": "manager",
+        "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+        "title": "Unusual spend: Rune",
+        "body": "Today's spend USD 0.01 is above the unusual-spend threshold USD 0.01 (14-day median USD 0.00, minimum USD 0.01).",
+        "memberName": "Rune"
+      },
+      {
+        "at": "2026-11-02T06:04:22.154Z",
+        "deliveredAt": "2026-11-02T06:04:22.451Z",
+        "kind": "soft_limit",
+        "audience": "member",
+        "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+        "title": "Soft limit reached",
+        "body": "Rune passed 70% of the daily budget (USD 0.01 of USD 0.02).",
+        "memberName": "Rune"
+      },
+      {
+        "at": "2026-11-02T06:09:07.184Z",
+        "deliveredAt": "2026-11-02T06:09:07.556Z",
+        "kind": "hard_limit",
+        "audience": "member",
+        "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+        "title": "Hard limit reached",
+        "body": "Rune reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.",
+        "memberName": "Rune"
+      },
+      {
+        "at": "2026-11-02T06:09:07.184Z",
+        "deliveredAt": "2026-11-02T06:09:07.580Z",
+        "kind": "member_blocked",
+        "audience": "manager",
+        "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+        "title": "Hard limit reached: Rune",
+        "body": "Rune reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.",
+        "memberName": "Rune"
+      },
+      {
+        "at": "2026-11-02T06:09:07.184Z",
+        "deliveredAt": "2026-11-02T06:09:07.596Z",
+        "kind": "grace",
+        "audience": "member",
+        "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+        "title": "Budget reached: grace period",
+        "body": "Rune reached the daily budget (USD 0.02 of USD 0.02). Spend inside the grace share stays allowed until USD 0.03.",
+        "memberName": "Rune"
+      }
+    ],
+    "mail": [
+      {
+        "createdAt": "2026-11-02T06:09:07.59846304Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Budget reached: grace period",
+        "body": "Budget reached: grace period\r\n\r\nRune reached the daily budget (USD 0.02 of USD 0.02). Spend inside the grace share stays allowed until USD 0.03.\r\n\r\nKind: grace\r\nAt: 2026-11-02T06:09:07.184Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T06:09:07.582429138Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Hard limit reached: Rune",
+        "body": "Hard limit reached: Rune\r\n\r\nRune reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.\r\n\r\nKind: member_blocked\r\nAt: 2026-11-02T06:09:07.184Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_24f7758d-b90f-4940-9697-da2d8f1694be\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T06:09:07.567795943Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Hard limit reached",
+        "body": "Hard limit reached\r\n\r\nRune reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.\r\n\r\nKind: hard_limit\r\nAt: 2026-11-02T06:09:07.184Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T06:04:22.454648214Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Soft limit reached",
+        "body": "Soft limit reached\r\n\r\nRune passed 70% of the daily budget (USD 0.01 of USD 0.02).\r\n\r\nKind: soft_limit\r\nAt: 2026-11-02T06:04:22.154Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T06:02:57.465189537Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Unusual spend: Rune",
+        "body": "Unusual spend: Rune\r\n\r\nToday's spend USD 0.01 is above the unusual-spend threshold USD 0.01 (14-day median USD 0.00, minimum USD 0.01).\r\n\r\nKind: unusual_spend\r\nAt: 2026-11-02T06:02:57.145Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_24f7758d-b90f-4940-9697-da2d8f1694be\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T05:54:07.583976315Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Budget reached: grace period",
+        "body": "Budget reached: grace period\r\n\r\nMira reached the daily budget (USD 0.02 of USD 0.02). Spend inside the grace share stays allowed until USD 0.03.\r\n\r\nKind: grace\r\nAt: 2026-11-02T05:54:07.100Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T05:54:07.480286995Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Hard limit reached: Mira",
+        "body": "Hard limit reached: Mira\r\n\r\nMira reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.\r\n\r\nKind: member_blocked\r\nAt: 2026-11-02T05:54:07.100Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_51589bae-bf65-4a20-8748-83907b7448d2\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T05:54:07.459880443Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Hard limit reached",
+        "body": "Hard limit reached\r\n\r\nMira reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.\r\n\r\nKind: hard_limit\r\nAt: 2026-11-02T05:54:07.100Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T05:53:52.450864563Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Unusual spend: Mira",
+        "body": "Unusual spend: Mira\r\n\r\nToday's spend USD 0.02 is above the unusual-spend threshold USD 0.01 (14-day median USD 0.00, minimum USD 0.01).\r\n\r\nKind: unusual_spend\r\nAt: 2026-11-02T05:53:52.098Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_51589bae-bf65-4a20-8748-83907b7448d2\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T05:53:52.436202656Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Soft limit reached",
+        "body": "Soft limit reached\r\n\r\nMira passed 77% of the daily budget (USD 0.02 of USD 0.02).\r\n\r\nKind: soft_limit\r\nAt: 2026-11-02T05:53:52.098Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T05:45:17.623009284Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Your token cap is reached",
+        "body": "Your token cap is reached\r\n\r\nInes used 4086 of 3000 tokens this daily. The key is blocked until 2026-11-03T00:00:00.000Z.\r\n\r\nKind: member_blocked\r\nAt: 2026-11-02T05:45:17.048Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+      },
+      {
+        "createdAt": "2026-11-02T05:45:17.605143817Z",
+        "to": [
+          "leader@example.test"
+        ],
+        "subject": "[team-ai-allowance] Token cap reached: Ines",
+        "body": "Token cap reached: Ines\r\n\r\nInes used 4086 of 3000 tokens this daily. The key is blocked until 2026-11-03T00:00:00.000Z.\r\n\r\nKind: member_blocked\r\nAt: 2026-11-02T05:45:17.048Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9\r\n"
+      }
+    ]
+  },
+  "whatWentWrong": [
+    {
+      "summary": "Streaming worker-model calls are recorded with costUsd 0",
+      "detail": "317 of 369 gateway rows cost USD 0 while carrying 12,896,452 tokens in total. Non-streaming metered calls price exactly. Every spend-gated event (soft notice, caps, request flow) therefore needed meter.ts to accrue spend by hand, and m4's off-hours cap never fired."
+    },
+    {
+      "summary": "The first m1 approval was a budget edit, not a request decision",
+      "detail": "Metered spend hit the hard wall before a request could be filed, so the leader raised m1's budget 0.02 -> 0.04 with an audited limits.updated PATCH. The request flow was first exercised by the second request, which was denied."
+    },
+    {
+      "summary": "Request created and decided notifications are never sent",
+      "detail": "The webhook and MailHog show 0 request_created and 0 request_decided notices. D5 probe 6 found the same defect: the core creates and decides requests without calling the notifier."
+    },
+    {
+      "summary": "Notification audit rows are invisible through the team API",
+      "detail": "Delivered notices write notification.sent rows with a NULL team_id, so /api/team/audit returns none of them. Every notification in this export comes from the catchers, not the team audit."
+    },
+    {
+      "summary": "Expired grants and requests are not audited",
+      "detail": "The flagship grant was removed from the key at 05:32:01Z, but no grant.expired row exists and the grant still shows expiredAt null. Nothing schedules expireDue()."
+    },
+    {
+      "summary": "The loop rule did not trip on the intended trigger",
+      "detail": "D3 ran the same failing pytest command three times, but the harness prefix changed one line, so the identical-error counter stayed at 1. The unattended rule paused the session instead. The loop rule itself was therefore not proven on a real agent."
+    },
+    {
+      "summary": "m4's off-hours scenario did not run",
+      "detail": "Bo never crossed the USD 0.01 off-hours cap (gateway spend USD 0.002574), so there was no block, no unblock and no second block. D4 left no evidence file."
+    },
+    {
+      "summary": "The hard budget is floored to whole cents",
+      "detail": "floorCents(0.04 x 1.3) gives USD 0.05 rather than USD 0.052, and the same rounding removed the grace band from the cent-sized budgets. Notifications and test expectations have to use the floored figure."
+    },
+    {
+      "summary": "Catalogue prices differ from gateway prices by 10x",
+      "detail": "The model catalogue and scripts/dogfood/config.ts use USD 5/15 per 1M tokens; the gateway prices calls at USD 0.5/1.5 per 1M. This report uses the gateway spend, which is authoritative."
+    },
+    {
+      "summary": "The D6 console login needed a temporary account",
+      "detail": "D0 generated the Leader console passwords randomly and kept them only in the control process's memory; the control restarted during the test, so the passwords were unrecoverable. D6 created one temporary manager per team through the admin API, took the screenshots, and left both accounts to be deleted with their teams. Their member.created rows appear after this export; the Overview tables show a D6 Console row."
+    },
+    {
+      "summary": "Upstream DNS failed after the host reboot",
+      "detail": "Six gateway failure rows are OpenAIException connection errors between 02:21Z and 02:25Z; the host's podman DNS was deaf and was restarted. They are upstream failures, not budget refusals."
+    },
+    {
+      "summary": "The member page's Key card says Active while the member is Blocked",
+      "detail": "Mira's policy status is blocked and the gateway key is blocked, but the Key card reads `member.blocked`, which only tracks a manual key block, not the watcher's threshold block. The page shows a green Active pill next to the red Blocked badge. Visible in member-m1-crew-1280-light.png."
+    },
+    {
+      "summary": "Deleting a member after its key was revoked returns 500",
+      "detail": "D6 revoked the gateway keys first, as the cleanup order requires. The member delete route then asked the gateway to delete the same key again and answered 500 instead of treating a missing key as already deleted. The member rows had to be removed by deleting the team. DELETE /api/admin/teams/:id/members/:memberId should be idempotent."
+    }
+  ],
+  "screenshots": [
+    "results/dogfood/audit-crew-1280-dark.png",
+    "results/dogfood/audit-crew-1280-light.png",
+    "results/dogfood/audit-crew-360-dark.png",
+    "results/dogfood/audit-crew-360-light.png",
+    "results/dogfood/audit-night-1280-dark.png",
+    "results/dogfood/audit-night-1280-light.png",
+    "results/dogfood/audit-night-360-dark.png",
+    "results/dogfood/audit-night-360-light.png",
+    "results/dogfood/member-m1-crew-1280-dark.png",
+    "results/dogfood/member-m1-crew-1280-light.png",
+    "results/dogfood/member-m1-crew-360-dark.png",
+    "results/dogfood/member-m1-crew-360-light.png",
+    "results/dogfood/overview-crew-1280-dark.png",
+    "results/dogfood/overview-crew-1280-light.png",
+    "results/dogfood/overview-crew-360-dark.png",
+    "results/dogfood/overview-crew-360-light.png",
+    "results/dogfood/overview-night-1280-dark.png",
+    "results/dogfood/overview-night-1280-light.png",
+    "results/dogfood/overview-night-360-dark.png",
+    "results/dogfood/overview-night-360-light.png",
+    "results/dogfood/requests-history-crew-1280-dark.png",
+    "results/dogfood/requests-history-crew-1280-light.png",
+    "results/dogfood/requests-history-crew-360-dark.png",
+    "results/dogfood/requests-history-crew-360-light.png",
+    "results/dogfood/usage-crew-1280-dark.png",
+    "results/dogfood/usage-crew-1280-light.png",
+    "results/dogfood/usage-crew-360-dark.png",
+    "results/dogfood/usage-crew-360-light.png"
+  ],
+  "artifacts": {
+    "auditCrew": "results/dogfood/audit-crew.json",
+    "auditNight": "results/dogfood/audit-night.json",
+    "requestsCrew": "results/dogfood/requests-crew.json",
+    "requestsNight": "results/dogfood/requests-night.json",
+    "usageCrew": "results/dogfood/usage-crew.json",
+    "usageNight": "results/dogfood/usage-night.json",
+    "gatewaySpend": "results/dogfood/gateway-spend.json",
+    "refusals": "results/dogfood/refusals.json",
+    "webhook": "results/dogfood/notifications-webhook.json",
+    "mail": "results/dogfood/notifications-mail.json",
+    "probes": "results/dogfood-probes.json"
+  },
+  "members": [
+    {
+      "id": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "displayName": "Mira",
+      "team": "Crew",
+      "role": "member"
+    },
+    {
+      "id": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "displayName": "Nils",
+      "team": "Crew",
+      "role": "member"
+    },
+    {
+      "id": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "displayName": "Edda",
+      "team": "Crew",
+      "role": "member"
+    },
+    {
+      "id": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "displayName": "Ines",
+      "team": "Crew",
+      "role": "member"
+    },
+    {
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "displayName": "Rune",
+      "team": "Crew",
+      "role": "member"
+    },
+    {
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": "Leader",
+      "team": "Crew",
+      "role": "manager"
+    },
+    {
+      "id": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+      "displayName": "Bo",
+      "team": "Night",
+      "role": "member"
+    },
+    {
+      "id": "mem_6f804a44-2690-45ee-93fc-a56c50861876",
+      "displayName": "Vera",
+      "team": "Night",
+      "role": "member"
+    },
+    {
+      "id": "mem_a0952e70-e878-47c0-8cae-0fa14e36d3bb",
+      "displayName": "Leader",
+      "team": "Night",
+      "role": "manager"
+    }
+  ]
+}

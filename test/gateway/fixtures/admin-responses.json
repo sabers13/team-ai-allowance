@@ -1,0 +1,182 @@
+{
+  "keyGenerate": {
+    "key": "sk-recorded-123",
+    "key_name": "sk-...recorded",
+    "key_alias": "taa-m1",
+    "user_id": "user-1",
+    "team_id": "team-1",
+    "models": ["mock-cheap"],
+    "max_budget": 1,
+    "budget_duration": "1d",
+    "tpm_limit": 60000,
+    "rpm_limit": 60
+  },
+  "keyList": {
+    "keys": [
+      {
+        "token": "3f4a1c2d5e6b7a8c9d0e1f2a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e",
+        "key_alias": "taa-m1",
+        "team_id": "team-1",
+        "user_id": "user-1",
+        "models": ["mock-cheap"],
+        "max_budget": "1.0",
+        "budget_duration": "1d",
+        "tpm_limit": "60000",
+        "rpm_limit": "60",
+        "blocked": false
+      }
+    ],
+    "total_count": 1
+  },
+  "keyInfo": {
+    "key": "3f4a1c2d5e6b7a8c9d0e1f2a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e",
+    "info": {
+      "key_alias": "taa-m1",
+      "spend": "0.000026",
+      "max_budget": "1.0",
+      "budget_duration": "1d",
+      "models": ["mock-cheap"],
+      "tpm_limit": "60000",
+      "rpm_limit": "60",
+      "blocked": false,
+      "team_id": "team-1",
+      "user_id": "user-1"
+    }
+  },
+  "teamNew": {
+    "team_id": "team-1",
+    "team_alias": "Platform",
+    "max_budget": 10,
+    "budget_duration": null,
+    "spend": 0,
+    "blocked": false
+  },
+  "teamInfo": {
+    "team_id": "team-1",
+    "team_alias": "Platform",
+    "max_budget": "10.0",
+    "budget_duration": null,
+    "spend": "0.25",
+    "blocked": false
+  },
+  "teamList": {
+    "teams": [
+      {
+        "team_id": "team-1",
+        "team_alias": "Platform",
+        "max_budget": 10,
+        "spend": 0.25,
+        "blocked": false
+      }
+    ]
+  },
+  "userNew": {
+    "user_id": "user-1",
+    "user_alias": "Lena",
+    "user_email": "lena@example.com",
+    "teams": ["team-1"]
+  },
+  "userInfo": {
+    "user_id": "user-1",
+    "user_alias": "Lena",
+    "user_email": "lena@example.com",
+    "teams": [{ "team_id": "team-1" }]
+  },
+  "userList": {
+    "users": [
+      {
+        "user_id": "user-1",
+        "user_alias": "Lena",
+        "user_email": "lena@example.com",
+        "teams": ["team-1"]
+      }
+    ]
+  },
+  "spendLogs": [
+    {
+      "request_id": "req-1",
+      "call_type": "acompletion",
+      "api_key": "3f4a1c2d5e6b7a8c9d0e1f2a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e",
+      "team_id": "team-1",
+      "user": "user-1",
+      "model": "mock-cheap",
+      "model_group": "mock-cheap",
+      "spend": 0.000026,
+      "prompt_tokens": 12,
+      "completion_tokens": 7,
+      "total_tokens": 19,
+      "startTime": "2026-10-31T09:00:00Z",
+      "endTime": "2026-10-31T09:00:01Z"
+    },
+    {
+      "request_id": "req-2",
+      "api_key": "3f4a1c2d5e6b7a8c9d0e1f2a3b4c5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e",
+      "team_id": "team-2",
+      "user": "user-2",
+      "model": "mock-flagship",
+      "model_group": "mock-flagship",
+      "spend": "0.000039",
+      "prompt_tokens": 12,
+      "completion_tokens": 7,
+      "total_tokens": 19,
+      "startTime": "2026-10-31T09:01:00Z",
+      "endTime": "2026-10-31T09:01:01Z"
+    }
+  ],
+  "teamSpend": {
+    "data": [
+      { "user_id": "user-1", "spend": 0.000026 },
+      { "user_id": "user-2", "spend": "0.000039" }
+    ]
+  },
+  "errors": {
+    "budgetExceeded": {
+      "error": {
+        "message": "Budget has been exceeded! Key=taa-m1 Current cost: 0.0601, Max budget: 0.06",
+        "type": "budget_exceeded",
+        "param": null,
+        "code": "422"
+      }
+    },
+    "modelAccessDenied": {
+      "error": {
+        "message": "The requested model 'mock-flagship' is not available for this API key, or the model name is invalid. Check the models available to you and try again.",
+        "type": "key_model_access_denied",
+        "param": "model",
+        "code": "403"
+      }
+    },
+    "unauthorized": {
+      "error": {
+        "message": "Authentication Error, Invalid proxy server token passed.",
+        "type": "auth_error",
+        "param": null,
+        "code": "401"
+      }
+    },
+    "notFound": {
+      "error": {
+        "message": "No key found with the given key.",
+        "type": "not_found",
+        "param": null,
+        "code": "404"
+      }
+    },
+    "serverError": {
+      "error": {
+        "message": "Internal server error",
+        "type": "internal_server_error",
+        "param": null,
+        "code": "500"
+      }
+    },
+    "leaky": {
+      "error": {
+        "message": "The key sk-leak-123 was rejected",
+        "type": "auth_error",
+        "param": null,
+        "code": "401"
+      }
+    }
+  }
+}

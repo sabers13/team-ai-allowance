@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+.cache/
+tmp/
+var/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store

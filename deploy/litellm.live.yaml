@@ -1,0 +1,55 @@
+# LiteLLM proxy configuration for the live check.
+#
+# Unlike `litellm.config.yaml` (mock upstream, free), this file routes the
+# single enabled model to the real provider: DeepSeek V4.1 Flash through the
+# OpenCode Go OpenAI-compatible endpoint.
+#
+#   Native endpoint : https://opencode.ai/inference/go/openai/v1/chat/completions
+#   Model id        : deepseek-v4.1-flash
+#   Sources         : https://opencode.ai/docs/go/ (endpoints table),
+#                     https://opencode.ai/docs/go/ (Go pricing table),
+#                     read 2026-11-01.
+#
+# The credential comes from compose/podman `--env-file` as OPENCODE_GO_API_KEY
+# and is never opened, printed or copied by the live-check runner. The
+# `blocked-model` name used in step 2 is deliberately absent here: it is
+# listed as blocked in the control-service catalogue and never routed
+# anywhere, so the gateway refuses it before any provider is reached.
+#
+# TEST PRICING. `input_cost_per_token` / `output_cost_per_token` below are
+# inflated on purpose (~33x the published Go off-peak prices of USD 0.15/1M
+# input and USD 0.60/1M output for DeepSeek V4.1 Flash) so that the USD 0.05
+# test budgets exhaust after two or three small calls instead
+# of a hundred. Gateway spend figures in `results/live.json` are therefore
+# test-denominated; the real Go cost of the same calls is ~33x lower.
+# No prompt or response text is
+# stored: `store_prompts_in_spend_logs` is explicitly false.
+
+model_list:
+  - model_name: deepseek-v4.1-flash
+    litellm_params:
+      model: openai/deepseek-v4.1-flash
+      api_base: https://opencode.ai/inference/go/openai/v1
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      # The Go endpoint refuses requests without this header (400
+      # "Request is missing x-opencode-session ..."). LiteLLM does not
+      # forward client headers upstream, so the live stack stamps a fixed
+      # session id identifying this check's test traffic.
+      extra_headers:
+        x-opencode-session: "team-ai-allowance-live-check"
+    # Per-token prices live under model_info (the documented location for
+    # custom pricing), so every translated route prices the deployment the
+    # same way instead of only the native chat-completions path.
+    model_info:
+      input_cost_per_token: 0.0000005
+      output_cost_per_token: 0.0000015
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  database_url: os.environ/DATABASE_URL
+  # Hard requirement: no prompt or response text in spend logs.
+  store_prompts_in_spend_logs: false

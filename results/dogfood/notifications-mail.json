@@ -1,0 +1,110 @@
+[
+  {
+    "id": "fCXBCQl1T4Fpi5mmYmXEj6QV_hIqJFkwnQJvCu89npc=@mailhog.example",
+    "createdAt": "2026-11-02T06:09:07.59846304Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Budget reached: grace period",
+    "body": "Budget reached: grace period\r\n\r\nRune reached the daily budget (USD 0.02 of USD 0.02). Spend inside the grace share stays allowed until USD 0.03.\r\n\r\nKind: grace\r\nAt: 2026-11-02T06:09:07.184Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+  },
+  {
+    "id": "qU3C3KF-glxiKC6fwypqhjC9TpnzqA3UZA_hy5lDdK0=@mailhog.example",
+    "createdAt": "2026-11-02T06:09:07.582429138Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Hard limit reached: Rune",
+    "body": "Hard limit reached: Rune\r\n\r\nRune reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.\r\n\r\nKind: member_blocked\r\nAt: 2026-11-02T06:09:07.184Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_24f7758d-b90f-4940-9697-da2d8f1694be\r\n"
+  },
+  {
+    "id": "AfM1A9kOQCse8OBg_Rk-BZjS8RlUkTZ2LXrwrPgBnBo=@mailhog.example",
+    "createdAt": "2026-11-02T06:09:07.567795943Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Hard limit reached",
+    "body": "Hard limit reached\r\n\r\nRune reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.\r\n\r\nKind: hard_limit\r\nAt: 2026-11-02T06:09:07.184Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+  },
+  {
+    "id": "0YJtqfA35foRjr2owCMt-AxFhHt6IR2OfpCcn_JV5lg=@mailhog.example",
+    "createdAt": "2026-11-02T06:04:22.454648214Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Soft limit reached",
+    "body": "Soft limit reached\r\n\r\nRune passed 70% of the daily budget (USD 0.01 of USD 0.02).\r\n\r\nKind: soft_limit\r\nAt: 2026-11-02T06:04:22.154Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+  },
+  {
+    "id": "0aStvysOD2PkQYyvSF3D_FWoId1INT2v4rFvvIcSS3I=@mailhog.example",
+    "createdAt": "2026-11-02T06:02:57.465189537Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Unusual spend: Rune",
+    "body": "Unusual spend: Rune\r\n\r\nToday's spend USD 0.01 is above the unusual-spend threshold USD 0.01 (14-day median USD 0.00, minimum USD 0.01).\r\n\r\nKind: unusual_spend\r\nAt: 2026-11-02T06:02:57.145Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_24f7758d-b90f-4940-9697-da2d8f1694be\r\n"
+  },
+  {
+    "id": "u3RfJ_fuV54coFRfxvJo59alINFuT9_9HBCvHGfgcLk=@mailhog.example",
+    "createdAt": "2026-11-02T05:54:07.583976315Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Budget reached: grace period",
+    "body": "Budget reached: grace period\r\n\r\nMira reached the daily budget (USD 0.02 of USD 0.02). Spend inside the grace share stays allowed until USD 0.03.\r\n\r\nKind: grace\r\nAt: 2026-11-02T05:54:07.100Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+  },
+  {
+    "id": "GaQu_sVcEnI40VLENdWW3EGYupfiyOnoCWfUM1MBoc8=@mailhog.example",
+    "createdAt": "2026-11-02T05:54:07.480286995Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Hard limit reached: Mira",
+    "body": "Hard limit reached: Mira\r\n\r\nMira reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.\r\n\r\nKind: member_blocked\r\nAt: 2026-11-02T05:54:07.100Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_51589bae-bf65-4a20-8748-83907b7448d2\r\n"
+  },
+  {
+    "id": "yzvZohZWeOpa6JgUqflkRS7cKSGgK4pNCeST4PlJmkA=@mailhog.example",
+    "createdAt": "2026-11-02T05:54:07.459880443Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Hard limit reached",
+    "body": "Hard limit reached\r\n\r\nMira reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.\r\n\r\nKind: hard_limit\r\nAt: 2026-11-02T05:54:07.100Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+  },
+  {
+    "id": "n10qfDZrHeRbz99j4xP5HSr83YxyU3lCz00lcyVdwbw=@mailhog.example",
+    "createdAt": "2026-11-02T05:53:52.450864563Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Unusual spend: Mira",
+    "body": "Unusual spend: Mira\r\n\r\nToday's spend USD 0.02 is above the unusual-spend threshold USD 0.01 (14-day median USD 0.00, minimum USD 0.01).\r\n\r\nKind: unusual_spend\r\nAt: 2026-11-02T05:53:52.098Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_51589bae-bf65-4a20-8748-83907b7448d2\r\n"
+  },
+  {
+    "id": "MeShCtZLxJli6K_gWOkkHRYC2mesU6Crsp-V5V9-m_s=@mailhog.example",
+    "createdAt": "2026-11-02T05:53:52.436202656Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Soft limit reached",
+    "body": "Soft limit reached\r\n\r\nMira passed 77% of the daily budget (USD 0.02 of USD 0.02).\r\n\r\nKind: soft_limit\r\nAt: 2026-11-02T05:53:52.098Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+  },
+  {
+    "id": "GraR6pWJJr-1DqVodzx2N1ckPKjec0S38WEhPaoAdZQ=@mailhog.example",
+    "createdAt": "2026-11-02T05:45:17.623009284Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Your token cap is reached",
+    "body": "Your token cap is reached\r\n\r\nInes used 4086 of 3000 tokens this daily. The key is blocked until 2026-11-03T00:00:00.000Z.\r\n\r\nKind: member_blocked\r\nAt: 2026-11-02T05:45:17.048Z\r\n\r\nhttp://127.0.0.1:18082/me\r\n"
+  },
+  {
+    "id": "5-UJXOzoAc3TgqVlW_3chg9uXDj8KoPLMmgFHqpnxnQ=@mailhog.example",
+    "createdAt": "2026-11-02T05:45:17.605143817Z",
+    "to": [
+      "leader@example.test"
+    ],
+    "subject": "[team-ai-allowance] Token cap reached: Ines",
+    "body": "Token cap reached: Ines\r\n\r\nInes used 4086 of 3000 tokens this daily. The key is blocked until 2026-11-03T00:00:00.000Z.\r\n\r\nKind: member_blocked\r\nAt: 2026-11-02T05:45:17.048Z\r\n\r\nhttp://127.0.0.1:18082/members/mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9\r\n"
+  }
+]

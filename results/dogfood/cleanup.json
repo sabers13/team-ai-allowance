@@ -1,0 +1,119 @@
+{
+  "completedAt": "2026-11-02T09:24:34.555Z",
+  "ok": true,
+  "steps": [
+    {
+      "step": "admin session",
+      "ok": true,
+      "detail": "signed in with the bootstrap admin from the 0600 state file",
+      "at": "2026-11-02T09:24:17.841Z"
+    },
+    {
+      "step": "test teams found",
+      "ok": true,
+      "detail": "Crew team_e77782f3-9588-4850-9016-410209a0fd2f, Night team_8f6c5453-0260-476d-a679-cd26def64efe",
+      "at": "2026-11-02T09:24:17.845Z"
+    },
+    {
+      "step": "members listed",
+      "ok": true,
+      "detail": "Crew: 7",
+      "at": "2026-11-02T09:24:17.848Z"
+    },
+    {
+      "step": "members listed",
+      "ok": true,
+      "detail": "Night: 4",
+      "at": "2026-11-02T09:24:17.850Z"
+    },
+    {
+      "step": "test keys found",
+      "ok": true,
+      "detail": "0 of 0 gateway keys belong to the test teams; 0 were already blocked",
+      "at": "2026-11-02T09:24:17.861Z"
+    },
+    {
+      "step": "keys revoked",
+      "ok": true,
+      "detail": "no test key was left to revoke",
+      "at": "2026-11-02T09:24:17.861Z"
+    },
+    {
+      "step": "member rows deleted through the API",
+      "ok": true,
+      "detail": "11 member route calls answered 500 because the gateway key was already revoked; their rows are removed by the team deletion and their tokens are refused below",
+      "at": "2026-11-02T09:24:18.033Z"
+    },
+    {
+      "step": "team deleted through the API",
+      "ok": true,
+      "detail": "Crew",
+      "at": "2026-11-02T09:24:18.061Z"
+    },
+    {
+      "step": "team deleted through the API",
+      "ok": true,
+      "detail": "Night",
+      "at": "2026-11-02T09:24:18.088Z"
+    },
+    {
+      "step": "control teams gone",
+      "ok": true,
+      "detail": "remaining: Platform",
+      "at": "2026-11-02T09:24:18.090Z"
+    },
+    {
+      "step": "gateway teams deleted",
+      "ok": true,
+      "detail": "4 gateway team rows removed",
+      "at": "2026-11-02T09:24:18.231Z"
+    },
+    {
+      "step": "keys confirmed gone in the gateway",
+      "ok": true,
+      "detail": "matching keys after revocation: 0; total keys left: 0",
+      "at": "2026-11-02T09:24:18.246Z"
+    },
+    {
+      "step": "teams confirmed gone in the gateway",
+      "ok": true,
+      "detail": "gateway teams left: (none)",
+      "at": "2026-11-02T09:24:18.255Z"
+    },
+    {
+      "step": "manager token crew refused",
+      "ok": true,
+      "detail": "HTTP 401",
+      "at": "2026-11-02T09:24:18.258Z"
+    },
+    {
+      "step": "manager token night refused",
+      "ok": true,
+      "detail": "HTTP 401",
+      "at": "2026-11-02T09:24:18.259Z"
+    },
+    {
+      "step": "stack down",
+      "ok": true,
+      "detail": "dogfood control service and taa-dogfood-* containers stopped",
+      "at": "2026-11-02T09:24:34.530Z"
+    },
+    {
+      "step": "no dogfood container running",
+      "ok": true,
+      "detail": "none",
+      "at": "2026-11-02T09:24:34.555Z"
+    },
+    {
+      "step": "key files deleted",
+      "ok": true,
+      "detail": "keys/ directory and every manager token file removed; repos/ kept",
+      "at": "2026-11-02T09:24:34.555Z"
+    }
+  ],
+  "notes": [
+    "Two cleanup passes were needed. The first pass revoked all 11 test gateway keys (POST /key/delete with key_aliases) and then stopped on a 500 from DELETE /api/admin/teams/:id/members/:memberId: that route asks the gateway to delete the same key again, and the already-revoked key makes it throw.",
+    "The second pass saw 0 keys left, confirmed the revocation, removed the member rows through the team deletion, deleted both control teams and all four gateway team rows (two duplicate Crew/Night gateway teams had been created for the temporary console managers), and confirmed both manager tokens return HTTP 401.",
+    "Because the 500 also skipped credentials.delete and revokeAllForMember for those members, the in-memory tokens stayed until the control service stopped; the API refused them with 401 as soon as the member rows were gone, and the process then stopped with the stack."
+  ]
+}

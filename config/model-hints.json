@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "hints": [
+    {
+      "modelId": "flagship",
+      "instead": ["flash", "mini"],
+      "note": "Try the cheaper default model first; ask for flagship only with a concrete reason."
+    }
+  ]
+}

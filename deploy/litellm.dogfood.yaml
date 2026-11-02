@@ -1,0 +1,65 @@
+# LiteLLM proxy configuration for the team test.
+#
+# Same single real upstream as the live check: DeepSeek V4.1 Flash through
+# the OpenCode Go OpenAI-compatible endpoint. The credential comes from the
+# container's `--env-file ~/.config/team-ai-allowance/upstream.env` and is
+# never opened, printed or copied by the dogfood runner.
+#
+# Model names:
+#   deepseek-v4.1-flash  enabled by default, the only model ever called
+#   flagship             alias to the same upstream, approval-required in the
+#                        control-service catalogue: a key only gets it while a
+#                        model grant is active
+#   blocked-model        listed as blocked in the catalogue and deliberately
+#                        absent here, so it never reaches a provider. The
+#                        gateway refuses it for every key before routing.
+#
+# TEST PRICING. The per-token prices are raised on purpose (USD 0.5/1M input
+# and USD 1.5/1M output, about 3.3x and 2.5x the published Go off-peak prices
+# of USD 0.15/1M and USD 0.60/1M for DeepSeek V4.1 Flash) so the tiny
+# USD 0.01–0.04 test budgets run out after tens of small calls
+# instead of thousands. Gateway spend in the team-test evidence is therefore
+# test-denominated; `results/dogfood.json` records the real Go cost separately.
+#
+# Privacy: no prompt or response text is stored, enforced here by
+# an explicit false rather than relying on a default.
+
+model_list:
+  - model_name: deepseek-v4.1-flash
+    litellm_params:
+      model: openai/deepseek-v4.1-flash
+      api_base: https://opencode.ai/inference/go/openai/v1
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      # The Go endpoint refuses requests without this header (400 "Request is
+      # missing x-opencode-session ..."). LiteLLM does not forward client
+      # headers upstream, so the dogfood stack stamps a fixed session id
+      # identifying this test's traffic.
+      extra_headers:
+        x-opencode-session: "team-ai-allowance-dogfood"
+    # Per-token prices live under model_info (the documented location for
+    # custom pricing), so every translated route prices the deployment the
+    # same way instead of only the native chat-completions path.
+    model_info:
+      input_cost_per_token: 0.0000005
+      output_cost_per_token: 0.0000015
+
+  - model_name: flagship
+    litellm_params:
+      model: openai/deepseek-v4.1-flash
+      api_base: https://opencode.ai/inference/go/openai/v1
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      extra_headers:
+        x-opencode-session: "team-ai-allowance-dogfood"
+    model_info:
+      input_cost_per_token: 0.0000005
+      output_cost_per_token: 0.0000015
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  database_url: os.environ/DATABASE_URL
+  # Hard requirement: no prompt or response text in spend logs.
+  store_prompts_in_spend_logs: false

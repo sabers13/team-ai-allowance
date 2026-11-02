@@ -1,0 +1,167 @@
+{
+  "label": "simulation",
+  "scenario": "off-hours-only",
+  "title": "Off-hours cap only",
+  "assumptions": [
+    "Simulation, not a measurement: a fake clock, fixed token counts and example list prices. No real model was called.",
+    "One model call every 45 s from Friday 17:30 to Monday 08:00 Europe/Berlin (2026-10-30T17:30:00+01:00 to 2026-11-02T08:00:00+01:00); no DST change inside the window.",
+    "Context starts at 20000 input tokens, grows by 1200 per step and compacts at 150000 back to 40000; every step emits 600 output tokens.",
+    "The member budget is a fixed weekend allowance; no period resets inside the window and no prior spend.",
+    "Off-hours follow the default team policy (Mon-Fri 07:00-19:00 Europe/Berlin, no holidays).",
+    "The unattended rule counts every model call as one step since the last human message (Friday 17:30), using the plugin's own working-hours test and default limits."
+  ],
+  "parameters": {
+    "weekendStart": "2026-10-30T17:30:00+01:00",
+    "weekendEnd": "2026-11-02T08:00:00+01:00",
+    "timeZone": "Europe/Berlin",
+    "stepSeconds": 45,
+    "startInputTokens": 20000,
+    "growthPerStepTokens": 1200,
+    "compactAtTokens": 150000,
+    "compactToTokens": 40000,
+    "outputTokensPerStep": 600,
+    "sampleEverySeconds": 900,
+    "budgetUsd": null,
+    "hardLimitUsd": null,
+    "offHoursCapUsd": 5,
+    "unattended": false
+  },
+  "prices": {
+    "modelId": "flash",
+    "inputPer1MUsd": 0.3,
+    "outputPer1MUsd": 1.2
+  },
+  "series": [
+    {
+      "t": "2026-10-30T16:30:00.000Z",
+      "step": 0,
+      "spendUsd": 0.01,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 20000
+    },
+    {
+      "t": "2026-10-30T16:45:00.000Z",
+      "step": 20,
+      "spendUsd": 0.22,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 44000
+    },
+    {
+      "t": "2026-10-30T17:00:00.000Z",
+      "step": 40,
+      "spendUsd": 0.57,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 68000
+    },
+    {
+      "t": "2026-10-30T17:15:00.000Z",
+      "step": 60,
+      "spendUsd": 1.07,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 92000
+    },
+    {
+      "t": "2026-10-30T17:30:00.000Z",
+      "step": 80,
+      "spendUsd": 1.71,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 116000
+    },
+    {
+      "t": "2026-10-30T17:45:00.000Z",
+      "step": 100,
+      "spendUsd": 2.5,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 140000
+    },
+    {
+      "t": "2026-10-30T18:00:00.000Z",
+      "step": 120,
+      "spendUsd": 3.03,
+      "offHoursSpendUsd": 0.02,
+      "inputTokens": 53200
+    },
+    {
+      "t": "2026-10-30T18:15:00.000Z",
+      "step": 140,
+      "spendUsd": 3.44,
+      "offHoursSpendUsd": 0.43,
+      "inputTokens": 77200
+    },
+    {
+      "t": "2026-10-30T18:30:00.000Z",
+      "step": 160,
+      "spendUsd": 3.99,
+      "offHoursSpendUsd": 0.98,
+      "inputTokens": 101200
+    },
+    {
+      "t": "2026-10-30T18:45:00.000Z",
+      "step": 180,
+      "spendUsd": 4.69,
+      "offHoursSpendUsd": 1.68,
+      "inputTokens": 125200
+    },
+    {
+      "t": "2026-10-30T19:00:00.000Z",
+      "step": 200,
+      "spendUsd": 5.53,
+      "offHoursSpendUsd": 2.52,
+      "inputTokens": 149200
+    },
+    {
+      "t": "2026-10-30T19:15:00.000Z",
+      "step": 220,
+      "spendUsd": 5.85,
+      "offHoursSpendUsd": 2.84,
+      "inputTokens": 62800
+    },
+    {
+      "t": "2026-10-30T19:30:00.000Z",
+      "step": 240,
+      "spendUsd": 6.32,
+      "offHoursSpendUsd": 3.31,
+      "inputTokens": 86800
+    },
+    {
+      "t": "2026-10-30T19:45:00.000Z",
+      "step": 260,
+      "spendUsd": 6.93,
+      "offHoursSpendUsd": 3.92,
+      "inputTokens": 110800
+    },
+    {
+      "t": "2026-10-30T20:00:00.000Z",
+      "step": 280,
+      "spendUsd": 7.68,
+      "offHoursSpendUsd": 4.67,
+      "inputTokens": 134800
+    }
+  ],
+  "markers": [
+    {
+      "kind": "off_hours_segment",
+      "t": "2026-10-30T18:00:00.000Z",
+      "step": 120
+    },
+    {
+      "kind": "stop",
+      "t": "2026-10-30T20:06:45.000Z",
+      "step": 289
+    }
+  ],
+  "stop": {
+    "t": "2026-10-30T20:06:45.000Z",
+    "step": 289,
+    "reason": "off_hours_cap",
+    "spendUsd": 8.03,
+    "offHoursSpendUsd": 5.01,
+    "detail": "off-hours spend USD 5.01 reached the cap of USD 5.00; the key stays blocked until the next working-hours start"
+  },
+  "totals": {
+    "steps": 289,
+    "inputTokens": 26060000,
+    "outputTokens": 173400,
+    "spendUsd": 8.03
+  }
+}

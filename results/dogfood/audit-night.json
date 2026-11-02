@@ -1,0 +1,195 @@
+[
+  {
+    "id": "aud_83100c3d-2f17-4e01-aaaa-b29b77a1d5d0",
+    "at": "2026-11-01T16:00:18.466Z",
+    "action": "team.policy_updated",
+    "objectType": "team_policy",
+    "objectId": "team_8f6c5453-0260-476d-a679-cd26def64efe",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "teamId": "team_8f6c5453-0260-476d-a679-cd26def64efe",
+      "offHours": {
+        "enabled": true,
+        "timeZone": "Europe/Berlin",
+        "workingDays": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "startMinute": 0,
+        "endMinute": 1439,
+        "holidays": [],
+        "capUsd": 0.01
+      },
+      "thresholds": {
+        "softRatio": 0.5,
+        "graceRatio": 0.3
+      },
+      "unusualSpendMinUsd": 0.01,
+      "notifications": [
+        {
+          "channel": "log",
+          "config": {},
+          "enabled": true
+        },
+        {
+          "channel": "webhook",
+          "config": {
+            "urlEnv": "TAA_GENERIC_WEBHOOK"
+          },
+          "enabled": true
+        },
+        {
+          "channel": "email",
+          "config": {
+            "to": "leader@example.test",
+            "from": "team-ai-allowance@example.test"
+          },
+          "enabled": true
+        }
+      ],
+      "updatedAt": "2026-11-01T16:00:18.466Z"
+    }
+  },
+  {
+    "id": "aud_04f537e0-d3a9-4444-8517-ffdffb73388e",
+    "at": "2026-11-01T16:00:19.074Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+      "displayName": "Bo",
+      "role": "member"
+    }
+  },
+  {
+    "id": "aud_aa719fae-4792-4e35-af28-68eaf1005245",
+    "at": "2026-11-01T16:00:19.227Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.13,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_44c2026c-088d-4c83-850d-3d7c7d33d9eb",
+    "at": "2026-11-01T16:00:19.543Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_6f804a44-2690-45ee-93fc-a56c50861876",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_6f804a44-2690-45ee-93fc-a56c50861876",
+      "displayName": "Vera",
+      "role": "member"
+    }
+  },
+  {
+    "id": "aud_6105b40e-c63f-4457-a8e0-1cca8cf299c1",
+    "at": "2026-11-01T16:00:19.657Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_6f804a44-2690-45ee-93fc-a56c50861876",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_6f804a44-2690-45ee-93fc-a56c50861876",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_ba67d2fd-1e83-4dc8-9529-622049455da7",
+    "at": "2026-11-01T16:00:19.988Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_a0952e70-e878-47c0-8cae-0fa14e36d3bb",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_a0952e70-e878-47c0-8cae-0fa14e36d3bb",
+      "displayName": "Leader",
+      "role": "manager"
+    }
+  },
+  {
+    "id": "aud_22caefc8-5162-402e-931d-855f1516c314",
+    "at": "2026-11-01T16:00:20.082Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_a0952e70-e878-47c0-8cae-0fa14e36d3bb",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_a0952e70-e878-47c0-8cae-0fa14e36d3bb",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0,
+      "budgetDuration": "30d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": true
+    }
+  }
+]

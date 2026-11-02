@@ -1,0 +1,71 @@
+{
+  "label": "simulation",
+  "scenario": "all-limits",
+  "title": "Member budget + off-hours cap + plugin unattended rule",
+  "assumptions": [
+    "Simulation, not a measurement: a fake clock, fixed token counts and example list prices. No real model was called.",
+    "One model call every 45 s from Friday 17:30 to Monday 08:00 Europe/Berlin (2026-10-30T17:30:00+01:00 to 2026-11-02T08:00:00+01:00); no DST change inside the window.",
+    "Context starts at 20000 input tokens, grows by 1200 per step and compacts at 150000 back to 40000; every step emits 600 output tokens.",
+    "The member budget is a fixed weekend allowance; no period resets inside the window and no prior spend.",
+    "Off-hours follow the default team policy (Mon-Fri 07:00-19:00 Europe/Berlin, no holidays).",
+    "The unattended rule counts every model call as one step since the last human message (Friday 17:30), using the plugin's own working-hours test and default limits."
+  ],
+  "parameters": {
+    "weekendStart": "2026-10-30T17:30:00+01:00",
+    "weekendEnd": "2026-11-02T08:00:00+01:00",
+    "timeZone": "Europe/Berlin",
+    "stepSeconds": 45,
+    "startInputTokens": 20000,
+    "growthPerStepTokens": 1200,
+    "compactAtTokens": 150000,
+    "compactToTokens": 40000,
+    "outputTokensPerStep": 600,
+    "sampleEverySeconds": 900,
+    "budgetUsd": 20,
+    "hardLimitUsd": 21,
+    "offHoursCapUsd": 5,
+    "unattended": true
+  },
+  "prices": {
+    "modelId": "flash",
+    "inputPer1MUsd": 0.3,
+    "outputPer1MUsd": 1.2
+  },
+  "series": [
+    {
+      "t": "2026-10-30T16:30:00.000Z",
+      "step": 0,
+      "spendUsd": 0.01,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 20000
+    },
+    {
+      "t": "2026-10-30T16:45:00.000Z",
+      "step": 20,
+      "spendUsd": 0.22,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 44000
+    }
+  ],
+  "markers": [
+    {
+      "kind": "stop",
+      "t": "2026-10-30T17:00:00.000Z",
+      "step": 40
+    }
+  ],
+  "stop": {
+    "t": "2026-10-30T17:00:00.000Z",
+    "step": 40,
+    "reason": "unattended_pause",
+    "spendUsd": 0.55,
+    "offHoursSpendUsd": 0,
+    "detail": "30 minutes without a human message (working-hours limit 30); the plugin pauses the session"
+  },
+  "totals": {
+    "steps": 40,
+    "inputTokens": 1736000,
+    "outputTokens": 24000,
+    "spendUsd": 0.55
+  }
+}

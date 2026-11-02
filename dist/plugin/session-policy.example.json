@@ -1,0 +1,21 @@
+{
+  "budget": {
+    "limitUsd": 2.0,
+    "spentUsd": 0.0,
+    "warnRatios": [0.5, 0.8],
+    "stopRatio": 1
+  },
+  "unattended": {
+    "workingHours": {
+      "timeZone": "Europe/Berlin",
+      "workingDays": [1, 2, 3, 4, 5],
+      "startMinute": 420,
+      "endMinute": 1140,
+      "holidays": []
+    },
+    "working": { "maxMinutes": 30, "maxSteps": 40 },
+    "offHours": { "maxMinutes": 10, "maxSteps": 15 }
+  },
+  "loop": { "sameToolArgs": 5, "sameError": 3 },
+  "softLimit": { "ratio": 0.8 }
+}

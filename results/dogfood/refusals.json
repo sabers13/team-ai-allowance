@@ -1,0 +1,236 @@
+[
+  {
+    "requestId": "eb680e03-c16c-4bd4-9231-8dfa91e33e36",
+    "at": "2026-11-01T16:42:19.773000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "BudgetExceededError",
+    "httpCode": "422",
+    "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.02, Max budget: 0.02"
+  },
+  {
+    "requestId": "5793efd6-2196-4d75-bd8d-eeb45a3859ab",
+    "at": "2026-11-02T02:21:26.705000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "InternalServerError",
+    "httpCode": "500",
+    "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted."
+  },
+  {
+    "requestId": "4e9ad0d3-57cd-4d88-96ff-f6460254e952",
+    "at": "2026-11-02T02:21:26.739000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "BudgetExceededError",
+    "httpCode": "422",
+    "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.027354, Max budget: 0.02"
+  },
+  {
+    "requestId": "b5ff0f18-b9c0-4fa3-808c-d4f44fe8cacb",
+    "at": "2026-11-02T02:21:36.794000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "BudgetExceededError",
+    "httpCode": "422",
+    "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.02, Max budget: 0.02"
+  },
+  {
+    "requestId": "f6910fd9-4fcd-401e-af81-9219bf48254f",
+    "at": "2026-11-02T02:21:36.824000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "BudgetExceededError",
+    "httpCode": "422",
+    "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.02, Max budget: 0.02"
+  },
+  {
+    "requestId": "17f66fd3-b75a-4e86-a8cf-0c52718868e5",
+    "at": "2026-11-02T02:23:52.999000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "InternalServerError",
+    "httpCode": "500",
+    "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted."
+  },
+  {
+    "requestId": "5c27ec59-2926-4962-a611-a2cda060d0ac",
+    "at": "2026-11-02T02:24:15.118000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "InternalServerError",
+    "httpCode": "500",
+    "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted."
+  },
+  {
+    "requestId": "d0d588e0-072c-4840-adce-7d0117b52c40",
+    "at": "2026-11-02T02:24:38.519000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "InternalServerError",
+    "httpCode": "500",
+    "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted."
+  },
+  {
+    "requestId": "359e03cc-bab7-4de8-9409-82e050b909c0",
+    "at": "2026-11-02T02:25:12.954000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "InternalServerError",
+    "httpCode": "500",
+    "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted."
+  },
+  {
+    "requestId": "e0c40b7e-07d6-481f-935b-a027280803c3",
+    "at": "2026-11-02T02:25:41.163000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "InternalServerError",
+    "httpCode": "500",
+    "message": "litellm.InternalServerError: InternalServerError: OpenAIException - Connection error.\n\nLiteLLM: model group 'deepseek-v4.1-flash' failed with the error above. No fallback was attempted."
+  },
+  {
+    "requestId": "3cf5c314-9b5f-4580-9f69-1d61b758ab5c",
+    "at": "2026-11-02T02:26:01.502000Z",
+    "memberId": "",
+    "model": "",
+    "httpClass": "Exception",
+    "httpCode": "",
+    "message": "No api key passed in."
+  },
+  {
+    "requestId": "5812a9d2-62fd-4d5d-8390-34a9111a8552",
+    "at": "2026-11-02T02:26:01.530000Z",
+    "memberId": "",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "Exception",
+    "httpCode": "",
+    "message": "No api key passed in."
+  },
+  {
+    "requestId": "7903d6ba-b847-4e02-bb84-1bd1b152a8db",
+    "at": "2026-11-02T04:41:26.058000Z",
+    "memberId": "",
+    "model": "",
+    "httpClass": "Exception",
+    "httpCode": "",
+    "message": "No api key passed in."
+  },
+  {
+    "requestId": "f089fa5e-c91a-40c4-a83a-bc3fd466b4df",
+    "at": "2026-11-02T04:59:18.389000Z",
+    "memberId": "",
+    "model": "",
+    "httpClass": "Exception",
+    "httpCode": "",
+    "message": "No api key passed in."
+  },
+  {
+    "requestId": "3822d20c-e812-4035-b674-adb5aad9d6bc",
+    "at": "2026-11-02T05:39:43.492000Z",
+    "memberId": "mem_6f804a44-2690-45ee-93fc-a56c50861876",
+    "model": "blocked-model",
+    "httpClass": "ModelAccessDeniedProxyException",
+    "httpCode": "403",
+    "message": "The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again."
+  },
+  {
+    "requestId": "7e8d454d-3a84-4c1b-a9b0-8aebd379b2c7",
+    "at": "2026-11-02T05:45:18.933000Z",
+    "memberId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "Exception",
+    "httpCode": "",
+    "message": "Key is blocked. Update via `/key/unblock` if you're an admin."
+  },
+  {
+    "requestId": "d8a0dc0b-75d0-4632-8081-41c41250d35e",
+    "at": "2026-11-02T05:45:21.358000Z",
+    "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "Exception",
+    "httpCode": "",
+    "message": "Key is blocked. Update via `/key/unblock` if you're an admin."
+  },
+  {
+    "requestId": "4af29a2b-710f-4e92-8faf-d9a68f4155bd",
+    "at": "2026-11-02T05:45:22.610000Z",
+    "memberId": "",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "KeyNotFoundError",
+    "httpCode": "401",
+    "message": "Authentication Error, Invalid proxy server token passed. Received API Key = sk-[redacted], Key Hash (Token) =[redacted]. Unable to find token in cache or `LiteLLM_VerificationTokenTable`"
+  },
+  {
+    "requestId": "46ac3555-abf0-49d4-afe5-728ab6d6d9e0",
+    "at": "2026-11-02T05:45:28.835000Z",
+    "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "model": "blocked-model",
+    "httpClass": "ModelAccessDeniedProxyException",
+    "httpCode": "403",
+    "message": "The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again."
+  },
+  {
+    "requestId": "f5363500-303e-49fd-8d01-f8d9247f9809",
+    "at": "2026-11-02T05:53:58.903000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "BudgetExceededError",
+    "httpCode": "422",
+    "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.020598, Max budget: 0.02"
+  },
+  {
+    "requestId": "1619def1-67d3-412c-8b74-bfcd4e9bd1e9",
+    "at": "2026-11-02T05:54:01.441000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "BudgetExceededError",
+    "httpCode": "422",
+    "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.020598, Max budget: 0.02"
+  },
+  {
+    "requestId": "d782c967-b94a-4239-abd7-a560f4fc0796",
+    "at": "2026-11-02T06:01:32.717000Z",
+    "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "ModelAccessDeniedProxyException",
+    "httpCode": "403",
+    "message": "The requested model 'flagship' is not available for this API key, or the model name is invalid. Check the models available to you and try again."
+  },
+  {
+    "requestId": "2d9b12ae-ac28-4313-9777-75aa9ec4a5ad",
+    "at": "2026-11-02T06:09:02.254000Z",
+    "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "BudgetExceededError",
+    "httpCode": "422",
+    "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.020344, Max budget: 0.02"
+  },
+  {
+    "requestId": "da3fc844-c3be-4e27-be2d-2ad1468b60c1",
+    "at": "2026-11-02T08:00:45.005000Z",
+    "memberId": "",
+    "model": "",
+    "httpClass": "Exception",
+    "httpCode": "",
+    "message": "No api key passed in."
+  },
+  {
+    "requestId": "3a53d94d-9ccb-4849-8949-92e3fdd7a81f",
+    "at": "2026-11-02T08:28:50.022000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "BudgetExceededError",
+    "httpCode": "422",
+    "message": "Budget has been exceeded! Key=[redacted] Current cost: 0.054894, Max budget: 0.05"
+  },
+  {
+    "requestId": "fc2a1293-6c5e-4997-880c-5782a4820734",
+    "at": "2026-11-02T08:33:38.971000Z",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "model": "openai/deepseek-v4.1-flash",
+    "httpClass": "Exception",
+    "httpCode": "",
+    "message": "Key is blocked. Update via `/key/unblock` if you're an admin."
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "generatedBy": "e2e/flow/flow.spec.ts",
+  "clock": "2026-11-02T22:00:00.000Z",
+  "team": "team_17a720f0-9641-406b-be39-ecf653dbdb01",
+  "steps": [
+    {
+      "step": 1,
+      "name": "Lena works",
+      "screenshot": "results/demo/step-01-lena-works.png",
+      "observed": "mock-cheap answered 200 for Lena's key"
+    },
+    {
+      "step": 2,
+      "name": "Lena hits the soft limit",
+      "screenshot": "results/demo/step-02-lena-soft.png",
+      "observed": "spend USD 0.60 of USD 0.70; watcher recorded 2 spend row(s)"
+    },
+    {
+      "step": 3,
+      "name": "Lena hits the hard limit",
+      "screenshot": "results/demo/step-03-lena-hard.png",
+      "observed": "Budget has been exceeded! Key=taa-mem_71527f08-cb7a-4efe-9f21-132d5576a03e Current cost: 0.6000, Max budget: 0.73"
+    },
+    {
+      "step": 4,
+      "name": "Lena asks for USD 5 through MCP",
+      "screenshot": "results/demo/step-04-lena-request.png",
+      "observed": "request req_930ee5db-d3b8-402d-8c32-6321b22172be pending"
+    },
+    {
+      "step": 5,
+      "name": "Priya approves USD 3 until Friday",
+      "screenshot": "results/demo/step-05-priya-partly.png",
+      "observed": "grant of USD 3.00 until 2026-11-06 on req_930ee5db-d3b8-402d-8c32-6321b22172be"
+    },
+    {
+      "step": 6,
+      "name": "Lena continues",
+      "screenshot": "results/demo/step-06-lena-continues.png",
+      "observed": "mock-cheap answered 200 after the partial approval"
+    },
+    {
+      "step": 7,
+      "name": "Omar's flagship request is denied with a note",
+      "screenshot": "results/demo/step-07-omar-denied.png",
+      "observed": "hint named mock-flash; req_e54d40d5-4c20-494b-832e-c9632be84ef6 denied with a note"
+    },
+    {
+      "step": 8,
+      "name": "Jonas is blocked by the off-hours cap",
+      "screenshot": "results/demo/step-08-jonas-offhours.png",
+      "observed": "watcher blocked mem_bd589409-0bd3-4385-84a1-f69bc97c15d4: USD 0.60 of USD 0.50 off-hours"
+    },
+    {
+      "step": 8.5,
+      "name": "Priya unblocks Jonas",
+      "screenshot": "results/demo/step-08b-jonas-unblocked.png",
+      "observed": "manager unblock held for the off-hours stretch; the key works again"
+    },
+    {
+      "step": 9,
+      "name": "The audit log shows all of it",
+      "screenshot": "results/demo/step-09-audit.png",
+      "observed": "request, decision, grant, limit, watcher block and unblock all present"
+    },
+    {
+      "step": 10,
+      "name": "Usage page: table, chart and CSV",
+      "screenshot": "results/demo/step-10-usage.png",
+      "observed": "period table, stacked daily chart, /usage.csv download"
+    }
+  ]
+}

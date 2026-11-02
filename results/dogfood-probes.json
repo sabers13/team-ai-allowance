@@ -1,0 +1,718 @@
+{
+  "version": 1,
+  "status": "complete",
+  "generatedAt": "2026-11-02T06:11:42.455Z",
+  "runStartedAt": "2026-11-02T05:45:08.170Z",
+  "stack": {
+    "gateway": "http://127.0.0.1:14020",
+    "control": "http://127.0.0.1:18082",
+    "webhook": "http://127.0.0.1:18091",
+    "mail": "http://127.0.0.1:18026"
+  },
+  "members": {
+    "p1": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+    "p2": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "p3": "mem_6f804a44-2690-45ee-93fc-a56c50861876",
+    "m2": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d"
+  },
+  "probes": [
+    {
+      "id": "1-token-cap",
+      "title": "Token cap (p1)",
+      "expected": "Two calls succeed; the watcher blocks p1's key within one poll interval; the third call is refused.",
+      "observed": "Calls: 200, 200, 401. Watcher blocked: yes (6.0 s). Costs USD 0.002051 over 2 logged calls; calls finished 4468 ms after the first.",
+      "pass": true,
+      "startedAt": "2026-11-02T05:45:08.423Z",
+      "finishedAt": "2026-11-02T05:45:19.375Z",
+      "costUsd": 0.002051,
+      "checks": [
+        {
+          "name": "p1 starts unblocked",
+          "expected": "the key is usable",
+          "observed": "not blocked",
+          "pass": true
+        },
+        {
+          "name": "two calls succeed",
+          "expected": "HTTP 200 for both calls",
+          "observed": "200, 200",
+          "pass": true
+        },
+        {
+          "name": "p1 key blocked by the watcher",
+          "expected": "blocked within 30 s of the two calls",
+          "observed": "blocked 6.0 s after the first call",
+          "pass": true
+        },
+        {
+          "name": "third call refused",
+          "expected": "a non-2xx gateway refusal",
+          "observed": "HTTP 401: Authentication Error, Key is blocked. Update via `/key/unblock` if you're an admin.",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "callStatuses": [
+          200,
+          200,
+          401
+        ],
+        "blockedWithinMs": 6018,
+        "tokenCounts": [
+          {
+            "prompt": 2039,
+            "completion": 4
+          },
+          {
+            "prompt": 2039,
+            "completion": 4
+          },
+          {
+            "prompt": 0,
+            "completion": 0
+          }
+        ],
+        "spendRows": [
+          {
+            "requestId": "gw-c2a0aa5c2d63-81ffb7",
+            "costUsd": 0.0010255,
+            "inputTokens": 2039,
+            "outputTokens": 4
+          },
+          {
+            "requestId": "gw-c026736306b7-797d43",
+            "costUsd": 0.0010255,
+            "inputTokens": 2039,
+            "outputTokens": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "2-key-operations",
+      "title": "Key operations (p2)",
+      "expected": "Block refuses, unblock works, rotate refuses the old key and the new key works.",
+      "observed": "block 200/401, unblock 200/200, rotate 200; old 401, new 200. Cost USD 0.000057.",
+      "pass": true,
+      "startedAt": "2026-11-02T05:45:19.377Z",
+      "finishedAt": "2026-11-02T05:45:28.709Z",
+      "costUsd": 0.000057,
+      "checks": [
+        {
+          "name": "p2 key works",
+          "expected": "HTTP 200",
+          "observed": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "manager block",
+          "expected": "block HTTP 200, member blocked, key refused",
+          "observed": "block 200; blocked true; call 401",
+          "pass": true
+        },
+        {
+          "name": "manager unblock",
+          "expected": "unblock HTTP 200, member unblocked, key works",
+          "observed": "unblock 200; unblocked true; call 200",
+          "pass": true
+        },
+        {
+          "name": "manager rotate",
+          "expected": "rotate HTTP 200, old key refused, new key works",
+          "observed": "rotate 200; old key 401; new key 200",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "callStatuses": [
+          200,
+          401,
+          200,
+          401,
+          200
+        ],
+        "rotated": true,
+        "spendRows": [
+          {
+            "requestId": "gw-c0c301b7e952-96e3c3",
+            "costUsd": 0.000019,
+            "inputTokens": 32,
+            "outputTokens": 2
+          },
+          {
+            "requestId": "gw-c1efd3264bbc-961d0c",
+            "costUsd": 0.000019,
+            "inputTokens": 32,
+            "outputTokens": 2
+          },
+          {
+            "requestId": "gw-c068bf5dd6ff-7a6199",
+            "costUsd": 0.000019,
+            "inputTokens": 32,
+            "outputTokens": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "3-flagship-unlock",
+      "title": "m2's flagship unlock and expiry",
+      "expected": "After the leader's 15-minute approval, one tiny flagship call works; after expiry plus one reconciler cycle the same call is refused.",
+      "observed": "re-issued the leader's fixed-rule approval because the D2 window had expired. approval 2026-11-02T05:45:57.705Z, expires 2026-11-02T06:00:57.702Z, expiry observed 2026-11-02T06:01:32.710Z. Flagship call 200; after expiry 403. Cost USD 0.000019. Request req_1ef5c0ab-14e2-41e0-abde-b79238375cb1. Grant grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916.",
+      "pass": true,
+      "startedAt": "2026-11-02T05:45:57.669Z",
+      "finishedAt": "2026-11-02T06:01:32.987Z",
+      "costUsd": 0.000019,
+      "checks": [
+        {
+          "name": "leader approval",
+          "expected": "HTTP 200 with an active 15-minute grant",
+          "observed": "request 201, decision 200, grant grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916",
+          "pass": true
+        },
+        {
+          "name": "flagship allowed after approval",
+          "expected": "flagship is in the key's model allowlist",
+          "observed": "flagship is allowed",
+          "pass": true
+        },
+        {
+          "name": "flagship call works",
+          "expected": "HTTP 200 with the active grant",
+          "observed": "HTTP 200: {\"id\":\"gw-c0c301b7e952-96f092\",\"created\":1793598358,\"model\":\"flagship\",\"object\":\"chat.completion\",\"choices\":[{\"finish_reason\":\"length\",\"index\":0,\"message\":{\"content\":\"\",\"role\":\"assistant\",\"reasoning_content\":\"We need\",\"provider_specific_fields\":{\"refusal\":null}},\"provider_specific_fields\":{}}],\"usage\":{\"completion_tokens\":2,\"prompt_tokens\":32,\"total_tokens\":34,\"completion_tokens_details\":{\"reasoning_tokens\":2},\"prompt_tokens_details\":{\"cached_tokens\":0},\"cost\":0,\"opencode\":{\"billing_source\":\"go\",\"list_cost\":6e-06,\"allowance\":3.6e-06,\"tokens\":{\"input\":32,\"output\":2,\"reasoning\":2,\"cache_read\":0,\"cache_write_5m\":0,\"cache_write_1h\":0}}}}",
+          "pass": true
+        },
+        {
+          "name": "grant expiry removes the model",
+          "expected": "flagship leaves the allowlist after expiry plus one reconciler cycle",
+          "observed": "removed; expiresAt 2026-11-02T06:00:57.702Z",
+          "pass": true
+        },
+        {
+          "name": "flagship call refused after expiry",
+          "expected": "a non-2xx gateway refusal",
+          "observed": "HTTP 403: The requested model 'flagship' is not available for this API key, or the model name is invalid. Check the models available to you and try again.",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "approvalAt": "2026-11-02T05:45:57.705Z",
+        "expiresAt": "2026-11-02T06:00:57.702Z",
+        "expiryObservedAt": "2026-11-02T06:01:32.710Z",
+        "requestId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+        "grantId": "grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916",
+        "reissued": true,
+        "callStatuses": [
+          200,
+          403
+        ],
+        "spendRows": [
+          {
+            "requestId": "gw-c0c301b7e952-96f092",
+            "costUsd": 0.000019,
+            "inputTokens": 32,
+            "outputTokens": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "4-request-handling",
+      "title": "Request handling (p2, p3, Night)",
+      "expected": "p2 cancels its own request; a suggestion is noted; a member key on a manager endpoint is refused; the Night manager acts on Night while p3's member key on Crew is refused.",
+      "observed": "cancel 201/200, suggestion 201/200, member→manager 403, Night manager→Night 200, Crew manager→Night 403, p3→Crew 403.",
+      "pass": true,
+      "startedAt": "2026-11-02T05:45:53.542Z",
+      "finishedAt": "2026-11-02T05:45:53.635Z",
+      "costUsd": 0,
+      "checks": [
+        {
+          "name": "member cancels its own request",
+          "expected": "create 201, cancel 200, state cancelled",
+          "observed": "create 201, cancel 200, state cancelled",
+          "pass": true
+        },
+        {
+          "name": "suggestion is noted",
+          "expected": "create 201, decision 200, state approved with note noted",
+          "observed": "create 201, decide 200, state approved",
+          "pass": true
+        },
+        {
+          "name": "member key on a manager endpoint",
+          "expected": "HTTP 403",
+          "observed": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "Night manager acts on Night",
+          "expected": "HTTP 200 and p3 is listed",
+          "observed": "HTTP 200, p3 listed true",
+          "pass": true
+        },
+        {
+          "name": "Crew manager acts on Night",
+          "expected": "HTTP 403",
+          "observed": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "p3 member key on Crew",
+          "expected": "HTTP 403",
+          "observed": "HTTP 403",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "cancelledRequestId": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+        "suggestionRequestId": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+        "statuses": {
+          "create": 201,
+          "cancel": 200,
+          "suggestion": 201,
+          "decision": 200,
+          "memberOnManager": 403,
+          "nightOnNight": 200,
+          "crewOnNight": 403,
+          "p3OnCrew": 403
+        }
+      }
+    },
+    {
+      "id": "5-blocked-model",
+      "title": "Blocked model (p2)",
+      "expected": "A blocked-model call is refused with a readable message.",
+      "observed": "HTTP 403: The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again.",
+      "pass": true,
+      "startedAt": "2026-11-02T05:45:28.827Z",
+      "finishedAt": "2026-11-02T05:45:28.838Z",
+      "costUsd": 0,
+      "checks": [
+        {
+          "name": "blocked-model is refused",
+          "expected": "a non-2xx gateway refusal",
+          "observed": "HTTP 403",
+          "pass": true
+        },
+        {
+          "name": "refusal message is readable",
+          "expected": "a message naming the model refusal",
+          "observed": "The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again.",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "status": 403,
+        "errorType": "key_model_access_denied",
+        "errorMessage": "The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again."
+      }
+    },
+    {
+      "id": "6-notifications",
+      "title": "Notifications (webhook and mail)",
+      "expected": "Each expected notice appears exactly once on the webhook and in the mail catcher: new request, decision, soft limit, grace, blocked, unusual spend.",
+      "observed": "5 of 7 expected notices appeared exactly once on both channels; webhook events since run start: 12, new mail messages: 12. Final capture cost USD 0.001550; all threshold runs for this probe cost USD 0.020325. p2 starts at status ok with USD 0.018794 spent, USD 0.010000 active budget grants, a USD 0.020000 effective budget and 3 threshold calls; unusual-spend notice was already due from the earlier spend, so no extra call was made",
+      "pass": false,
+      "startedAt": "2026-11-02T06:08:29.434Z",
+      "finishedAt": "2026-11-02T06:10:07.833Z",
+      "costUsd": 0.020325,
+      "checks": [
+        {
+          "name": "lower p2 budget for threshold notices",
+          "expected": "PATCH limits HTTP 200",
+          "observed": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "restore p2 budget",
+          "expected": "PATCH limits HTTP 200",
+          "observed": "HTTP 200",
+          "pass": true
+        },
+        {
+          "name": "threshold calls succeed",
+          "expected": "all small threshold calls (and the larger call when made) return HTTP 200",
+          "observed": "200, 200, 422",
+          "pass": false
+        },
+        {
+          "name": "new request (manager)",
+          "expected": "exactly once on the webhook and in the mail catcher",
+          "observed": "webhook 0, mail 0",
+          "pass": false
+        },
+        {
+          "name": "decision (member)",
+          "expected": "exactly once on the webhook and in the mail catcher",
+          "observed": "webhook 0, mail 0",
+          "pass": false
+        },
+        {
+          "name": "soft limit (member)",
+          "expected": "exactly once on the webhook and in the mail catcher",
+          "observed": "webhook 1, mail 1",
+          "pass": true
+        },
+        {
+          "name": "grace (member)",
+          "expected": "exactly once on the webhook and in the mail catcher",
+          "observed": "webhook 1, mail 1",
+          "pass": true
+        },
+        {
+          "name": "blocked (manager)",
+          "expected": "exactly once on the webhook and in the mail catcher",
+          "observed": "webhook 1, mail 1",
+          "pass": true
+        },
+        {
+          "name": "blocked (member)",
+          "expected": "exactly once on the webhook and in the mail catcher",
+          "observed": "webhook 1, mail 1",
+          "pass": true
+        },
+        {
+          "name": "unusual spend (manager)",
+          "expected": "exactly once on the webhook and in the mail catcher",
+          "observed": "webhook 1, mail 1",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "notices": [
+          {
+            "notice": "new request (manager)",
+            "kind": "request_created",
+            "audience": "manager",
+            "webhook": 0,
+            "mail": 0,
+            "dedupeKeys": [],
+            "pass": false
+          },
+          {
+            "notice": "decision (member)",
+            "kind": "request_decided",
+            "audience": "member",
+            "webhook": 0,
+            "mail": 0,
+            "dedupeKeys": [],
+            "pass": false
+          },
+          {
+            "notice": "soft limit (member)",
+            "kind": "soft_limit",
+            "audience": "member",
+            "webhook": 1,
+            "mail": 1,
+            "dedupeKeys": [
+              "threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be:soft_limit:2026-11-02T00:00:00.000Z:member"
+            ],
+            "pass": true
+          },
+          {
+            "notice": "grace (member)",
+            "kind": "grace",
+            "audience": "member",
+            "webhook": 1,
+            "mail": 1,
+            "dedupeKeys": [
+              "threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be:grace:2026-11-02T00:00:00.000Z:member"
+            ],
+            "pass": true
+          },
+          {
+            "notice": "blocked (manager)",
+            "kind": "member_blocked",
+            "audience": "manager",
+            "webhook": 1,
+            "mail": 1,
+            "dedupeKeys": [
+              "token_cap:mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9:2026-11-02T00:00:00.000Z:manager"
+            ],
+            "pass": true
+          },
+          {
+            "notice": "blocked (member)",
+            "kind": "member_blocked",
+            "audience": "member",
+            "webhook": 1,
+            "mail": 1,
+            "dedupeKeys": [
+              "token_cap:mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9:2026-11-02T00:00:00.000Z:member"
+            ],
+            "pass": true
+          },
+          {
+            "notice": "unusual spend (manager)",
+            "kind": "unusual_spend",
+            "audience": "manager",
+            "webhook": 1,
+            "mail": 1,
+            "dedupeKeys": [
+              "unusual:mem_24f7758d-b90f-4940-9697-da2d8f1694be:2026-11-02"
+            ],
+            "pass": true
+          }
+        ],
+        "webhookCount": 12,
+        "mailCount": 12,
+        "callStatuses": [
+          200,
+          200,
+          422
+        ],
+        "budgetUpdates": 6,
+        "spendRows": [
+          {
+            "requestId": "gw-c0c301b7e952-98db08",
+            "costUsd": 0.0007750000000000001,
+            "inputTokens": 1538,
+            "outputTokens": 4
+          },
+          {
+            "requestId": "gw-c2a0aa5c2d63-83d459",
+            "costUsd": 0.0007750000000000001,
+            "inputTokens": 1538,
+            "outputTokens": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "7-audit-completeness",
+      "title": "Audit completeness",
+      "expected": "Every state-changing probe action appears exactly once in the audit log.",
+      "observed": "35 audit events since 2026-11-02T05:45:08.170Z; 18/20 checks passed.",
+      "pass": false,
+      "startedAt": "2026-11-02T06:11:42.080Z",
+      "finishedAt": "2026-11-02T06:11:42.091Z",
+      "costUsd": 0,
+      "checks": [
+        {
+          "name": "p1 token-cap block",
+          "expected": "1 audit event (watcher.token_cap_block)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "p2 key block",
+          "expected": "1 audit event (member.blocked)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "p2 key unblock",
+          "expected": "1 audit event (member.unblocked)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "p2 key rotation",
+          "expected": "1 audit event (key.rotated)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "p2 budget updates",
+          "expected": "6 audit events (limits.updated)",
+          "observed": "6 through the team API, 6 in the store",
+          "pass": true
+        },
+        {
+          "name": "cancelled request creation",
+          "expected": "1 audit event (request.created)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "member cancellation",
+          "expected": "1 audit event (request.cancelled)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "suggestion creation",
+          "expected": "1 audit event (request.created)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "suggestion decision",
+          "expected": "1 audit event (request.decided)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "flagship request creation",
+          "expected": "1 audit event (request.created)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "flagship request decision",
+          "expected": "1 audit event (request.decided)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "grant issued",
+          "expected": "1 audit event (grant.issued)",
+          "observed": "1 through the team API, 1 in the store",
+          "pass": true
+        },
+        {
+          "name": "grant expired",
+          "expected": "1 audit event (grant.expired)",
+          "observed": "0 through the team API, 0 in the store",
+          "pass": false
+        },
+        {
+          "name": "notice audit row threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+          "expected": "exactly one notification.sent event in the audit store",
+          "observed": "1 in the store, 0 through the team API",
+          "pass": true
+        },
+        {
+          "name": "notice audit row threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+          "expected": "exactly one notification.sent event in the audit store",
+          "observed": "1 in the store, 0 through the team API",
+          "pass": true
+        },
+        {
+          "name": "notice audit row token_cap:mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+          "expected": "exactly one notification.sent event in the audit store",
+          "observed": "1 in the store, 0 through the team API",
+          "pass": true
+        },
+        {
+          "name": "notice audit row token_cap:mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+          "expected": "exactly one notification.sent event in the audit store",
+          "observed": "1 in the store, 0 through the team API",
+          "pass": true
+        },
+        {
+          "name": "notice audit row unusual:mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+          "expected": "exactly one notification.sent event in the audit store",
+          "observed": "1 in the store, 0 through the team API",
+          "pass": true
+        },
+        {
+          "name": "delivered notices reachable through the team audit API",
+          "expected": "5 notification.sent rows",
+          "observed": "0 of 5 visible (5 in the store)",
+          "pass": false
+        },
+        {
+          "name": "no failed key update during the probes",
+          "expected": "no key.state_failed event",
+          "observed": "0 failed updates",
+          "pass": true
+        }
+      ],
+      "evidence": {
+        "auditEventCount": 35,
+        "expectedActions": [
+          {
+            "label": "p1 token-cap block",
+            "action": "watcher.token_cap_block",
+            "objectId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+            "count": 1
+          },
+          {
+            "label": "p2 key block",
+            "action": "member.blocked",
+            "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+            "count": 1
+          },
+          {
+            "label": "p2 key unblock",
+            "action": "member.unblocked",
+            "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+            "count": 1
+          },
+          {
+            "label": "p2 key rotation",
+            "action": "key.rotated",
+            "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+            "count": 1
+          },
+          {
+            "label": "p2 budget updates",
+            "action": "limits.updated",
+            "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+            "count": 6
+          },
+          {
+            "label": "cancelled request creation",
+            "action": "request.created",
+            "objectId": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+            "count": 1
+          },
+          {
+            "label": "member cancellation",
+            "action": "request.cancelled",
+            "objectId": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+            "count": 1
+          },
+          {
+            "label": "suggestion creation",
+            "action": "request.created",
+            "objectId": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+            "count": 1
+          },
+          {
+            "label": "suggestion decision",
+            "action": "request.decided",
+            "objectId": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+            "count": 1
+          },
+          {
+            "label": "flagship request creation",
+            "action": "request.created",
+            "objectId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+            "count": 1
+          },
+          {
+            "label": "flagship request decision",
+            "action": "request.decided",
+            "objectId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+            "count": 1
+          },
+          {
+            "label": "grant issued",
+            "action": "grant.issued",
+            "objectId": "grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916",
+            "count": 1
+          },
+          {
+            "label": "grant expired",
+            "action": "grant.expired",
+            "objectId": "grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916",
+            "count": 1
+          }
+        ],
+        "noticeDedupeKeys": [
+          "threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be:soft_limit:2026-11-02T00:00:00.000Z:member",
+          "threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be:grace:2026-11-02T00:00:00.000Z:member",
+          "token_cap:mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9:2026-11-02T00:00:00.000Z:manager",
+          "token_cap:mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9:2026-11-02T00:00:00.000Z:member",
+          "unusual:mem_24f7758d-b90f-4940-9697-da2d8f1694be:2026-11-02"
+        ],
+        "noticesInStore": 5,
+        "noticesInTeamApi": 0,
+        "failedUpdates": 0
+      }
+    }
+  ],
+  "notifications": null,
+  "audit": null,
+  "totals": {
+    "probes": 7,
+    "passed": 5,
+    "failed": 2,
+    "costUsd": 0.022452
+  },
+  "notes": [
+    "cost reconciled from the gateway spend log: USD 0.022452"
+  ]
+}

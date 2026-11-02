@@ -1,0 +1,37 @@
+{
+  "name": "team-ai-allowance",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Team AI allowance: shared AI coding limits, a manager console and a request desk inside the CLI.",
+  "license": "MIT",
+  "author": "Saber Sojudi",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "taa": "./src/cli/index.ts"
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "e2e": "playwright test",
+    "scan-forbidden": "node scripts/scan-forbidden.ts",
+    "scan-secrets": "node scripts/scan-secrets.ts",
+    "facts": "node scripts/facts.ts",
+    "release-check": "npm run lint && npm run typecheck && npm run test && npm run scan-forbidden && npm run scan-secrets && npm run facts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@biomejs/biome": "2.6.4",
+    "@playwright/test": "1.64.1",
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2"
+  }
+}

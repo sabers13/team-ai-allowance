@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "facts": [
+    {
+      "id": "live.model",
+      "value": "deepseek-v4.1-flash",
+      "source": "results/live.json",
+      "pointer": "/gateway/model",
+      "note": "The only real model called in the live check."
+    },
+    {
+      "id": "live.claude.version",
+      "value": "2.1.316 (Claude Code)",
+      "source": "results/live.json",
+      "pointer": "/clis/0/version",
+      "note": "The exact CLI version the live check ran."
+    },
+    {
+      "id": "live.opencode.version",
+      "value": "opencode v2.1.3",
+      "source": "results/live.json",
+      "pointer": "/clis/1/version",
+      "note": "The exact CLI version the live check ran."
+    },
+    {
+      "id": "live.codex.version",
+      "value": "codex-cli 0.165.0",
+      "source": "results/live.json",
+      "pointer": "/clis/2/version",
+      "note": "The exact CLI version the live check ran."
+    },
+    {
+      "id": "live.claude.spend_usd",
+      "value": 0.056733,
+      "source": "results/live.json",
+      "pointer": "/clis/0/spendUsd",
+      "note": "Gateway spend for the Claude Code run, test-denominated pricing."
+    },
+    {
+      "id": "live.opencode.spend_usd",
+      "value": 0.058732,
+      "source": "results/live.json",
+      "pointer": "/clis/1/spendUsd",
+      "note": "Gateway spend for the OpenCode run, test-denominated pricing."
+    },
+    {
+      "id": "live.codex.spend_usd",
+      "value": 0.055337,
+      "source": "results/live.json",
+      "pointer": "/clis/2/spendUsd",
+      "note": "Gateway spend for the Codex run, test-denominated pricing."
+    },
+    {
+      "id": "live.total_spend_usd",
+      "value": 0.170827,
+      "source": "results/live.json",
+      "pointer": "/totalSpendUsd",
+      "note": "Total gateway spend for the live check, test-denominated pricing."
+    },
+    {
+      "id": "live.plugin.spend_usd",
+      "value": 0.000025,
+      "source": "results/live.json",
+      "pointer": "/plugin/spendUsd",
+      "note": "Spend of the member that proved the OpenCode unattended rule."
+    },
+    {
+      "id": "dogfood.crew.accounts",
+      "value": 6,
+      "source": "results/dogfood.json",
+      "pointer": "/teams/0/members",
+      "note": "Accounts in the Crew team: five workers and one leader."
+    },
+    {
+      "id": "dogfood.crew.requests",
+      "value": 11,
+      "source": "results/dogfood.json",
+      "pointer": "/teams/0/requests",
+      "note": "Requests filed in the Crew team during the team test."
+    },
+    {
+      "id": "dogfood.crew.audit_events",
+      "value": 69,
+      "source": "results/dogfood.json",
+      "pointer": "/teams/0/auditEvents",
+      "note": "Audit events recorded for the Crew team."
+    },
+    {
+      "id": "dogfood.night.accounts",
+      "value": 3,
+      "source": "results/dogfood.json",
+      "pointer": "/teams/1/members",
+      "note": "Accounts in the off-hours Night team: two workers and one leader."
+    },
+    {
+      "id": "dogfood.spend.total_usd",
+      "value": 0.082512,
+      "source": "results/dogfood.json",
+      "pointer": "/spend/totalUsd",
+      "note": "Gateway spend for the whole team test."
+    },
+    {
+      "id": "dogfood.spend.rows",
+      "value": 369,
+      "source": "results/dogfood.json",
+      "pointer": "/spend/rows",
+      "note": "Gateway spend rows exported from the team test."
+    },
+    {
+      "id": "dogfood.spend.zero_cost_rows",
+      "value": 317,
+      "source": "results/dogfood.json",
+      "pointer": "/spend/zeroCostRows",
+      "note": "Rows recorded with USD 0 cost, the streaming metering defect."
+    },
+    {
+      "id": "dogfood.spend.zero_cost_tokens",
+      "value": 12896452,
+      "source": "results/dogfood.json",
+      "pointer": "/spend/zeroCostTokens",
+      "note": "Tokens carried by the USD 0 rows."
+    },
+    {
+      "id": "dogfood.probes.total",
+      "value": 7,
+      "source": "results/dogfood.json",
+      "pointer": "/probes/totals/probes",
+      "note": "Scripted feature probes attempted."
+    },
+    {
+      "id": "dogfood.probes.passed",
+      "value": 5,
+      "source": "results/dogfood.json",
+      "pointer": "/probes/totals/passed",
+      "note": "Scripted probes that passed in full."
+    },
+    {
+      "id": "dogfood.probes.cost_usd",
+      "value": 0.022452,
+      "source": "results/dogfood.json",
+      "pointer": "/probes/totals/costUsd",
+      "note": "Gateway spend for the scripted probes."
+    },
+    {
+      "id": "sim.no_limits.spend_usd",
+      "value": 144.97,
+      "source": "results/sim/no-limits.json",
+      "pointer": "/stop/spendUsd",
+      "note": "Simulation spend when the loop ran with no limits."
+    },
+    {
+      "id": "sim.no_limits.steps",
+      "value": 5000,
+      "source": "results/sim/no-limits.json",
+      "pointer": "/stop/step",
+      "note": "Simulation steps when the loop ran with no limits."
+    },
+    {
+      "id": "sim.budget_only.spend_usd",
+      "value": 21.03,
+      "source": "results/sim/budget-only.json",
+      "pointer": "/stop/spendUsd",
+      "note": "Simulation spend with a member budget only."
+    },
+    {
+      "id": "sim.budget_only.steps",
+      "value": 740,
+      "source": "results/sim/budget-only.json",
+      "pointer": "/stop/step",
+      "note": "Simulation steps with a member budget only."
+    },
+    {
+      "id": "sim.off_hours_only.spend_usd",
+      "value": 8.03,
+      "source": "results/sim/off-hours-only.json",
+      "pointer": "/stop/spendUsd",
+      "note": "Simulation spend with the off-hours cap only."
+    },
+    {
+      "id": "sim.off_hours_only.steps",
+      "value": 289,
+      "source": "results/sim/off-hours-only.json",
+      "pointer": "/stop/step",
+      "note": "Simulation steps with the off-hours cap only."
+    },
+    {
+      "id": "sim.all_limits.spend_usd",
+      "value": 0.55,
+      "source": "results/sim/all-limits.json",
+      "pointer": "/stop/spendUsd",
+      "note": "Simulation spend with the budget, off-hours cap and plugin rule."
+    },
+    {
+      "id": "sim.all_limits.steps",
+      "value": 40,
+      "source": "results/sim/all-limits.json",
+      "pointer": "/stop/step",
+      "note": "Simulation steps with the budget, off-hours cap and plugin rule."
+    }
+  ],
+  "constants": [
+    {
+      "value": "1.0.0",
+      "why": "The release version in CHANGELOG.md; the tag is created by the release task."
+    },
+    {
+      "value": "24",
+      "why": "Node major version required by package.json engines."
+    },
+    {
+      "value": "2026",
+      "why": "Calendar year of the release and of the recorded test runs."
+    },
+    {
+      "value": "127.0.0.1",
+      "why": "Loopback address every default port binds to."
+    },
+    {
+      "value": "18080",
+      "why": "Default console and control-service port (deploy/README.md)."
+    },
+    {
+      "value": "14000",
+      "why": "Default LiteLLM gateway port (deploy/README.md)."
+    },
+    {
+      "value": "15432",
+      "why": "Default Postgres port (deploy/README.md)."
+    },
+    {
+      "value": "18025",
+      "why": "Default mail-catcher UI port (deploy/README.md)."
+    },
+    {
+      "value": "18090",
+      "why": "Default webhook-catcher port (deploy/README.md)."
+    },
+    {
+      "value": "0.05",
+      "why": "The deliberately tiny per-member daily budget used by the live check, not a product default."
+    },
+    {
+      "value": "80",
+      "why": "Default soft-limit share of the budget (src/contracts.ts)."
+    },
+    {
+      "value": "5",
+      "why": "Default grace share past the budget (src/contracts.ts)."
+    },
+    {
+      "value": "30",
+      "why": "Default watcher poll interval in seconds (src/watcher/config.ts)."
+    },
+    {
+      "value": "0600",
+      "why": "File mode used for generated secret files; not a measurement."
+    },
+    {
+      "value": "401",
+      "why": "HTTP Unauthorized, the gateway's reply to a blocked key; a protocol status, not a measurement."
+    },
+    {
+      "value": "403",
+      "why": "HTTP Forbidden, the gateway's reply to a model the key may not use; a protocol status, not a measurement."
+    },
+    {
+      "value": "422",
+      "why": "HTTP Unprocessable Content, LiteLLM's default budget-exceeded status; a protocol status, not a measurement."
+    }
+  ]
+}

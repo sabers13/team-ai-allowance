@@ -1,0 +1,2506 @@
+[
+  {
+    "id": "aud_9e0c7a78-dc0f-4197-a609-159800a35bb7",
+    "at": "2026-11-01T16:00:18.110Z",
+    "action": "team.policy_updated",
+    "objectType": "team_policy",
+    "objectId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "offHours": {
+        "enabled": true,
+        "timeZone": "Europe/Berlin",
+        "workingDays": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "startMinute": 0,
+        "endMinute": 1439,
+        "holidays": [],
+        "capUsd": 5
+      },
+      "thresholds": {
+        "softRatio": 0.5,
+        "graceRatio": 0.3
+      },
+      "unusualSpendMinUsd": 0.01,
+      "notifications": [
+        {
+          "channel": "log",
+          "config": {},
+          "enabled": true
+        },
+        {
+          "channel": "webhook",
+          "config": {
+            "urlEnv": "TAA_GENERIC_WEBHOOK"
+          },
+          "enabled": true
+        },
+        {
+          "channel": "email",
+          "config": {
+            "to": "leader@example.test",
+            "from": "team-ai-allowance@example.test"
+          },
+          "enabled": true
+        }
+      ],
+      "updatedAt": "2026-11-01T16:00:18.097Z"
+    }
+  },
+  {
+    "id": "aud_dc22a898-0dff-4bc6-b168-47e81074e340",
+    "at": "2026-11-01T16:00:18.504Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "displayName": "Mira",
+      "role": "member"
+    }
+  },
+  {
+    "id": "aud_dfee54fb-e1ef-41f0-b266-bc1c4852472b",
+    "at": "2026-11-01T16:00:18.741Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.02,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_97b01a0b-bb01-4fac-a7f1-efff5234d5d1",
+    "at": "2026-11-01T16:00:18.791Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "displayName": "Nils",
+      "role": "member"
+    }
+  },
+  {
+    "id": "aud_c8f40246-50bf-4ec5-860e-fef3f0d21175",
+    "at": "2026-11-01T16:00:18.894Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_42fcb03c-115a-4e62-962d-a599b10c0a9d",
+    "at": "2026-11-01T16:00:18.942Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "displayName": "Edda",
+      "role": "member"
+    }
+  },
+  {
+    "id": "aud_31d6d673-b47c-4fc9-ad98-9affda697b89",
+    "at": "2026-11-01T16:00:19.024Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.02,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_7d0cf023-8783-4b7f-acdb-17126865cf96",
+    "at": "2026-11-01T16:00:19.269Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "displayName": "Ines",
+      "role": "member"
+    }
+  },
+  {
+    "id": "aud_b6f74175-3d03-4e70-979c-5991e2990b90",
+    "at": "2026-11-01T16:00:19.356Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_6905149e-4476-4230-ae4d-a85d37119bf9",
+    "at": "2026-11-01T16:00:19.401Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "displayName": "Rune",
+      "role": "member"
+    }
+  },
+  {
+    "id": "aud_ac2bd481-3017-47ca-b9df-93fb92d5fde4",
+    "at": "2026-11-01T16:00:19.496Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_acdcd8d0-fe95-49db-b60c-2dd8deb0a8fd",
+    "at": "2026-11-01T16:00:19.775Z",
+    "action": "member.created",
+    "objectType": "member",
+    "objectId": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+    "actor": {
+      "type": "admin",
+      "id": "mem_f55ceea9-74cc-43bd-b87a-47ef01b3cbf7",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": "Leader",
+      "role": "manager"
+    }
+  },
+  {
+    "id": "aud_79003e38-5655-4dd7-aed1-9c48b816761f",
+    "at": "2026-11-01T16:00:19.867Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models, maxBudgetUsd, budgetDuration, tpmLimit, rpmLimit, blocked",
+    "before": null,
+    "after": {
+      "keyAlias": "taa-mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0,
+      "budgetDuration": "30d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": true
+    }
+  },
+  {
+    "id": "aud_043b8388-fa76-4ecb-8c87-5bed7837a1bd",
+    "at": "2026-11-01T16:00:20.199Z",
+    "action": "rule.upserted",
+    "objectType": "rule",
+    "objectId": "rule_dcxjmosh",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "rule_dcxjmosh",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "name": "Auto-approve USD 0.01 once per day",
+      "enabled": true,
+      "condition": {
+        "kind": "budget_topup",
+        "maxUsd": 0.01,
+        "oncePerDays": 1
+      },
+      "createdAt": "2026-11-01T16:00:20.199Z"
+    }
+  },
+  {
+    "id": "aud_aaace4d0-654c-4bd3-8430-4cee10990424",
+    "at": "2026-11-01T16:42:20.221Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+    "actor": {
+      "type": "member",
+      "id": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "displayName": "Nils"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "hard parsing task",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-01T16:42:20.221Z",
+      "expiresAt": "2026-11-04T16:42:20.221Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_a2dc7b07-0411-415b-ac86-e3d00d7dd10f",
+    "at": "2026-11-02T00:50:18.999Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "use the enabled model",
+    "before": {
+      "id": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "hard parsing task",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-01T16:42:20.221Z",
+      "expiresAt": "2026-11-04T16:42:20.221Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "hard parsing task",
+      "state": "denied",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-01T16:42:20.221Z",
+      "expiresAt": "2026-11-04T16:42:20.221Z",
+      "decidedAt": "2026-11-02T00:50:18.999Z"
+    }
+  },
+  {
+    "id": "aud_68b1e541-d88b-43a6-8b99-96a5048a2078",
+    "at": "2026-11-02T05:05:03.566Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+    "actor": {
+      "type": "member",
+      "id": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "displayName": "Nils"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "The wordfreq CLI and its 22 pytest cases pass; I need flagship's context to audit the Unicode tokenizer regex against mixed-script input and the CLI error paths before I commit.",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:05:03.566Z",
+      "expiresAt": "2026-11-05T05:05:03.566Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_29a53154-f0a4-44be-8bcd-20f04ad2e95a",
+    "at": "2026-11-02T05:07:23.947Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_975cec1c-3aa6-4dbd-b357-9e62cdc71089",
+    "actor": {
+      "type": "member",
+      "id": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "displayName": "Edda"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_975cec1c-3aa6-4dbd-b357-9e62cdc71089",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "need headroom to validate the fix and commit",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.02,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:07:23.947Z",
+      "expiresAt": "2026-11-05T05:07:23.947Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_6bd0a5a7-e3ad-408f-80c4-2cd4fc8eae25",
+    "at": "2026-11-02T05:07:46.266Z",
+    "action": "request.cancelled",
+    "objectType": "request",
+    "objectId": "req_975cec1c-3aa6-4dbd-b357-9e62cdc71089",
+    "actor": {
+      "type": "member",
+      "id": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "displayName": "Edda"
+    },
+    "reason": null,
+    "before": {
+      "id": "req_975cec1c-3aa6-4dbd-b357-9e62cdc71089",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "need headroom to validate the fix and commit",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.02,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:07:23.947Z",
+      "expiresAt": "2026-11-05T05:07:23.947Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_975cec1c-3aa6-4dbd-b357-9e62cdc71089",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "need headroom to validate the fix and commit",
+      "state": "cancelled",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.02,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:07:23.947Z",
+      "expiresAt": "2026-11-05T05:07:23.947Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_d0ae3379-b85e-4135-8556-36ccc77e88c9",
+    "at": "2026-11-02T05:07:47.525Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+    "actor": {
+      "type": "member",
+      "id": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "displayName": "Edda"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.01,
+      "modelId": null,
+      "message": "need headroom to validate the fix and commit",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.02,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:07:47.525Z",
+      "expiresAt": "2026-11-05T05:07:47.525Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_0d65eb43-5760-4224-b23d-b509d1296a6e",
+    "at": "2026-11-02T05:07:47.525Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+    "actor": {
+      "type": "rule",
+      "id": "rule_dcxjmosh",
+      "displayName": "Auto-approve USD 0.01 once per day"
+    },
+    "reason": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh).",
+    "before": {
+      "id": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.01,
+      "modelId": null,
+      "message": "need headroom to validate the fix and commit",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.02,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:07:47.525Z",
+      "expiresAt": "2026-11-05T05:07:47.525Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.01,
+      "modelId": null,
+      "message": "need headroom to validate the fix and commit",
+      "state": "approved",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.02,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:07:47.525Z",
+      "expiresAt": "2026-11-05T05:07:47.525Z",
+      "decidedAt": "2026-11-02T05:07:47.525Z"
+    }
+  },
+  {
+    "id": "aud_718c3362-e01f-4896-b2cd-f7b641539113",
+    "at": "2026-11-02T05:07:47.525Z",
+    "action": "grant.issued",
+    "objectType": "grant",
+    "objectId": "grn_54d6d413-416d-4f35-9322-be177a26426c",
+    "actor": {
+      "type": "rule",
+      "id": "rule_dcxjmosh",
+      "displayName": "Auto-approve USD 0.01 once per day"
+    },
+    "reason": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh).",
+    "before": null,
+    "after": {
+      "id": "grn_54d6d413-416d-4f35-9322-be177a26426c",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "scope": "budget",
+      "amountUsd": 0.01,
+      "modelId": null,
+      "tokenCap": null,
+      "requestId": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+      "issuedBy": "rule",
+      "issuedById": "rule_dcxjmosh",
+      "startsAt": "2026-11-02T05:07:47.525Z",
+      "expiresAt": "2026-11-03T00:00:00.000Z",
+      "revokedAt": null,
+      "createdAt": "2026-11-02T05:07:47.525Z"
+    }
+  },
+  {
+    "id": "aud_203d76b0-4725-4944-b1e2-4df3161236ca",
+    "at": "2026-11-02T05:07:47.543Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.02,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.03,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_fb9bfcdf-92fb-46e7-9d45-bcf1c500508f",
+    "at": "2026-11-02T05:08:05.739Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+    "actor": {
+      "type": "member",
+      "id": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "displayName": "Edda"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "need a little more headroom to finish the commit",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.03,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:08:05.739Z",
+      "expiresAt": "2026-11-05T05:08:05.739Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_c1e92354-f6ce-484b-8266-c6f984f6bd60",
+    "at": "2026-11-02T05:08:26.971Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "finish with what you have, commit, report",
+    "before": {
+      "id": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "need a little more headroom to finish the commit",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.03,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:08:05.739Z",
+      "expiresAt": "2026-11-05T05:08:05.739Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+      "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "need a little more headroom to finish the commit",
+      "state": "denied",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.03,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:08:05.739Z",
+      "expiresAt": "2026-11-05T05:08:05.739Z",
+      "decidedAt": "2026-11-02T05:08:26.971Z"
+    }
+  },
+  {
+    "id": "aud_2707c69b-61fb-4620-b5f3-8e5fc0e77749",
+    "at": "2026-11-02T05:17:45.004Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "approved for 15 minutes per team-test rule",
+    "before": {
+      "id": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "The wordfreq CLI and its 22 pytest cases pass; I need flagship's context to audit the Unicode tokenizer regex against mixed-script input and the CLI error paths before I commit.",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:05:03.566Z",
+      "expiresAt": "2026-11-05T05:05:03.566Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "The wordfreq CLI and its 22 pytest cases pass; I need flagship's context to audit the Unicode tokenizer regex against mixed-script input and the CLI error paths before I commit.",
+      "state": "approved",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:05:03.566Z",
+      "expiresAt": "2026-11-05T05:05:03.566Z",
+      "decidedAt": "2026-11-02T05:17:45.004Z"
+    }
+  },
+  {
+    "id": "aud_eeafeb8d-7307-40b7-a6ee-8b009d7b0f8c",
+    "at": "2026-11-02T05:17:45.004Z",
+    "action": "grant.issued",
+    "objectType": "grant",
+    "objectId": "grn_401c9b01-d736-4c08-91ac-39a4a2fb534c",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "approved for 15 minutes per team-test rule",
+    "before": null,
+    "after": {
+      "id": "grn_401c9b01-d736-4c08-91ac-39a4a2fb534c",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "scope": "model",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "tokenCap": null,
+      "requestId": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+      "issuedBy": "manager",
+      "issuedById": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "startsAt": "2026-11-02T05:17:45.004Z",
+      "expiresAt": "2026-11-02T05:32:00.000Z",
+      "revokedAt": null,
+      "createdAt": "2026-11-02T05:17:45.004Z"
+    }
+  },
+  {
+    "id": "aud_4a7a3b49-36c3-4541-92b0-7dac3ed691ac",
+    "at": "2026-11-02T05:17:45.018Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models",
+    "before": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash",
+        "flagship"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_d99d12e9-3d03-4bad-8eaf-0ae4ee7e66d6",
+    "at": "2026-11-02T05:32:01.182Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models",
+    "before": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash",
+        "flagship"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_01c67f72-a650-4491-a390-f7a80b5bcbbf",
+    "at": "2026-11-02T05:45:17.048Z",
+    "action": "watcher.token_cap_block",
+    "objectType": "member",
+    "objectId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+    "actor": {
+      "type": "watcher",
+      "id": "watcher",
+      "displayName": "Watcher"
+    },
+    "reason": "token cap reached: 4086 of 3000 tokens this daily [taa-watcher kind=token_cap until=2026-11-03T00:00:00.000Z]",
+    "before": {
+      "id": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "displayName": "Ines",
+      "email": null,
+      "role": "member",
+      "keyAlias": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "blocked": false,
+      "blockedReason": null,
+      "createdAt": "2026-11-01T16:00:19.269Z",
+      "updatedAt": "2026-11-01T16:00:19.342Z"
+    },
+    "after": {
+      "id": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "displayName": "Ines",
+      "email": null,
+      "role": "member",
+      "keyAlias": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "blocked": true,
+      "blockedReason": "token cap reached: 4086 of 3000 tokens this daily [taa-watcher kind=token_cap until=2026-11-03T00:00:00.000Z]",
+      "createdAt": "2026-11-01T16:00:19.269Z",
+      "updatedAt": "2026-11-02T05:45:17.565Z"
+    }
+  },
+  {
+    "id": "aud_3b6e8ba3-42c3-4b5c-a556-259d42f306f1",
+    "at": "2026-11-02T05:45:17.675Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: blocked",
+    "before": {
+      "keyAlias": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": true
+    }
+  },
+  {
+    "id": "aud_0d7bc828-2458-475b-ad3a-280dfc6c7f3a",
+    "at": "2026-11-02T05:45:21.285Z",
+    "action": "member.blocked",
+    "objectType": "member",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "D5 probe: key block",
+    "before": {
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "displayName": "Rune",
+      "email": null,
+      "role": "member",
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "blocked": false,
+      "blockedReason": null,
+      "createdAt": "2026-11-01T16:00:19.401Z",
+      "updatedAt": "2026-11-01T16:00:19.481Z"
+    },
+    "after": {
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "displayName": "Rune",
+      "email": null,
+      "role": "member",
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "blocked": true,
+      "blockedReason": "D5 probe: key block",
+      "createdAt": "2026-11-01T16:00:19.401Z",
+      "updatedAt": "2026-11-02T05:45:21.285Z"
+    }
+  },
+  {
+    "id": "aud_925f2a22-0602-4a0b-b2f3-8a742b0e4b9e",
+    "at": "2026-11-02T05:45:21.295Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: blocked",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": true
+    }
+  },
+  {
+    "id": "aud_ceb092e3-c8fd-4f41-9fb0-613e0f0e4116",
+    "at": "2026-11-02T05:45:21.303Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: blocked",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": true
+    }
+  },
+  {
+    "id": "aud_4be04bfb-5b9a-42d4-a0bd-1c3521c87612",
+    "at": "2026-11-02T05:45:21.369Z",
+    "action": "member.unblocked",
+    "objectType": "member",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "displayName": "Rune",
+      "email": null,
+      "role": "member",
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "blocked": true,
+      "blockedReason": "D5 probe: key block",
+      "createdAt": "2026-11-01T16:00:19.401Z",
+      "updatedAt": "2026-11-02T05:45:21.285Z"
+    },
+    "after": {
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "displayName": "Rune",
+      "email": null,
+      "role": "member",
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "blocked": false,
+      "blockedReason": null,
+      "createdAt": "2026-11-01T16:00:19.401Z",
+      "updatedAt": "2026-11-02T05:45:21.369Z"
+    }
+  },
+  {
+    "id": "aud_f6475653-317e-4df2-9493-90b1853dcdcd",
+    "at": "2026-11-02T05:45:21.382Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: blocked",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": true
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_1aa45199-0d93-4198-8ab7-7749444f4cff",
+    "at": "2026-11-02T05:45:22.550Z",
+    "action": "key.rotated",
+    "objectType": "member",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be"
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be"
+    }
+  },
+  {
+    "id": "aud_95c19e55-0a92-46d8-96e8-8366889d52ca",
+    "at": "2026-11-02T05:45:28.726Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+    "actor": {
+      "type": "member",
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "displayName": "Rune"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.01,
+      "modelId": null,
+      "message": "D5 probe: request to cancel",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.05,
+        "topModels": [],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:28.726Z",
+      "expiresAt": "2026-11-05T05:45:28.726Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_cea5e03f-3d3c-4e8b-a4ff-3b6fb3a2acc3",
+    "at": "2026-11-02T05:45:28.726Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+    "actor": {
+      "type": "rule",
+      "id": "rule_dcxjmosh",
+      "displayName": "Auto-approve USD 0.01 once per day"
+    },
+    "reason": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh).",
+    "before": {
+      "id": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.01,
+      "modelId": null,
+      "message": "D5 probe: request to cancel",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.05,
+        "topModels": [],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:28.726Z",
+      "expiresAt": "2026-11-05T05:45:28.726Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.01,
+      "modelId": null,
+      "message": "D5 probe: request to cancel",
+      "state": "approved",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.05,
+        "topModels": [],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:28.726Z",
+      "expiresAt": "2026-11-05T05:45:28.726Z",
+      "decidedAt": "2026-11-02T05:45:28.726Z"
+    }
+  },
+  {
+    "id": "aud_aea53036-b145-468c-a541-ca47a0109dc5",
+    "at": "2026-11-02T05:45:28.726Z",
+    "action": "grant.issued",
+    "objectType": "grant",
+    "objectId": "grn_2ad9d189-a984-4aea-be2a-ff74e505af2e",
+    "actor": {
+      "type": "rule",
+      "id": "rule_dcxjmosh",
+      "displayName": "Auto-approve USD 0.01 once per day"
+    },
+    "reason": "Auto-approved by rule \"Auto-approve USD 0.01 once per day\" (rule_dcxjmosh).",
+    "before": null,
+    "after": {
+      "id": "grn_2ad9d189-a984-4aea-be2a-ff74e505af2e",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "scope": "budget",
+      "amountUsd": 0.01,
+      "modelId": null,
+      "tokenCap": null,
+      "requestId": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+      "issuedBy": "rule",
+      "issuedById": "rule_dcxjmosh",
+      "startsAt": "2026-11-02T05:45:28.726Z",
+      "expiresAt": "2026-11-03T00:00:00.000Z",
+      "revokedAt": null,
+      "createdAt": "2026-11-02T05:45:28.726Z"
+    }
+  },
+  {
+    "id": "aud_d6194cf6-fb8e-4aa3-a0e9-357afda4f05d",
+    "at": "2026-11-02T05:45:28.739Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.06,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.07,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_603580fd-c392-4201-badc-a734d98e6365",
+    "at": "2026-11-02T05:45:28.784Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+    "actor": {
+      "type": "member",
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "displayName": "Rune"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "suggestion",
+      "amountUsd": null,
+      "modelId": null,
+      "message": "D5 probe: suggestion to note",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:28.784Z",
+      "expiresAt": "2026-11-05T05:45:28.784Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_aad94d96-8dd9-4397-bd1e-9b4f4a6543d4",
+    "at": "2026-11-02T05:45:28.801Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "noted",
+    "before": {
+      "id": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "suggestion",
+      "amountUsd": null,
+      "modelId": null,
+      "message": "D5 probe: suggestion to note",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:28.784Z",
+      "expiresAt": "2026-11-05T05:45:28.784Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "suggestion",
+      "amountUsd": null,
+      "modelId": null,
+      "message": "D5 probe: suggestion to note",
+      "state": "approved",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:28.784Z",
+      "expiresAt": "2026-11-05T05:45:28.784Z",
+      "decidedAt": "2026-11-02T05:45:28.801Z"
+    }
+  },
+  {
+    "id": "aud_cbb0e6c3-dc64-4dce-b83e-72ac81bc06fc",
+    "at": "2026-11-02T05:45:53.547Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+    "actor": {
+      "type": "member",
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "displayName": "Rune"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "D5 probe: request to cancel",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [
+          {
+            "modelId": "blocked-model",
+            "spendUsd": 0
+          },
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:53.547Z",
+      "expiresAt": "2026-11-05T05:45:53.547Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_912b858d-c8f5-4900-a8aa-242eba3af861",
+    "at": "2026-11-02T05:45:53.569Z",
+    "action": "request.cancelled",
+    "objectType": "request",
+    "objectId": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+    "actor": {
+      "type": "member",
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "displayName": "Rune"
+    },
+    "reason": null,
+    "before": {
+      "id": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "D5 probe: request to cancel",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [
+          {
+            "modelId": "blocked-model",
+            "spendUsd": 0
+          },
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:53.547Z",
+      "expiresAt": "2026-11-05T05:45:53.547Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "D5 probe: request to cancel",
+      "state": "cancelled",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [
+          {
+            "modelId": "blocked-model",
+            "spendUsd": 0
+          },
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:53.547Z",
+      "expiresAt": "2026-11-05T05:45:53.547Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_d6cbeba5-1ed0-410d-a175-9fe9f5870649",
+    "at": "2026-11-02T05:45:53.588Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+    "actor": {
+      "type": "member",
+      "id": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "displayName": "Rune"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "suggestion",
+      "amountUsd": null,
+      "modelId": null,
+      "message": "D5 probe: suggestion to note",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [
+          {
+            "modelId": "blocked-model",
+            "spendUsd": 0
+          },
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:53.588Z",
+      "expiresAt": "2026-11-05T05:45:53.588Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_7f37a7f9-7908-4a26-a766-1fe44aa592d4",
+    "at": "2026-11-02T05:45:53.607Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "noted",
+    "before": {
+      "id": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "suggestion",
+      "amountUsd": null,
+      "modelId": null,
+      "message": "D5 probe: suggestion to note",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [
+          {
+            "modelId": "blocked-model",
+            "spendUsd": 0
+          },
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:53.588Z",
+      "expiresAt": "2026-11-05T05:45:53.588Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "suggestion",
+      "amountUsd": null,
+      "modelId": null,
+      "message": "D5 probe: suggestion to note",
+      "state": "approved",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.06,
+        "topModels": [
+          {
+            "modelId": "blocked-model",
+            "spendUsd": 0
+          },
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:53.588Z",
+      "expiresAt": "2026-11-05T05:45:53.588Z",
+      "decidedAt": "2026-11-02T05:45:53.607Z"
+    }
+  },
+  {
+    "id": "aud_017bf1b5-1146-48ef-b529-4dc30a5d958e",
+    "at": "2026-11-02T05:45:57.681Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+    "actor": {
+      "type": "member",
+      "id": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "displayName": "Nils"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "D5 probe: re-verify the 15-minute flagship unlock after the earlier grant expired; one tiny call, then expiry.",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:57.681Z",
+      "expiresAt": "2026-11-05T05:45:57.681Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_260f1cf6-a4d8-4b2f-bb66-1de70ac3f346",
+    "at": "2026-11-02T05:45:57.705Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "D5 probe: approved for 15 minutes to observe the unlock and its expiry",
+    "before": {
+      "id": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "D5 probe: re-verify the 15-minute flagship unlock after the earlier grant expired; one tiny call, then expiry.",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:57.681Z",
+      "expiresAt": "2026-11-05T05:45:57.681Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "model_unlock",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "message": "D5 probe: re-verify the 15-minute flagship unlock after the earlier grant expired; one tiny call, then expiry.",
+      "state": "approved",
+      "context": {
+        "spendThisPeriodUsd": 0,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0
+          }
+        ],
+        "last7DaysUsd": 0
+      },
+      "createdAt": "2026-11-02T05:45:57.681Z",
+      "expiresAt": "2026-11-05T05:45:57.681Z",
+      "decidedAt": "2026-11-02T05:45:57.705Z"
+    }
+  },
+  {
+    "id": "aud_efeb7ab1-b8b6-4158-a63d-ec2da4f32c64",
+    "at": "2026-11-02T05:45:57.705Z",
+    "action": "grant.issued",
+    "objectType": "grant",
+    "objectId": "grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "D5 probe: approved for 15 minutes to observe the unlock and its expiry",
+    "before": null,
+    "after": {
+      "id": "grn_f9b9f4b3-de7d-4862-8e1c-33a43d44a916",
+      "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "scope": "model",
+      "amountUsd": null,
+      "modelId": "flagship",
+      "tokenCap": null,
+      "requestId": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+      "issuedBy": "manager",
+      "issuedById": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "startsAt": "2026-11-02T05:45:57.705Z",
+      "expiresAt": "2026-11-02T06:00:57.702Z",
+      "revokedAt": null,
+      "createdAt": "2026-11-02T05:45:57.705Z"
+    }
+  },
+  {
+    "id": "aud_df36a86b-789e-4aea-84ce-84350692c361",
+    "at": "2026-11-02T05:45:57.782Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models",
+    "before": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash",
+        "flagship"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_1f54dd4a-9bca-4e98-b43c-d468d400963c",
+    "at": "2026-11-02T06:01:01.405Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: models",
+    "before": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash",
+        "flagship"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_2a0723bd-de66-422c-8f82-23cbf9ff3556",
+    "at": "2026-11-02T06:01:36.381Z",
+    "action": "limits.updated",
+    "objectType": "limits",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "budgetUsd": 0.05,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    },
+    "after": {
+      "budgetUsd": 0.003,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    }
+  },
+  {
+    "id": "aud_414a4c55-c42d-492e-9eff-bf06d4b68b87",
+    "at": "2026-11-02T06:01:36.395Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.07,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.01,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_d24688ec-a322-4d99-824d-4b66f847140f",
+    "at": "2026-11-02T06:02:11.997Z",
+    "action": "limits.updated",
+    "objectType": "limits",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "budgetUsd": 0.003,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    },
+    "after": {
+      "budgetUsd": 0.05,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    }
+  },
+  {
+    "id": "aud_19f36e03-cfef-4dbb-8af7-924258a8e73b",
+    "at": "2026-11-02T06:02:12.020Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.01,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.07,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_81a78296-1243-4ff8-adfe-a468a7aa86e3",
+    "at": "2026-11-02T06:04:21.596Z",
+    "action": "limits.updated",
+    "objectType": "limits",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "budgetUsd": 0.05,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    },
+    "after": {
+      "budgetUsd": 0.008144,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    }
+  },
+  {
+    "id": "aud_b3830463-dcd3-4506-81ae-a13c2a0819e5",
+    "at": "2026-11-02T06:04:21.607Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.07,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.02,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_3d62c8d1-76af-4fcc-a36a-596dca87d41e",
+    "at": "2026-11-02T06:05:13.567Z",
+    "action": "limits.updated",
+    "objectType": "limits",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "budgetUsd": 0.008144,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    },
+    "after": {
+      "budgetUsd": 0.05,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    }
+  },
+  {
+    "id": "aud_2bc370f7-4ce1-4e9b-bbe3-3993693c7fd1",
+    "at": "2026-11-02T06:05:13.578Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.02,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.07,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_60e067a6-96aa-4cf4-8e40-e5abff7473fa",
+    "at": "2026-11-02T06:08:29.449Z",
+    "action": "limits.updated",
+    "objectType": "limits",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "budgetUsd": 0.05,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    },
+    "after": {
+      "budgetUsd": 0.01,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    }
+  },
+  {
+    "id": "aud_c983629f-e219-40c3-9ae7-84ce584ea84c",
+    "at": "2026-11-02T06:08:29.518Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.07,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.02,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_45eb23e1-094e-42b2-8547-a4c1f56fb158",
+    "at": "2026-11-02T06:09:17.265Z",
+    "action": "limits.updated",
+    "objectType": "limits",
+    "objectId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "budgetUsd": 0.01,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    },
+    "after": {
+      "budgetUsd": 0.05,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    }
+  },
+  {
+    "id": "aud_a0c8ecfb-e0bc-4673-a2a4-b2aa5d0df959",
+    "at": "2026-11-02T06:09:17.308Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.02,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.07,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_3717a745-2751-490e-a229-0437016c6be1",
+    "at": "2026-11-02T08:06:57.142Z",
+    "action": "limits.updated",
+    "objectType": "limits",
+    "objectId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": null,
+    "before": {
+      "budgetUsd": 0.02,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    },
+    "after": {
+      "budgetUsd": 0.04,
+      "period": "daily",
+      "tokenCap": null,
+      "rpm": null,
+      "tpm": null
+    }
+  },
+  {
+    "id": "aud_4b3427a6-ba56-49ab-bfd1-10896dbdb2e6",
+    "at": "2026-11-02T08:06:57.164Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: maxBudgetUsd",
+    "before": {
+      "keyAlias": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.02,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    }
+  },
+  {
+    "id": "aud_ebcda713-f9c2-4511-8935-644b7208f2bd",
+    "at": "2026-11-02T08:08:34.693Z",
+    "action": "request.created",
+    "objectType": "request",
+    "objectId": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+    "actor": {
+      "type": "member",
+      "id": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "displayName": "Mira"
+    },
+    "reason": null,
+    "before": null,
+    "after": {
+      "id": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "unitconv committed with 43 passing tests; need headroom to finish and verify through the gateway",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0.02,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0.02
+          }
+        ],
+        "last7DaysUsd": 0.02
+      },
+      "createdAt": "2026-11-02T08:08:34.693Z",
+      "expiresAt": "2026-11-05T08:08:34.693Z",
+      "decidedAt": null
+    }
+  },
+  {
+    "id": "aud_d1ec9779-bcb2-4446-b103-294fab7bc93f",
+    "at": "2026-11-02T08:16:49.350Z",
+    "action": "request.decided",
+    "objectType": "request",
+    "objectId": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+    "actor": {
+      "type": "manager",
+      "id": "mem_edd8e370-0c5c-4e78-a460-88ca73769364",
+      "displayName": null
+    },
+    "reason": "continue; the gateway will stop you at the limit",
+    "before": {
+      "id": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "unitconv committed with 43 passing tests; need headroom to finish and verify through the gateway",
+      "state": "pending",
+      "context": {
+        "spendThisPeriodUsd": 0.02,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0.02
+          }
+        ],
+        "last7DaysUsd": 0.02
+      },
+      "createdAt": "2026-11-02T08:08:34.693Z",
+      "expiresAt": "2026-11-05T08:08:34.693Z",
+      "decidedAt": null
+    },
+    "after": {
+      "id": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "kind": "more_budget",
+      "amountUsd": 0.02,
+      "modelId": null,
+      "message": "unitconv committed with 43 passing tests; need headroom to finish and verify through the gateway",
+      "state": "denied",
+      "context": {
+        "spendThisPeriodUsd": 0.02,
+        "limitUsd": 0.04,
+        "topModels": [
+          {
+            "modelId": "deepseek-v4.1-flash",
+            "spendUsd": 0.02
+          }
+        ],
+        "last7DaysUsd": 0.02
+      },
+      "createdAt": "2026-11-02T08:08:34.693Z",
+      "expiresAt": "2026-11-05T08:08:34.693Z",
+      "decidedAt": "2026-11-02T08:16:49.350Z"
+    }
+  },
+  {
+    "id": "aud_409cc998-d45d-4ad6-a1b8-7ee0327da4e3",
+    "at": "2026-11-02T08:28:50.551Z",
+    "action": "key.state_applied",
+    "objectType": "key",
+    "objectId": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "actor": {
+      "type": "reconciler",
+      "id": "reconciler",
+      "displayName": "Reconciler"
+    },
+    "reason": "reconciler applied: blocked",
+    "before": {
+      "keyAlias": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": false
+    },
+    "after": {
+      "keyAlias": "taa-mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "models": [
+        "deepseek-v4.1-flash"
+      ],
+      "maxBudgetUsd": 0.05,
+      "budgetDuration": "1d",
+      "tpmLimit": null,
+      "rpmLimit": null,
+      "blocked": true
+    }
+  }
+]

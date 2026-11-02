@@ -1,0 +1,33 @@
+{
+  "team": {
+    "name": "Demo Works",
+    "gatewayUrl": "https://gateway.example.com",
+    "providerId": "team-gateway",
+    "defaultModel": "deepseek-v4.1-flash",
+    "models": [
+      {
+        "id": "deepseek-v4.1-flash",
+        "displayName": "DeepSeek V4.1 Flash"
+      },
+      {
+        "id": "qwen3-coder",
+        "displayName": "Qwen3 Coder"
+      }
+    ],
+    "controlUrl": "https://allowance.example.com",
+    "mcp": {
+      "command": "taa",
+      "args": ["mcp"]
+    },
+    "pluginPath": "/etc/opencode/plugins/team-ai-allowance.ts",
+    "security": {
+      "allowedApprovalPolicies": ["on-request"],
+      "allowedSandboxModes": ["read-only", "workspace-write"]
+    }
+  },
+  "member": {
+    "id": "mbr_demo",
+    "displayName": "Ada",
+    "email": "ada@example.com"
+  }
+}

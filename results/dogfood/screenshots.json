@@ -1,0 +1,287 @@
+{
+  "capturedAt": "2026-11-02T09:02:18.762Z",
+  "note": "One temporary manager per team was created for the console login because the Leader passwords were not recoverable; see reports/DOGFOOD.md.",
+  "auditTo": "2026-11-02T08:35:00.000Z",
+  "screenshots": [
+    {
+      "file": "overview-crew-1280-light.png",
+      "page": "overview",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "light",
+      "url": "/",
+      "title": "Overview · Allowance console",
+      "capturedAt": "2026-11-02T09:01:56.616Z"
+    },
+    {
+      "file": "overview-crew-1280-dark.png",
+      "page": "overview",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "dark",
+      "url": "/",
+      "title": "Overview · Allowance console",
+      "capturedAt": "2026-11-02T09:01:57.429Z"
+    },
+    {
+      "file": "overview-crew-360-light.png",
+      "page": "overview",
+      "team": "Crew",
+      "width": 360,
+      "theme": "light",
+      "url": "/",
+      "title": "Overview · Allowance console",
+      "capturedAt": "2026-11-02T09:01:58.196Z"
+    },
+    {
+      "file": "overview-crew-360-dark.png",
+      "page": "overview",
+      "team": "Crew",
+      "width": 360,
+      "theme": "dark",
+      "url": "/",
+      "title": "Overview · Allowance console",
+      "capturedAt": "2026-11-02T09:01:58.952Z"
+    },
+    {
+      "file": "requests-history-crew-1280-light.png",
+      "page": "requests-history",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "light",
+      "url": "/requests?view=history",
+      "title": "Requests · Allowance console",
+      "capturedAt": "2026-11-02T09:01:59.715Z"
+    },
+    {
+      "file": "requests-history-crew-1280-dark.png",
+      "page": "requests-history",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "dark",
+      "url": "/requests?view=history",
+      "title": "Requests · Allowance console",
+      "capturedAt": "2026-11-02T09:02:00.457Z"
+    },
+    {
+      "file": "requests-history-crew-360-light.png",
+      "page": "requests-history",
+      "team": "Crew",
+      "width": 360,
+      "theme": "light",
+      "url": "/requests?view=history",
+      "title": "Requests · Allowance console",
+      "capturedAt": "2026-11-02T09:02:01.137Z"
+    },
+    {
+      "file": "requests-history-crew-360-dark.png",
+      "page": "requests-history",
+      "team": "Crew",
+      "width": 360,
+      "theme": "dark",
+      "url": "/requests?view=history",
+      "title": "Requests · Allowance console",
+      "capturedAt": "2026-11-02T09:02:01.790Z"
+    },
+    {
+      "file": "member-m1-crew-1280-light.png",
+      "page": "member-m1",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "light",
+      "url": "/members/mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Mira · Allowance console",
+      "capturedAt": "2026-11-02T09:02:02.570Z"
+    },
+    {
+      "file": "member-m1-crew-1280-dark.png",
+      "page": "member-m1",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "dark",
+      "url": "/members/mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Mira · Allowance console",
+      "capturedAt": "2026-11-02T09:02:03.317Z"
+    },
+    {
+      "file": "member-m1-crew-360-light.png",
+      "page": "member-m1",
+      "team": "Crew",
+      "width": 360,
+      "theme": "light",
+      "url": "/members/mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Mira · Allowance console",
+      "capturedAt": "2026-11-02T09:02:04.024Z"
+    },
+    {
+      "file": "member-m1-crew-360-dark.png",
+      "page": "member-m1",
+      "team": "Crew",
+      "width": 360,
+      "theme": "dark",
+      "url": "/members/mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Mira · Allowance console",
+      "capturedAt": "2026-11-02T09:02:04.726Z"
+    },
+    {
+      "file": "audit-crew-1280-light.png",
+      "page": "audit",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "light",
+      "url": "/audit?to=2026-11-02T08%3A35%3A00.000Z",
+      "title": "Audit · Allowance console",
+      "capturedAt": "2026-11-02T09:02:05.878Z"
+    },
+    {
+      "file": "audit-crew-1280-dark.png",
+      "page": "audit",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "dark",
+      "url": "/audit?to=2026-11-02T08%3A35%3A00.000Z",
+      "title": "Audit · Allowance console",
+      "capturedAt": "2026-11-02T09:02:07.052Z"
+    },
+    {
+      "file": "audit-crew-360-light.png",
+      "page": "audit",
+      "team": "Crew",
+      "width": 360,
+      "theme": "light",
+      "url": "/audit?to=2026-11-02T08%3A35%3A00.000Z",
+      "title": "Audit · Allowance console",
+      "capturedAt": "2026-11-02T09:02:08.307Z"
+    },
+    {
+      "file": "audit-crew-360-dark.png",
+      "page": "audit",
+      "team": "Crew",
+      "width": 360,
+      "theme": "dark",
+      "url": "/audit?to=2026-11-02T08%3A35%3A00.000Z",
+      "title": "Audit · Allowance console",
+      "capturedAt": "2026-11-02T09:02:09.377Z"
+    },
+    {
+      "file": "usage-crew-1280-light.png",
+      "page": "usage",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "light",
+      "url": "/usage?period=7d",
+      "title": "Usage · Allowance console",
+      "capturedAt": "2026-11-02T09:02:10.160Z"
+    },
+    {
+      "file": "usage-crew-1280-dark.png",
+      "page": "usage",
+      "team": "Crew",
+      "width": 1280,
+      "theme": "dark",
+      "url": "/usage?period=7d",
+      "title": "Usage · Allowance console",
+      "capturedAt": "2026-11-02T09:02:10.905Z"
+    },
+    {
+      "file": "usage-crew-360-light.png",
+      "page": "usage",
+      "team": "Crew",
+      "width": 360,
+      "theme": "light",
+      "url": "/usage?period=7d",
+      "title": "Usage · Allowance console",
+      "capturedAt": "2026-11-02T09:02:11.679Z"
+    },
+    {
+      "file": "usage-crew-360-dark.png",
+      "page": "usage",
+      "team": "Crew",
+      "width": 360,
+      "theme": "dark",
+      "url": "/usage?period=7d",
+      "title": "Usage · Allowance console",
+      "capturedAt": "2026-11-02T09:02:12.457Z"
+    },
+    {
+      "file": "overview-night-1280-light.png",
+      "page": "overview",
+      "team": "Night",
+      "width": 1280,
+      "theme": "light",
+      "url": "/",
+      "title": "Overview · Allowance console",
+      "capturedAt": "2026-11-02T09:02:13.635Z"
+    },
+    {
+      "file": "overview-night-1280-dark.png",
+      "page": "overview",
+      "team": "Night",
+      "width": 1280,
+      "theme": "dark",
+      "url": "/",
+      "title": "Overview · Allowance console",
+      "capturedAt": "2026-11-02T09:02:14.387Z"
+    },
+    {
+      "file": "overview-night-360-light.png",
+      "page": "overview",
+      "team": "Night",
+      "width": 360,
+      "theme": "light",
+      "url": "/",
+      "title": "Overview · Allowance console",
+      "capturedAt": "2026-11-02T09:02:15.120Z"
+    },
+    {
+      "file": "overview-night-360-dark.png",
+      "page": "overview",
+      "team": "Night",
+      "width": 360,
+      "theme": "dark",
+      "url": "/",
+      "title": "Overview · Allowance console",
+      "capturedAt": "2026-11-02T09:02:15.814Z"
+    },
+    {
+      "file": "audit-night-1280-light.png",
+      "page": "audit",
+      "team": "Night",
+      "width": 1280,
+      "theme": "light",
+      "url": "/audit?to=2026-11-02T08%3A35%3A00.000Z",
+      "title": "Audit · Allowance console",
+      "capturedAt": "2026-11-02T09:02:16.541Z"
+    },
+    {
+      "file": "audit-night-1280-dark.png",
+      "page": "audit",
+      "team": "Night",
+      "width": 1280,
+      "theme": "dark",
+      "url": "/audit?to=2026-11-02T08%3A35%3A00.000Z",
+      "title": "Audit · Allowance console",
+      "capturedAt": "2026-11-02T09:02:17.296Z"
+    },
+    {
+      "file": "audit-night-360-light.png",
+      "page": "audit",
+      "team": "Night",
+      "width": 360,
+      "theme": "light",
+      "url": "/audit?to=2026-11-02T08%3A35%3A00.000Z",
+      "title": "Audit · Allowance console",
+      "capturedAt": "2026-11-02T09:02:18.010Z"
+    },
+    {
+      "file": "audit-night-360-dark.png",
+      "page": "audit",
+      "team": "Night",
+      "width": 360,
+      "theme": "dark",
+      "url": "/audit?to=2026-11-02T08%3A35%3A00.000Z",
+      "title": "Audit · Allowance console",
+      "capturedAt": "2026-11-02T09:02:18.723Z"
+    }
+  ]
+}

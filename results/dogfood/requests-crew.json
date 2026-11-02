@@ -1,0 +1,123 @@
+[
+  {
+    "id": "req_40fe72c3-6f92-4fcd-b880-ac57fcbe9395",
+    "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+    "kind": "more_budget",
+    "amountUsd": 0.02,
+    "modelId": null,
+    "message": "unitconv committed with 43 passing tests; need headroom to finish and verify through the gateway",
+    "state": "denied",
+    "createdAt": "2026-11-02T08:08:34.693Z",
+    "decidedAt": "2026-11-02T08:16:49.350Z"
+  },
+  {
+    "id": "req_1ef5c0ab-14e2-41e0-abde-b79238375cb1",
+    "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "kind": "model_unlock",
+    "amountUsd": null,
+    "modelId": "flagship",
+    "message": "D5 probe: re-verify the 15-minute flagship unlock after the earlier grant expired; one tiny call, then expiry.",
+    "state": "approved",
+    "createdAt": "2026-11-02T05:45:57.681Z",
+    "decidedAt": "2026-11-02T05:45:57.705Z"
+  },
+  {
+    "id": "req_b909abae-e6b6-4598-9322-bcbbaf70a398",
+    "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "kind": "suggestion",
+    "amountUsd": null,
+    "modelId": null,
+    "message": "D5 probe: suggestion to note",
+    "state": "approved",
+    "createdAt": "2026-11-02T05:45:53.588Z",
+    "decidedAt": "2026-11-02T05:45:53.607Z"
+  },
+  {
+    "id": "req_e8826d4f-b300-4ee7-aad7-b7ee46856c70",
+    "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "kind": "more_budget",
+    "amountUsd": 0.02,
+    "modelId": null,
+    "message": "D5 probe: request to cancel",
+    "state": "cancelled",
+    "createdAt": "2026-11-02T05:45:53.547Z",
+    "decidedAt": null
+  },
+  {
+    "id": "req_fc3e062d-6665-47c7-a596-0e68612ba0c2",
+    "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "kind": "suggestion",
+    "amountUsd": null,
+    "modelId": null,
+    "message": "D5 probe: suggestion to note",
+    "state": "approved",
+    "createdAt": "2026-11-02T05:45:28.784Z",
+    "decidedAt": "2026-11-02T05:45:28.801Z"
+  },
+  {
+    "id": "req_9eb8ef0d-7552-41f5-b335-a97592d0e927",
+    "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+    "kind": "more_budget",
+    "amountUsd": 0.01,
+    "modelId": null,
+    "message": "D5 probe: request to cancel",
+    "state": "approved",
+    "createdAt": "2026-11-02T05:45:28.726Z",
+    "decidedAt": "2026-11-02T05:45:28.726Z"
+  },
+  {
+    "id": "req_873fa605-1caa-41e4-b718-acdc12ff2763",
+    "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+    "kind": "more_budget",
+    "amountUsd": 0.02,
+    "modelId": null,
+    "message": "need a little more headroom to finish the commit",
+    "state": "denied",
+    "createdAt": "2026-11-02T05:08:05.739Z",
+    "decidedAt": "2026-11-02T05:08:26.971Z"
+  },
+  {
+    "id": "req_be1a4dc6-5a98-4b2e-ab8e-4a3bcc43bbb3",
+    "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+    "kind": "more_budget",
+    "amountUsd": 0.01,
+    "modelId": null,
+    "message": "need headroom to validate the fix and commit",
+    "state": "approved",
+    "createdAt": "2026-11-02T05:07:47.525Z",
+    "decidedAt": "2026-11-02T05:07:47.525Z"
+  },
+  {
+    "id": "req_975cec1c-3aa6-4dbd-b357-9e62cdc71089",
+    "memberId": "mem_6685c5de-2166-4789-b76e-2648abd05c7e",
+    "kind": "more_budget",
+    "amountUsd": 0.02,
+    "modelId": null,
+    "message": "need headroom to validate the fix and commit",
+    "state": "cancelled",
+    "createdAt": "2026-11-02T05:07:23.947Z",
+    "decidedAt": null
+  },
+  {
+    "id": "req_096d0741-8374-47a3-a8a6-3803f2dcca60",
+    "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "kind": "model_unlock",
+    "amountUsd": null,
+    "modelId": "flagship",
+    "message": "The wordfreq CLI and its 22 pytest cases pass; I need flagship's context to audit the Unicode tokenizer regex against mixed-script input and the CLI error paths before I commit.",
+    "state": "approved",
+    "createdAt": "2026-11-02T05:05:03.566Z",
+    "decidedAt": "2026-11-02T05:17:45.004Z"
+  },
+  {
+    "id": "req_8ec3230c-e2c4-4380-ac54-39ec7953c5c6",
+    "memberId": "mem_f01c1ff7-bbf6-4f80-9882-718ab8d13d1d",
+    "kind": "model_unlock",
+    "amountUsd": null,
+    "modelId": "flagship",
+    "message": "hard parsing task",
+    "state": "denied",
+    "createdAt": "2026-11-01T16:42:20.221Z",
+    "decidedAt": "2026-11-02T00:50:18.999Z"
+  }
+]

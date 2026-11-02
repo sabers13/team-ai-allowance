@@ -1,0 +1,36 @@
+# LiteLLM proxy configuration for tests and the demo.
+#
+# Every route points at the local mock upstream, so this stack never calls a
+# real provider. Prompt storage in spend logs is off explicitly, as a second
+# lock behind the library default.
+#
+# Cost per request is fixed by the mock's `MOCK_USAGE` (12 prompt, 7 completion
+# tokens) and the per-token prices below:
+#   12 * 0.000001 + 7 * 0.000002 = USD 0.000026 per request.
+
+model_list:
+  - model_name: mock-cheap
+    litellm_params:
+      model: openai/mock-cheap
+      api_base: http://mock-upstream:4001/v1
+      api_key: os.environ/MOCK_UPSTREAM_KEY
+      input_cost_per_token: 0.000001
+      output_cost_per_token: 0.000002
+
+  - model_name: mock-flagship
+    litellm_params:
+      model: openai/mock-flagship
+      api_base: http://mock-upstream:4001/v1
+      api_key: os.environ/MOCK_UPSTREAM_KEY
+      input_cost_per_token: 0.000005
+      output_cost_per_token: 0.000010
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  database_url: os.environ/DATABASE_URL
+  # Hard requirement: no prompt or response text in spend logs.
+  store_prompts_in_spend_logs: false

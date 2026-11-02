@@ -1,0 +1,281 @@
+[
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-01T16:02:00.962Z",
+    "inputTokens": 5260,
+    "outputTokens": 3,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T02:06:37.336Z",
+    "inputTokens": 2560,
+    "outputTokens": 4,
+    "costUsd": 0.001286,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T02:07:05.297Z",
+    "inputTokens": 5260,
+    "outputTokens": 3,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T02:08:03.318Z",
+    "inputTokens": 2564,
+    "outputTokens": 4,
+    "costUsd": 0.001288,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T04:35:43.490Z",
+    "inputTokens": 9893,
+    "outputTokens": 3,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T04:41:56.015Z",
+    "inputTokens": 13309,
+    "outputTokens": 3,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:12:38.451Z",
+    "inputTokens": 18397,
+    "outputTokens": 340,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:12:41.893Z",
+    "inputTokens": 22607,
+    "outputTokens": 281,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:12:44.173Z",
+    "inputTokens": 23098,
+    "outputTokens": 196,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:12:45.873Z",
+    "inputTokens": 24121,
+    "outputTokens": 159,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:12:48.151Z",
+    "inputTokens": 29096,
+    "outputTokens": 168,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:12:49.441Z",
+    "inputTokens": 31190,
+    "outputTokens": 76,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:12:52.743Z",
+    "inputTokens": 33138,
+    "outputTokens": 197,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:13:02.293Z",
+    "inputTokens": 33568,
+    "outputTokens": 1002,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:13:18.900Z",
+    "inputTokens": 34648,
+    "outputTokens": 1672,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:36:19.646Z",
+    "inputTokens": 36394,
+    "outputTokens": 148,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:36:21.085Z",
+    "inputTokens": 36671,
+    "outputTokens": 65,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:36:42.316Z",
+    "inputTokens": 36869,
+    "outputTokens": 2000,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:36:51.081Z",
+    "inputTokens": 38906,
+    "outputTokens": 486,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:36:55.297Z",
+    "inputTokens": 39406,
+    "outputTokens": 455,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:36:59.372Z",
+    "inputTokens": 39879,
+    "outputTokens": 371,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:37:01.057Z",
+    "inputTokens": 40263,
+    "outputTokens": 100,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:37:04.988Z",
+    "inputTokens": 40456,
+    "outputTokens": 491,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:37:07.550Z",
+    "inputTokens": 40966,
+    "outputTokens": 217,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:37:09.637Z",
+    "inputTokens": 41203,
+    "outputTokens": 118,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:37:13.189Z",
+    "inputTokens": 41384,
+    "outputTokens": 314,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:37:26.261Z",
+    "inputTokens": 41791,
+    "outputTokens": 1340,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:37:44.162Z",
+    "inputTokens": 43227,
+    "outputTokens": 1754,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_1d396396-e0b4-4241-8aaa-908b8ff63727",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:37:53.127Z",
+    "inputTokens": 45008,
+    "outputTokens": 807,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_6f804a44-2690-45ee-93fc-a56c50861876",
+    "modelId": "deepseek-v4.1-flash",
+    "at": "2026-11-02T05:38:47.319Z",
+    "inputTokens": 32,
+    "outputTokens": 2,
+    "costUsd": 0.000019,
+    "apiFormat": "chat_completions"
+  },
+  {
+    "memberId": "mem_6f804a44-2690-45ee-93fc-a56c50861876",
+    "modelId": "blocked-model",
+    "at": "2026-11-02T05:39:43.495Z",
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "costUsd": 0,
+    "apiFormat": "chat_completions"
+  }
+]

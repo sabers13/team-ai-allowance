@@ -1,0 +1,239 @@
+{
+  "runAt": "2026-11-01T09:01:16.282Z",
+  "gateway": {
+    "image": "ghcr.io/berriai/litellm@sha256:b4239fbb9be0d915c312632ccdcccea441db9994a341536fdbf32cae82e15f9c",
+    "model": "deepseek-v4.1-flash",
+    "blockedModel": "blocked-model",
+    "testPricing": {
+      "inputPer1MUsd": 0.5,
+      "outputPer1MUsd": 1.5,
+      "note": "Test pricing (~3x the published Go off-peak USD 0.15/1M in, USD 0.60/1M out) so a CLI context costs ~USD 0.005-0.035 and USD 0.05 budgets exhaust in a handful of calls."
+    }
+  },
+  "cliVersions": {
+    "claude": "2.1.316 (Claude Code)",
+    "opencode": "opencode v2.1.3",
+    "codex": "codex-cli 0.165.0"
+  },
+  "upstreamStopTripped": false,
+  "clis": [
+    {
+      "cli": "claude",
+      "version": "2.1.316 (Claude Code)",
+      "available": true,
+      "memberId": "mem_9b9442c7-80e7-4e24-9a36-45acc7e8f666",
+      "steps": [
+        {
+          "key": "allowed-answers",
+          "pass": true,
+          "status": 0,
+          "message": "answered",
+          "excerpt": "{\"duration_api_ms\":7585,\"stop_reason\":\"end_turn\",\"session_id\":\"02573ac8-d794-4feb-aa8e-52bbde065dd9\",\"total_cost_usd\":0.0431744,\"usage\":{\"input_tokens\":10753,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":512,\"output_tokens\":3,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{\"deepseek-v4.1-flash\":{\"inputTokens\":10753,\"outputTokens\":3,\"cacheReadInputTokens\":512,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0431744,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"cacheCreationEphemeral5mInputTokens\":0,\"cacheCreationEphemeral1hInputTokens\":0,\"canonicalModel\":\"deepseek-v4.1-flash\",\"provider\":\"firstParty\",\"costBasis\":\"unknown\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_ …"
+        },
+        {
+          "key": "blocked-refused",
+          "pass": true,
+          "status": 1,
+          "message": "tatus\":403,\"result\":\"Failed to authenticate. API Error: 403 The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again.\",\"type\":\"result\",\"duration_ms\":126,\"uuid\":\"1d1e1b23-c8e8-4bc1-afa6-2cdc503ed4a7\",\"queued_turn_count\":0,\"result_index\":0} [claude-",
+          "excerpt": "{\"duration_api_ms\":0,\"stop_reason\":\"stop_sequence\",\"session_id\":\"3801b6f0-8bbc-4268-a595-41c612e1674e\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{},\"permission_denials\":[],\"terminal_reason\":\"api_error\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"safety_stops\":0,\"is_error\":true,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":403,\"result\":\"Failed to authenticate. API Error: 403 The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Che …"
+        },
+        {
+          "key": "budget-exhausted",
+          "pass": true,
+          "status": 1,
+          "message": "\":\"success\",\"api_error_status\":422,\"result\":\"API Error: 422 Budget has been exceeded! Key=taa-mem_9b9442c7-80e7-4e24-9a36-45acc7e8f666 (key redacted) Current cost: 0.051096000000000016, Max budget: 0.05\",\"type\":\"result\",\"duration_ms\":175,\"uuid\":\"9be69bd5-8ce7-448e-bee4-78f64d9847d4\",\"queued_turn_count\":0,\"result_index\":0} [claude-code:unre",
+          "excerpt": "{\"duration_api_ms\":0,\"stop_reason\":\"stop_sequence\",\"session_id\":\"0e7e5ae5-1667-4d9f-95a8-8aeeec14d7c8\",\"total_cost_usd\":0,\"usage\":{\"output_tokens_details\":{\"thinking_tokens\":0},\"input_tokens\":0,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\"output_tokens\":0,\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{},\"permission_denials\":[],\"terminal_reason\":\"api_error\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_subagents\":0,\"completed\":0,\"failed\":0,\"killed\":{\"parent\":0,\"user\":0,\"system\":0},\"refused\":{\"depth_limit\":0,\"concurrency_limit\":0,\"budget\":0},\"by_type\":{}},\"safety_stops\":0,\"is_error\":true,\"num_turns\":1,\"subtype\":\"success\",\"api_error_status\":422,\"result\":\"API Error: 422 Budget has been exceeded! Key=taa-mem_9b9442c7-80e7-4e24-9a36-45acc7e8f666 (key redacted) Current cost: 0.051096000000000016, Max  …",
+          "calls": 10,
+          "spendDeltaUsd": 0.051096
+        },
+        {
+          "key": "mcp-request",
+          "pass": true,
+          "status": null,
+          "message": "req_6d4c2680-bb61-4f56-bac0-ea873026f648",
+          "excerpt": "Request sent to your manager."
+        },
+        {
+          "key": "manager-approval",
+          "pass": true,
+          "status": 200,
+          "message": "approved USD 0.10",
+          "excerpt": "{\"request\":{\"id\":\"req_6d4c2680-bb61-4f56-bac0-ea873026f648\",\"memberId\":\"mem_9b9442c7-80e7-4e24-9a36-45acc7e8f666\",\"teamId\":\"team_e77b70cc-b584-42b6-87d9-02cd99b2ffa4\",\"kind\":\"more_budget\",\"amountUsd\":0.1,\"modelId\":null,\"message\":\"Live check: the USD 0.05 test budget is exhausted; need room to finish.\",\"state\":\"approved\",\"context\":{\"spendThisPeriodUsd\":0.05,\"limitUsd\":0.05,\"topModels\":[{\"modelId\":\"deepseek-v4.1-flash\",\"spendUsd\":0.05},{\"modelId\":\"blocked-model\",\"spendUsd\":0}],\"last7DaysUsd\":0.05},\"createdAt\":\"2026-11-01T08:54:49.911Z\",\"expiresAt\":\"2026-11-04T08:54:49.911Z\",\"decidedAt\":\"2026-11-01T08:54:49.960Z\"},\"decision\":{\"id\":\"dec_25499f16-1a43-4179-baa8-7d4fef1158c4\",\"requestId\":\"req_6d4c2680-bb61-4f56-bac0-ea873026f648\",\"outcome\":\"approved\",\"decidedById\":\"mem_1ed3e42e-7fa5-427e-8aaf-b32da380a127\",\"decidedByRole\":\"manager\",\"note\":\"Live check approval.\",\"grantedAmountUsd\":0.1,\"grantedModelId\":null,\"grantExpiresAt\":\"2026-11-02T00:00:00.000Z\",\"grantId\":\"grn_3a6e2b35-793c-4137-a6c6-188eb71923e6\",\"source\":\"manager\",\"decidedAt\":\"2026-11-01T08:54:49.960Z\"},\"grant\":{\"id\":\"grn_3a6e2b35-793c-4137-a6c6-188eb71923e6\",\"memberId\":\"mem_9b9442c7-80e7-4e24-9a36-45acc7e8f666\",\"scope\":\"budget\",\"am …"
+        },
+        {
+          "key": "works-again",
+          "pass": true,
+          "status": 0,
+          "message": "answered",
+          "excerpt": "{\"duration_api_ms\":2197,\"stop_reason\":\"end_turn\",\"session_id\":\"9410a2d7-b5c6-4202-b502-71b89d04c1b4\",\"total_cost_usd\":0.0023168,\"usage\":{\"input_tokens\":1,\"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":11264,\"output_tokens\":3,\"output_tokens_details\":{\"thinking_tokens\":0},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":0,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"\",\"iterations\":[],\"speed\":\"standard\",\"fallback_credit\":null},\"modelUsage\":{\"deepseek-v4.1-flash\":{\"inputTokens\":1,\"outputTokens\":3,\"cacheReadInputTokens\":11264,\"cacheCreationInputTokens\":0,\"webSearchRequests\":0,\"costUSD\":0.0023168,\"contextWindow\":200000,\"maxOutputTokens\":32000,\"thinkingTokens\":0,\"cacheCreationEphemeral5mInputTokens\":0,\"cacheCreationEphemeral1hInputTokens\":0,\"canonicalModel\":\"deepseek-v4.1-flash\",\"provider\":\"firstParty\",\"costBasis\":\"unknown\"}},\"permission_denials\":[],\"terminal_reason\":\"completed\",\"fast_mode_state\":\"off\",\"fast_mode_disabled_reason\":\"sdk_opt_in_required\",\"subagent_stats\":{\"spawned\":0,\"requested\":{\"background\":0,\"foreground\":0,\"unset\":0},\"started_in_background\":0,\"max_depth\":0,\"spawned_by_s …",
+          "calls": 1
+        }
+      ],
+      "spendUsd": 0.056733,
+      "spendKeyInfoUsd": 0.056733,
+      "note": null
+    },
+    {
+      "cli": "opencode",
+      "version": "opencode v2.1.3",
+      "available": true,
+      "memberId": "mem_3e97e38b-0180-407a-a0e3-8193438195fb",
+      "steps": [
+        {
+          "key": "allowed-answers",
+          "pass": true,
+          "status": 0,
+          "message": "answered",
+          "excerpt": "OK \u001b[0m > build · deepseek-v4.1-flash"
+        },
+        {
+          "key": "blocked-refused",
+          "pass": true,
+          "status": 1,
+          "message": "\u001b[0m > build · blocked-model \u001b[91m\u001b[1mError: \u001b[0mThe requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again.",
+          "excerpt": "\u001b[0m > build · blocked-model \u001b[91m\u001b[1mError: \u001b[0mThe requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again."
+        },
+        {
+          "key": "budget-exhausted",
+          "pass": true,
+          "status": 1,
+          "message": "key exhausted with direct calls (streamed-responses billing quirk, see notes); CLI refusal: \u001b[0m > build · deepseek-v4.1-flash \u001b[91m\u001b[1mError: \u001b[0mBudget has been exceeded! Key=taa-mem_3e97e38b-0180-407a-a0e3-8193438195fb (key redacted) Current cost: 0.058462999999999994, Max budget: 0.05",
+          "excerpt": "\u001b[0m > build · deepseek-v4.1-flash \u001b[91m\u001b[1mError: \u001b[0mBudget has been exceeded! Key=taa-mem_3e97e38b-0180-407a-a0e3-8193438195fb (key redacted) Current cost: 0.058462999999999994, Max budget: 0.05",
+          "calls": 37,
+          "spendDeltaUsd": 0.058463
+        },
+        {
+          "key": "mcp-request",
+          "pass": true,
+          "status": null,
+          "message": "req_1135949b-d8c7-4636-b36f-1d8460a1482b",
+          "excerpt": "Request sent to your manager."
+        },
+        {
+          "key": "manager-approval",
+          "pass": true,
+          "status": 200,
+          "message": "approved USD 0.10",
+          "excerpt": "{\"request\":{\"id\":\"req_1135949b-d8c7-4636-b36f-1d8460a1482b\",\"memberId\":\"mem_3e97e38b-0180-407a-a0e3-8193438195fb\",\"teamId\":\"team_e77b70cc-b584-42b6-87d9-02cd99b2ffa4\",\"kind\":\"more_budget\",\"amountUsd\":0.1,\"modelId\":null,\"message\":\"Live check: the USD 0.05 test budget is exhausted; need room to finish.\",\"state\":\"approved\",\"context\":{\"spendThisPeriodUsd\":0.06,\"limitUsd\":0.05,\"topModels\":[{\"modelId\":\"deepseek-v4.1-flash\",\"spendUsd\":0.06},{\"modelId\":\"blocked-model\",\"spendUsd\":0}],\"last7DaysUsd\":0.06},\"createdAt\":\"2026-11-01T08:57:30.704Z\",\"expiresAt\":\"2026-11-04T08:57:30.704Z\",\"decidedAt\":\"2026-11-01T08:57:30.732Z\"},\"decision\":{\"id\":\"dec_df9b9dd6-f611-4fc7-9adb-d172fac2b543\",\"requestId\":\"req_1135949b-d8c7-4636-b36f-1d8460a1482b\",\"outcome\":\"approved\",\"decidedById\":\"mem_1ed3e42e-7fa5-427e-8aaf-b32da380a127\",\"decidedByRole\":\"manager\",\"note\":\"Live check approval.\",\"grantedAmountUsd\":0.1,\"grantedModelId\":null,\"grantExpiresAt\":\"2026-11-02T00:00:00.000Z\",\"grantId\":\"grn_9c39e464-e1f8-4c2d-88b0-9b49ace15990\",\"source\":\"manager\",\"decidedAt\":\"2026-11-01T08:57:30.732Z\"},\"grant\":{\"id\":\"grn_9c39e464-e1f8-4c2d-88b0-9b49ace15990\",\"memberId\":\"mem_3e97e38b-0180-407a-a0e3-8193438195fb\",\"scope\":\"budget\",\"am …"
+        },
+        {
+          "key": "works-again",
+          "pass": true,
+          "status": 0,
+          "message": "answered",
+          "excerpt": "OK \u001b[0m > build · deepseek-v4.1-flash",
+          "calls": 1
+        }
+      ],
+      "spendUsd": 0.058732,
+      "spendKeyInfoUsd": 0.058732,
+      "note": null
+    },
+    {
+      "cli": "codex",
+      "version": "codex-cli 0.165.0",
+      "available": true,
+      "memberId": "mem_6d1179e2-dffc-4aef-bea2-da536bdb7423",
+      "steps": [
+        {
+          "key": "allowed-answers",
+          "pass": true,
+          "status": 0,
+          "message": "answered",
+          "excerpt": "Reading additional input from stdin... OpenAI Codex v0.165.0 -------- workdir: <scratch>/home-codex model: deepseek-v4.1-flash provider: team-gateway approval: never sandbox: read-only reasoning effort: none reasoning summaries: none session id: 01a19654-8e6a-7dd1-bf0b-2e557bb1747f -------- user [one-line test prompt] warning: Model metadata for `deepseek-v4.1-flash` not found. Defaulting to fallback metadata; this can degrade performance and cause issues. codex [response] tokens used 743"
+        },
+        {
+          "key": "blocked-refused",
+          "pass": true,
+          "status": 1,
+          "message": "Reconnecting... 5/5 ERROR: unexpected status 403 Forbidden: The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again., url: http://127.0.0.1:14010/v1/responses ERROR: unexpected status 403 Forbidden: The requested model 'blocked-model' is not avail",
+          "excerpt": "Reading additional input from stdin... OpenAI Codex v0.165.0 -------- workdir: <scratch>/home-codex model: blocked-model provider: team-gateway approval: never sandbox: read-only reasoning effort: none reasoning summaries: none session id: 01a19654-9ac4-7a90-aa42-366a59f98cc2 -------- user [one-line test prompt] warning: Model metadata for `blocked-model` not found. Defaulting to fallback metadata; this can degrade performance and cause issues. ERROR: Reconnecting... 1/5 ERROR: Reconnecting... 2/5 ERROR: Reconnecting... 3/5 ERROR: Reconnecting... 4/5 ERROR: Reconnecting... 5/5 ERROR: unexpected status 403 Forbidden: The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again., url: http://127.0.0.1:14010/v1/responses ERROR: unexpected status 403 Forbidden: The requested model 'blocked-model' is not available for this API key, or the model name is invalid. Check the models available to you and try again., url: http://127.0.0.1:14010/v1/responses"
+        },
+        {
+          "key": "budget-exhausted",
+          "pass": true,
+          "status": 1,
+          "message": "key exhausted with direct calls (streamed-responses billing quirk, see notes); CLI refusal: : unexpected status 401 Unauthorized: Authentication Error, Key is blocked. Update via `/key/unblock` if you're an admin., url: http://127.0.0.1:14010/v1/responses ERROR: unexpected status 401 Unauthorized: Authentication Error, Key is blocked. Update via `/key/unblock` if you're an admin., url: http://127.0.0.1:14010/v1/responses",
+          "excerpt": "Reading additional input from stdin... OpenAI Codex v0.165.0 -------- workdir: <scratch>/home-codex model: deepseek-v4.1-flash provider: team-gateway approval: never sandbox: read-only reasoning effort: none reasoning summaries: none session id: 01a19655-ff58-7822-980e-e59e2376be8d -------- user [one-line test prompt] warning: Model metadata for `deepseek-v4.1-flash` not found. Defaulting to fallback metadata; this can degrade performance and cause issues. ERROR: Reconnecting... 1/5 ERROR: Reconnecting... 2/5 ERROR: Reconnecting... 3/5 ERROR: Reconnecting... 4/5 ERROR: Reconnecting... 5/5 ERROR: unexpected status 401 Unauthorized: Authentication Error, Key is blocked. Update via `/key/unblock` if you're an admin., url: http://127.0.0.1:14010/v1/responses ERROR: unexpected status 401 Unauthorized: Authentication Error, Key is blocked. Update via `/key/unblock` if you're an admin., url: http://127.0.0.1:14010/v1/responses",
+          "calls": 37,
+          "spendDeltaUsd": 0.055337
+        },
+        {
+          "key": "mcp-request",
+          "pass": true,
+          "status": null,
+          "message": "req_21747edd-3332-4ad3-9109-e2ef885df923",
+          "excerpt": "Request sent to your manager."
+        },
+        {
+          "key": "manager-approval",
+          "pass": true,
+          "status": 200,
+          "message": "approved USD 0.10",
+          "excerpt": "{\"request\":{\"id\":\"req_21747edd-3332-4ad3-9109-e2ef885df923\",\"memberId\":\"mem_6d1179e2-dffc-4aef-bea2-da536bdb7423\",\"teamId\":\"team_e77b70cc-b584-42b6-87d9-02cd99b2ffa4\",\"kind\":\"more_budget\",\"amountUsd\":0.1,\"modelId\":null,\"message\":\"Live check: the USD 0.05 test budget is exhausted; need room to finish.\",\"state\":\"approved\",\"context\":{\"spendThisPeriodUsd\":0.06,\"limitUsd\":0.05,\"topModels\":[{\"modelId\":\"deepseek-v4.1-flash\",\"spendUsd\":0.06},{\"modelId\":\"blocked-model\",\"spendUsd\":0}],\"last7DaysUsd\":0.06},\"createdAt\":\"2026-11-01T09:00:18.278Z\",\"expiresAt\":\"2026-11-04T09:00:18.278Z\",\"decidedAt\":\"2026-11-01T09:00:18.379Z\"},\"decision\":{\"id\":\"dec_ca55d48c-916a-4801-ae79-26b765928148\",\"requestId\":\"req_21747edd-3332-4ad3-9109-e2ef885df923\",\"outcome\":\"approved\",\"decidedById\":\"mem_1ed3e42e-7fa5-427e-8aaf-b32da380a127\",\"decidedByRole\":\"manager\",\"note\":\"Live check approval.\",\"grantedAmountUsd\":0.1,\"grantedModelId\":null,\"grantExpiresAt\":\"2026-11-02T00:00:00.000Z\",\"grantId\":\"grn_913c7f13-4a27-4cf6-bd2c-1c60eb0a6124\",\"source\":\"manager\",\"decidedAt\":\"2026-11-01T09:00:18.379Z\"},\"grant\":{\"id\":\"grn_913c7f13-4a27-4cf6-bd2c-1c60eb0a6124\",\"memberId\":\"mem_6d1179e2-dffc-4aef-bea2-da536bdb7423\",\"scope\":\"budget\",\"am …"
+        },
+        {
+          "key": "works-again",
+          "pass": true,
+          "status": 0,
+          "message": "answered",
+          "excerpt": "Reading additional input from stdin... OpenAI Codex v0.165.0 -------- workdir: <scratch>/home-codex model: deepseek-v4.1-flash provider: team-gateway approval: never sandbox: read-only reasoning effort: none reasoning summaries: none session id: 01a19656-92f2-7bf1-a636-5b8850d5ec14 -------- user [one-line test prompt] warning: Model metadata for `deepseek-v4.1-flash` not found. Defaulting to fallback metadata; this can degrade performance and cause issues. codex [response] tokens used 103",
+          "calls": 1
+        }
+      ],
+      "spendUsd": 0.055337,
+      "spendKeyInfoUsd": 0.055337,
+      "note": null
+    },
+    {
+      "cli": "opencode-plugin",
+      "version": "opencode v2.1.3",
+      "available": true,
+      "memberId": "mem_a6bed0b6-8452-4325-8fa8-dc81d4809f39",
+      "steps": [
+        {
+          "key": "unattended-stop",
+          "pass": true,
+          "status": 0,
+          "message": "steps 1–15, but the harness stopped me at step 16 with: > Unattended session paused: 15 steps without a human message. Send a new message to continue. So I can't finish steps 16–30 in this turn — the run paused itself after 15 automated steps. Send another message (e.g. \"continue\") and I'll resume at `echo LIVE-STEP-16` through step 30, then reply DONE. \u001b[0m > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-1 LIVE-STEP-1 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-2 LIVE-STEP",
+          "excerpt": "I completed steps 1–15, but the harness stopped me at step 16 with: > Unattended session paused: 15 steps without a human message. Send a new message to continue. So I can't finish steps 16–30 in this turn — the run paused itself after 15 automated steps. Send another message (e.g. \"continue\") and I'll resume at `echo LIVE-STEP-16` through step 30, then reply DONE. \u001b[0m > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-1 LIVE-STEP-1 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-2 LIVE-STEP-2 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-3 LIVE-STEP-3 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-4 LIVE-STEP-4 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-5 LIVE-STEP-5 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-6 LIVE-STEP-6 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-7 LIVE-STEP-7 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-8 LIVE-STEP-8 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-9 LIVE-STEP-9 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-10 LIVE-STEP-10 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-11 LIVE-STEP-11 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-12 LIVE-S …"
+        }
+      ],
+      "spendUsd": 0.000025,
+      "spendKeyInfoUsd": 0.000025,
+      "note": "USD 0.50 test budget, so the budget stop cannot fire before the 15-step unattended stop."
+    }
+  ],
+  "plugin": {
+    "pass": true,
+    "memberId": "mem_a6bed0b6-8452-4325-8fa8-dc81d4809f39",
+    "message": "steps 1–15, but the harness stopped me at step 16 with: > Unattended session paused: 15 steps without a human message. Send a new message to continue. So I can't finish steps 16–30 in this turn — the run paused itself after 15 automated steps. Send another message (e.g. \"continue\") and I'll resume at `echo LIVE-STEP-16` through step 30, then reply DONE. \u001b[0m > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-1 LIVE-STEP-1 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-2 LIVE-STEP",
+    "excerpt": "I completed steps 1–15, but the harness stopped me at step 16 with: > Unattended session paused: 15 steps without a human message. Send a new message to continue. So I can't finish steps 16–30 in this turn — the run paused itself after 15 automated steps. Send another message (e.g. \"continue\") and I'll resume at `echo LIVE-STEP-16` through step 30, then reply DONE. \u001b[0m > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-1 LIVE-STEP-1 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-2 LIVE-STEP-2 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-3 LIVE-STEP-3 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-4 LIVE-STEP-4 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-5 LIVE-STEP-5 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-6 LIVE-STEP-6 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-7 LIVE-STEP-7 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-8 LIVE-STEP-8 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-9 LIVE-STEP-9 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-10 LIVE-STEP-10 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-11 LIVE-STEP-11 > build · deepseek-v4.1-flash \u001b[0m$ \u001b[0mecho LIVE-STEP-12 LIVE-S …",
+    "spendUsd": 0.000025
+  },
+  "approvals": [
+    {
+      "requestId": "req_6d4c2680-bb61-4f56-bac0-ea873026f648",
+      "memberId": "mem_9b9442c7-80e7-4e24-9a36-45acc7e8f666",
+      "amountUsd": 0.1,
+      "outcome": "approved"
+    },
+    {
+      "requestId": "req_1135949b-d8c7-4636-b36f-1d8460a1482b",
+      "memberId": "mem_3e97e38b-0180-407a-a0e3-8193438195fb",
+      "amountUsd": 0.1,
+      "outcome": "approved"
+    },
+    {
+      "requestId": "req_21747edd-3332-4ad3-9109-e2ef885df923",
+      "memberId": "mem_6d1179e2-dffc-4aef-bea2-da536bdb7423",
+      "amountUsd": 0.1,
+      "outcome": "approved"
+    }
+  ],
+  "totalSpendUsd": 0.170827,
+  "notes": [
+    "opencode: the CLI loop could not accrue spend (streamed-responses billing quirk for codex, cached-cheap calls for the others; see LIVE.md), so the key was exhausted with direct non-streaming calls on the same key, and the CLI refusal below is the CLI's own.",
+    "codex: the CLI loop could not accrue spend (streamed-responses billing quirk for codex, cached-cheap calls for the others; see LIVE.md), so the key was exhausted with direct non-streaming calls on the same key, and the CLI refusal below is the CLI's own."
+  ]
+}

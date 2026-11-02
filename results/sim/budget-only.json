@@ -1,0 +1,1351 @@
+{
+  "label": "simulation",
+  "scenario": "budget-only",
+  "title": "Member budget only",
+  "assumptions": [
+    "Simulation, not a measurement: a fake clock, fixed token counts and example list prices. No real model was called.",
+    "One model call every 45 s from Friday 17:30 to Monday 08:00 Europe/Berlin (2026-10-30T17:30:00+01:00 to 2026-11-02T08:00:00+01:00); no DST change inside the window.",
+    "Context starts at 20000 input tokens, grows by 1200 per step and compacts at 150000 back to 40000; every step emits 600 output tokens.",
+    "The member budget is a fixed weekend allowance; no period resets inside the window and no prior spend.",
+    "Off-hours follow the default team policy (Mon-Fri 07:00-19:00 Europe/Berlin, no holidays).",
+    "The unattended rule counts every model call as one step since the last human message (Friday 17:30), using the plugin's own working-hours test and default limits."
+  ],
+  "parameters": {
+    "weekendStart": "2026-10-30T17:30:00+01:00",
+    "weekendEnd": "2026-11-02T08:00:00+01:00",
+    "timeZone": "Europe/Berlin",
+    "stepSeconds": 45,
+    "startInputTokens": 20000,
+    "growthPerStepTokens": 1200,
+    "compactAtTokens": 150000,
+    "compactToTokens": 40000,
+    "outputTokensPerStep": 600,
+    "sampleEverySeconds": 900,
+    "budgetUsd": 20,
+    "hardLimitUsd": 21,
+    "offHoursCapUsd": null,
+    "unattended": false
+  },
+  "prices": {
+    "modelId": "flash",
+    "inputPer1MUsd": 0.3,
+    "outputPer1MUsd": 1.2
+  },
+  "series": [
+    {
+      "t": "2026-10-30T16:30:00.000Z",
+      "step": 0,
+      "spendUsd": 0.01,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 20000
+    },
+    {
+      "t": "2026-10-30T16:45:00.000Z",
+      "step": 20,
+      "spendUsd": 0.22,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 44000
+    },
+    {
+      "t": "2026-10-30T17:00:00.000Z",
+      "step": 40,
+      "spendUsd": 0.57,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 68000
+    },
+    {
+      "t": "2026-10-30T17:15:00.000Z",
+      "step": 60,
+      "spendUsd": 1.07,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 92000
+    },
+    {
+      "t": "2026-10-30T17:30:00.000Z",
+      "step": 80,
+      "spendUsd": 1.71,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 116000
+    },
+    {
+      "t": "2026-10-30T17:45:00.000Z",
+      "step": 100,
+      "spendUsd": 2.5,
+      "offHoursSpendUsd": 0,
+      "inputTokens": 140000
+    },
+    {
+      "t": "2026-10-30T18:00:00.000Z",
+      "step": 120,
+      "spendUsd": 3.03,
+      "offHoursSpendUsd": 0.02,
+      "inputTokens": 53200
+    },
+    {
+      "t": "2026-10-30T18:15:00.000Z",
+      "step": 140,
+      "spendUsd": 3.44,
+      "offHoursSpendUsd": 0.43,
+      "inputTokens": 77200
+    },
+    {
+      "t": "2026-10-30T18:30:00.000Z",
+      "step": 160,
+      "spendUsd": 3.99,
+      "offHoursSpendUsd": 0.98,
+      "inputTokens": 101200
+    },
+    {
+      "t": "2026-10-30T18:45:00.000Z",
+      "step": 180,
+      "spendUsd": 4.69,
+      "offHoursSpendUsd": 1.68,
+      "inputTokens": 125200
+    },
+    {
+      "t": "2026-10-30T19:00:00.000Z",
+      "step": 200,
+      "spendUsd": 5.53,
+      "offHoursSpendUsd": 2.52,
+      "inputTokens": 149200
+    },
+    {
+      "t": "2026-10-30T19:15:00.000Z",
+      "step": 220,
+      "spendUsd": 5.85,
+      "offHoursSpendUsd": 2.84,
+      "inputTokens": 62800
+    },
+    {
+      "t": "2026-10-30T19:30:00.000Z",
+      "step": 240,
+      "spendUsd": 6.32,
+      "offHoursSpendUsd": 3.31,
+      "inputTokens": 86800
+    },
+    {
+      "t": "2026-10-30T19:45:00.000Z",
+      "step": 260,
+      "spendUsd": 6.93,
+      "offHoursSpendUsd": 3.92,
+      "inputTokens": 110800
+    },
+    {
+      "t": "2026-10-30T20:00:00.000Z",
+      "step": 280,
+      "spendUsd": 7.68,
+      "offHoursSpendUsd": 4.67,
+      "inputTokens": 134800
+    },
+    {
+      "t": "2026-10-30T20:15:00.000Z",
+      "step": 300,
+      "spendUsd": 8.32,
+      "offHoursSpendUsd": 5.31,
+      "inputTokens": 48400
+    },
+    {
+      "t": "2026-10-30T20:30:00.000Z",
+      "step": 320,
+      "spendUsd": 8.7,
+      "offHoursSpendUsd": 5.69,
+      "inputTokens": 72400
+    },
+    {
+      "t": "2026-10-30T20:45:00.000Z",
+      "step": 340,
+      "spendUsd": 9.22,
+      "offHoursSpendUsd": 6.21,
+      "inputTokens": 96400
+    },
+    {
+      "t": "2026-10-30T21:00:00.000Z",
+      "step": 360,
+      "spendUsd": 9.89,
+      "offHoursSpendUsd": 6.88,
+      "inputTokens": 120400
+    },
+    {
+      "t": "2026-10-30T21:15:00.000Z",
+      "step": 380,
+      "spendUsd": 10.7,
+      "offHoursSpendUsd": 7.69,
+      "inputTokens": 144400
+    },
+    {
+      "t": "2026-10-30T21:30:00.000Z",
+      "step": 400,
+      "spendUsd": 11.13,
+      "offHoursSpendUsd": 8.12,
+      "inputTokens": 58000
+    },
+    {
+      "t": "2026-10-30T21:45:00.000Z",
+      "step": 420,
+      "spendUsd": 11.57,
+      "offHoursSpendUsd": 8.56,
+      "inputTokens": 82000
+    },
+    {
+      "t": "2026-10-30T22:00:00.000Z",
+      "step": 440,
+      "spendUsd": 12.15,
+      "offHoursSpendUsd": 9.14,
+      "inputTokens": 106000
+    },
+    {
+      "t": "2026-10-30T22:15:00.000Z",
+      "step": 460,
+      "spendUsd": 12.88,
+      "offHoursSpendUsd": 9.86,
+      "inputTokens": 130000
+    },
+    {
+      "t": "2026-10-30T22:30:00.000Z",
+      "step": 480,
+      "spendUsd": 13.61,
+      "offHoursSpendUsd": 10.6,
+      "inputTokens": 43600
+    },
+    {
+      "t": "2026-10-30T22:45:00.000Z",
+      "step": 500,
+      "spendUsd": 13.96,
+      "offHoursSpendUsd": 10.95,
+      "inputTokens": 67600
+    },
+    {
+      "t": "2026-10-30T23:00:00.000Z",
+      "step": 520,
+      "spendUsd": 14.46,
+      "offHoursSpendUsd": 11.45,
+      "inputTokens": 91600
+    },
+    {
+      "t": "2026-10-30T23:15:00.000Z",
+      "step": 540,
+      "spendUsd": 15.1,
+      "offHoursSpendUsd": 12.09,
+      "inputTokens": 115600
+    },
+    {
+      "t": "2026-10-30T23:30:00.000Z",
+      "step": 560,
+      "spendUsd": 15.88,
+      "offHoursSpendUsd": 12.87,
+      "inputTokens": 139600
+    },
+    {
+      "t": "2026-10-30T23:45:00.000Z",
+      "step": 580,
+      "spendUsd": 16.41,
+      "offHoursSpendUsd": 13.4,
+      "inputTokens": 53200
+    },
+    {
+      "t": "2026-10-31T00:00:00.000Z",
+      "step": 600,
+      "spendUsd": 16.82,
+      "offHoursSpendUsd": 13.81,
+      "inputTokens": 77200
+    },
+    {
+      "t": "2026-10-31T00:15:00.000Z",
+      "step": 620,
+      "spendUsd": 17.38,
+      "offHoursSpendUsd": 14.37,
+      "inputTokens": 101200
+    },
+    {
+      "t": "2026-10-31T00:30:00.000Z",
+      "step": 640,
+      "spendUsd": 18.07,
+      "offHoursSpendUsd": 15.06,
+      "inputTokens": 125200
+    },
+    {
+      "t": "2026-10-31T00:45:00.000Z",
+      "step": 660,
+      "spendUsd": 18.91,
+      "offHoursSpendUsd": 15.9,
+      "inputTokens": 149200
+    },
+    {
+      "t": "2026-10-31T01:00:00.000Z",
+      "step": 680,
+      "spendUsd": 19.24,
+      "offHoursSpendUsd": 16.23,
+      "inputTokens": 62800
+    },
+    {
+      "t": "2026-10-31T01:15:00.000Z",
+      "step": 700,
+      "spendUsd": 19.7,
+      "offHoursSpendUsd": 16.69,
+      "inputTokens": 86800
+    },
+    {
+      "t": "2026-10-31T01:30:00.000Z",
+      "step": 720,
+      "spendUsd": 20.32,
+      "offHoursSpendUsd": 17.3,
+      "inputTokens": 110800
+    }
+  ],
+  "markers": [
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:32:15.000Z",
+      "step": 563
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:33:00.000Z",
+      "step": 564
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:33:45.000Z",
+      "step": 565
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:34:30.000Z",
+      "step": 566
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:35:15.000Z",
+      "step": 567
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:36:00.000Z",
+      "step": 568
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:36:45.000Z",
+      "step": 569
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:37:30.000Z",
+      "step": 570
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:38:15.000Z",
+      "step": 571
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:39:00.000Z",
+      "step": 572
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:39:45.000Z",
+      "step": 573
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:40:30.000Z",
+      "step": 574
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:41:15.000Z",
+      "step": 575
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:42:00.000Z",
+      "step": 576
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:42:45.000Z",
+      "step": 577
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:43:30.000Z",
+      "step": 578
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:44:15.000Z",
+      "step": 579
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:45:00.000Z",
+      "step": 580
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:45:45.000Z",
+      "step": 581
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:46:30.000Z",
+      "step": 582
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:47:15.000Z",
+      "step": 583
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:48:00.000Z",
+      "step": 584
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:48:45.000Z",
+      "step": 585
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:49:30.000Z",
+      "step": 586
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:50:15.000Z",
+      "step": 587
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:51:00.000Z",
+      "step": 588
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:51:45.000Z",
+      "step": 589
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:52:30.000Z",
+      "step": 590
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:53:15.000Z",
+      "step": 591
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:54:00.000Z",
+      "step": 592
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:54:45.000Z",
+      "step": 593
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:55:30.000Z",
+      "step": 594
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:56:15.000Z",
+      "step": 595
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:57:00.000Z",
+      "step": 596
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:57:45.000Z",
+      "step": 597
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:58:30.000Z",
+      "step": 598
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-30T23:59:15.000Z",
+      "step": 599
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:00:00.000Z",
+      "step": 600
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:00:45.000Z",
+      "step": 601
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:01:30.000Z",
+      "step": 602
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:02:15.000Z",
+      "step": 603
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:03:00.000Z",
+      "step": 604
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:03:45.000Z",
+      "step": 605
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:04:30.000Z",
+      "step": 606
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:05:15.000Z",
+      "step": 607
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:06:00.000Z",
+      "step": 608
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:06:45.000Z",
+      "step": 609
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:07:30.000Z",
+      "step": 610
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:08:15.000Z",
+      "step": 611
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:09:00.000Z",
+      "step": 612
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:09:45.000Z",
+      "step": 613
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:10:30.000Z",
+      "step": 614
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:11:15.000Z",
+      "step": 615
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:12:00.000Z",
+      "step": 616
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:12:45.000Z",
+      "step": 617
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:13:30.000Z",
+      "step": 618
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:14:15.000Z",
+      "step": 619
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:15:00.000Z",
+      "step": 620
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:15:45.000Z",
+      "step": 621
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:16:30.000Z",
+      "step": 622
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:17:15.000Z",
+      "step": 623
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:18:00.000Z",
+      "step": 624
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:18:45.000Z",
+      "step": 625
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:19:30.000Z",
+      "step": 626
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:20:15.000Z",
+      "step": 627
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:21:00.000Z",
+      "step": 628
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:21:45.000Z",
+      "step": 629
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:22:30.000Z",
+      "step": 630
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:23:15.000Z",
+      "step": 631
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:24:00.000Z",
+      "step": 632
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:24:45.000Z",
+      "step": 633
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:25:30.000Z",
+      "step": 634
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:26:15.000Z",
+      "step": 635
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:27:00.000Z",
+      "step": 636
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:27:45.000Z",
+      "step": 637
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:28:30.000Z",
+      "step": 638
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:29:15.000Z",
+      "step": 639
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:30:00.000Z",
+      "step": 640
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:30:45.000Z",
+      "step": 641
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:31:30.000Z",
+      "step": 642
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:32:15.000Z",
+      "step": 643
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:33:00.000Z",
+      "step": 644
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:33:45.000Z",
+      "step": 645
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:34:30.000Z",
+      "step": 646
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:35:15.000Z",
+      "step": 647
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:36:00.000Z",
+      "step": 648
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:36:45.000Z",
+      "step": 649
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:37:30.000Z",
+      "step": 650
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:38:15.000Z",
+      "step": 651
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:39:00.000Z",
+      "step": 652
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:39:45.000Z",
+      "step": 653
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:40:30.000Z",
+      "step": 654
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:41:15.000Z",
+      "step": 655
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:42:00.000Z",
+      "step": 656
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:42:45.000Z",
+      "step": 657
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:43:30.000Z",
+      "step": 658
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:44:15.000Z",
+      "step": 659
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:45:00.000Z",
+      "step": 660
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:45:45.000Z",
+      "step": 661
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:46:30.000Z",
+      "step": 662
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:47:15.000Z",
+      "step": 663
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:48:00.000Z",
+      "step": 664
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:48:45.000Z",
+      "step": 665
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:49:30.000Z",
+      "step": 666
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:50:15.000Z",
+      "step": 667
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:51:00.000Z",
+      "step": 668
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:51:45.000Z",
+      "step": 669
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:52:30.000Z",
+      "step": 670
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:53:15.000Z",
+      "step": 671
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:54:00.000Z",
+      "step": 672
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:54:45.000Z",
+      "step": 673
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:55:30.000Z",
+      "step": 674
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:56:15.000Z",
+      "step": 675
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:57:00.000Z",
+      "step": 676
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:57:45.000Z",
+      "step": 677
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:58:30.000Z",
+      "step": 678
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T00:59:15.000Z",
+      "step": 679
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:00:00.000Z",
+      "step": 680
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:00:45.000Z",
+      "step": 681
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:01:30.000Z",
+      "step": 682
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:02:15.000Z",
+      "step": 683
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:03:00.000Z",
+      "step": 684
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:03:45.000Z",
+      "step": 685
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:04:30.000Z",
+      "step": 686
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:05:15.000Z",
+      "step": 687
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:06:00.000Z",
+      "step": 688
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:06:45.000Z",
+      "step": 689
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:07:30.000Z",
+      "step": 690
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:08:15.000Z",
+      "step": 691
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:09:00.000Z",
+      "step": 692
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:09:45.000Z",
+      "step": 693
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:10:30.000Z",
+      "step": 694
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:11:15.000Z",
+      "step": 695
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:12:00.000Z",
+      "step": 696
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:12:45.000Z",
+      "step": 697
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:13:30.000Z",
+      "step": 698
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:14:15.000Z",
+      "step": 699
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:15:00.000Z",
+      "step": 700
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:15:45.000Z",
+      "step": 701
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:16:30.000Z",
+      "step": 702
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:17:15.000Z",
+      "step": 703
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:18:00.000Z",
+      "step": 704
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:18:45.000Z",
+      "step": 705
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:19:30.000Z",
+      "step": 706
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:20:15.000Z",
+      "step": 707
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:21:00.000Z",
+      "step": 708
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:21:45.000Z",
+      "step": 709
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:22:30.000Z",
+      "step": 710
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:23:15.000Z",
+      "step": 711
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:23:15.000Z",
+      "step": 711
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:24:00.000Z",
+      "step": 712
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:24:00.000Z",
+      "step": 712
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:24:45.000Z",
+      "step": 713
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:24:45.000Z",
+      "step": 713
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:25:30.000Z",
+      "step": 714
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:25:30.000Z",
+      "step": 714
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:26:15.000Z",
+      "step": 715
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:26:15.000Z",
+      "step": 715
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:27:00.000Z",
+      "step": 716
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:27:00.000Z",
+      "step": 716
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:27:45.000Z",
+      "step": 717
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:27:45.000Z",
+      "step": 717
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:28:30.000Z",
+      "step": 718
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:28:30.000Z",
+      "step": 718
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:29:15.000Z",
+      "step": 719
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:29:15.000Z",
+      "step": 719
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:30:00.000Z",
+      "step": 720
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:30:00.000Z",
+      "step": 720
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:30:45.000Z",
+      "step": 721
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:30:45.000Z",
+      "step": 721
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:31:30.000Z",
+      "step": 722
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:31:30.000Z",
+      "step": 722
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:32:15.000Z",
+      "step": 723
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:32:15.000Z",
+      "step": 723
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:33:00.000Z",
+      "step": 724
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:33:00.000Z",
+      "step": 724
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:33:45.000Z",
+      "step": 725
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:33:45.000Z",
+      "step": 725
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:34:30.000Z",
+      "step": 726
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:34:30.000Z",
+      "step": 726
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:35:15.000Z",
+      "step": 727
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:35:15.000Z",
+      "step": 727
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:36:00.000Z",
+      "step": 728
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:36:00.000Z",
+      "step": 728
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:36:45.000Z",
+      "step": 729
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:36:45.000Z",
+      "step": 729
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:37:30.000Z",
+      "step": 730
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:37:30.000Z",
+      "step": 730
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:38:15.000Z",
+      "step": 731
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:38:15.000Z",
+      "step": 731
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:39:00.000Z",
+      "step": 732
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:39:00.000Z",
+      "step": 732
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:39:45.000Z",
+      "step": 733
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:39:45.000Z",
+      "step": 733
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:40:30.000Z",
+      "step": 734
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:40:30.000Z",
+      "step": 734
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:41:15.000Z",
+      "step": 735
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:41:15.000Z",
+      "step": 735
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:42:00.000Z",
+      "step": 736
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:42:00.000Z",
+      "step": 736
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:42:45.000Z",
+      "step": 737
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:42:45.000Z",
+      "step": 737
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:43:30.000Z",
+      "step": 738
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:43:30.000Z",
+      "step": 738
+    },
+    {
+      "kind": "hard_limit",
+      "t": "2026-10-31T01:44:15.000Z",
+      "step": 739
+    },
+    {
+      "kind": "grace",
+      "t": "2026-10-31T01:44:15.000Z",
+      "step": 739
+    },
+    {
+      "kind": "soft_limit",
+      "t": "2026-10-31T01:44:15.000Z",
+      "step": 739
+    },
+    {
+      "kind": "stop",
+      "t": "2026-10-31T01:45:00.000Z",
+      "step": 740
+    }
+  ],
+  "stop": {
+    "t": "2026-10-31T01:45:00.000Z",
+    "step": 740,
+    "reason": "budget_exhausted",
+    "spendUsd": 21.03,
+    "offHoursSpendUsd": 18.02,
+    "detail": "weekend allowance USD 20.00 exhausted (hard limit USD 21.00); the gateway refuses the next call"
+  },
+  "totals": {
+    "steps": 740,
+    "inputTokens": 68319600,
+    "outputTokens": 444000,
+    "spendUsd": 21.03
+  }
+}

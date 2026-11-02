@@ -1,0 +1,134 @@
+# The team-ai-allowance stack for local tests and the demo.
+#
+# Run it through `deploy/stack.sh` (or `make stack-up`), which creates the
+# secrets file and passes `-p taa`. Every host port binds 127.0.0.1 only.
+#
+# Images are pinned. LiteLLM is pinned by tag and digest; the tag alone can move.
+
+services:
+  postgres:
+    image: docker.io/library/postgres:17-alpine
+    container_name: taa-postgres
+    environment:
+      POSTGRES_USER: litellm
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      POSTGRES_DB: litellm
+    ports:
+      - "127.0.0.1:${TAA_POSTGRES_PORT:-15432}:5432"
+    volumes:
+      - taa-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U litellm -d litellm"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  mock-upstream:
+    image: docker.io/library/node:24-alpine
+    container_name: taa-mock-upstream
+    working_dir: /app
+    command: ["node", "src/mock-upstream/main.ts"]
+    environment:
+      PORT: "4001"
+      HOST: "0.0.0.0"
+    volumes:
+      - ../src/mock-upstream:/app/src/mock-upstream:ro
+      - ./container-package.json:/app/package.json:ro
+    ports:
+      # Host port for the integration check; the gateway reaches the service
+      # on the internal network at mock-upstream:4001.
+      - "127.0.0.1:${TAA_MOCK_PORT:-14001}:4001"
+    restart: unless-stopped
+
+  litellm:
+    image: ghcr.io/berriai/litellm:v1.105.1@sha256:b7b9e2c306343721802253d0dd9436b9634a2eb4e14da7c7cf06c5c7b7530802
+    container_name: taa-litellm
+    command: ["--config", "/app/config.yaml", "--port", "4000", "--num_workers", "1"]
+    environment:
+      DATABASE_URL: postgresql://litellm:${POSTGRES_PASSWORD}@postgres:5432/litellm
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:?LITELLM_MASTER_KEY is required}
+      MOCK_UPSTREAM_KEY: ${MOCK_UPSTREAM_KEY:-mock-upstream-key}
+    ports:
+      - "127.0.0.1:${TAA_GATEWAY_PORT:-14000}:4000"
+    volumes:
+      - ./litellm.config.yaml:/app/config.yaml:ro
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+  # The control service: `taa serve` (API + console + reconciler + watcher).
+  # The image is built from the repository root; SQLite lives on a volume.
+  control:
+    build:
+      context: ..
+      dockerfile: deploy/control.Dockerfile
+    image: taa-control:local
+    container_name: taa-control
+    environment:
+      TAA_HOST: "0.0.0.0"
+      TAA_PORT: "8080"
+      TAA_DB_PATH: /data/taa.db
+      TAA_GATEWAY_URL: http://litellm:4000
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:?LITELLM_MASTER_KEY is required}
+      TAA_PUBLIC_URL: http://127.0.0.1:${TAA_CONSOLE_PORT:-18080}
+      TAA_SESSION_SECRET: ${TAA_SESSION_SECRET:?TAA_SESSION_SECRET is required}
+      TAA_CSRF_SECRET: ${TAA_CSRF_SECRET:?TAA_CSRF_SECRET is required}
+      TAA_WATCH_INTERVAL_MS: ${TAA_STACK_WATCH_MS:-5000}
+      TAA_RECONCILE_INTERVAL_MS: ${TAA_STACK_RECONCILE_MS:-15000}
+      TAA_GATEWAY_WAIT_MS: ${TAA_STACK_GATEWAY_WAIT_MS:-180000}
+      TAA_DEMO_SEED: ${TAA_STACK_DEMO_SEED:-1}
+      TAA_DEMO_MANAGER_PASSWORD: ${TAA_DEMO_MANAGER_PASSWORD:?TAA_DEMO_MANAGER_PASSWORD is required}
+      TAA_GENERIC_WEBHOOK: http://webhook:8090/notify
+      TAA_SMTP_URL: smtp://mail:1025
+      TAA_MAIL_TO: priya@example.test
+    ports:
+      - "127.0.0.1:${TAA_CONSOLE_PORT:-18080}:8080"
+    volumes:
+      - taa-control-data:/data
+    depends_on:
+      - litellm
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:8080/health').then((r) => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 10s
+      timeout: 3s
+      start_period: 20s
+      retries: 6
+
+  # SMTP catcher: SMTP on 1025 inside the network, web UI on the host.
+  mail:
+    image: docker.io/mailhog/mailhog:v1.0.1
+    container_name: taa-mail
+    environment:
+      MH_STORAGE: memory
+    ports:
+      - "127.0.0.1:${TAA_MAIL_UI_PORT:-18025}:8025"
+    expose:
+      - "1025"
+    restart: unless-stopped
+
+  # Generic JSON webhook catcher for notification tests and the demo.
+  webhook:
+    image: docker.io/library/node:24-alpine
+    container_name: taa-webhook
+    working_dir: /app
+    command: ["node", "webhook-catcher.mjs"]
+    environment:
+      PORT: "8090"
+    ports:
+      - "127.0.0.1:${TAA_WEBHOOK_PORT:-18090}:8090"
+    volumes:
+      - ./webhook-catcher.mjs:/app/webhook-catcher.mjs:ro
+      - ./container-package.json:/app/package.json:ro
+    restart: unless-stopped
+
+volumes:
+  taa-postgres-data:
+  taa-control-data:

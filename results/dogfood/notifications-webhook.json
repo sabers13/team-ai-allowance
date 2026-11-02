@@ -1,0 +1,182 @@
+[
+  {
+    "at": "2026-11-02T05:45:17.588Z",
+    "body": {
+      "id": "ntf_d44179a0-044e-4bf9-9889-bd1205c26c32",
+      "at": "2026-11-02T05:45:17.048Z",
+      "kind": "member_blocked",
+      "audience": "manager",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "title": "Token cap reached: Ines",
+      "body": "Ines used 4086 of 3000 tokens this daily. The key is blocked until 2026-11-03T00:00:00.000Z.",
+      "link": "http://127.0.0.1:18082/members/mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "dedupeKey": "token_cap:mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9:2026-11-02T00:00:00.000Z:manager"
+    }
+  },
+  {
+    "at": "2026-11-02T05:45:17.619Z",
+    "body": {
+      "id": "ntf_ec198693-5c7d-4096-ae7f-3e2488e1bee2",
+      "at": "2026-11-02T05:45:17.048Z",
+      "kind": "member_blocked",
+      "audience": "member",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9",
+      "title": "Your token cap is reached",
+      "body": "Ines used 4086 of 3000 tokens this daily. The key is blocked until 2026-11-03T00:00:00.000Z.",
+      "link": "http://127.0.0.1:18082/me",
+      "dedupeKey": "token_cap:mem_f79d2341-4d1d-454e-ab0c-84edec4a58e9:2026-11-02T00:00:00.000Z:member"
+    }
+  },
+  {
+    "at": "2026-11-02T05:53:52.429Z",
+    "body": {
+      "id": "ntf_6dbec219-e0d2-4d70-9b63-faed28febbe4",
+      "at": "2026-11-02T05:53:52.098Z",
+      "kind": "soft_limit",
+      "audience": "member",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Soft limit reached",
+      "body": "Mira passed 77% of the daily budget (USD 0.02 of USD 0.02).",
+      "link": "http://127.0.0.1:18082/me",
+      "dedupeKey": "threshold:mem_51589bae-bf65-4a20-8748-83907b7448d2:soft_limit:2026-11-02T00:00:00.000Z:member"
+    }
+  },
+  {
+    "at": "2026-11-02T05:53:52.449Z",
+    "body": {
+      "id": "ntf_ec510b25-8074-4460-8e66-308b5037eb3c",
+      "at": "2026-11-02T05:53:52.098Z",
+      "kind": "unusual_spend",
+      "audience": "manager",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Unusual spend: Mira",
+      "body": "Today's spend USD 0.02 is above the unusual-spend threshold USD 0.01 (14-day median USD 0.00, minimum USD 0.01).",
+      "link": "http://127.0.0.1:18082/members/mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "dedupeKey": "unusual:mem_51589bae-bf65-4a20-8748-83907b7448d2:2026-11-02"
+    }
+  },
+  {
+    "at": "2026-11-02T05:54:07.456Z",
+    "body": {
+      "id": "ntf_020d581e-87bf-4561-b594-3d4dde1ef088",
+      "at": "2026-11-02T05:54:07.100Z",
+      "kind": "hard_limit",
+      "audience": "member",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Hard limit reached",
+      "body": "Mira reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.",
+      "link": "http://127.0.0.1:18082/me",
+      "dedupeKey": "threshold:mem_51589bae-bf65-4a20-8748-83907b7448d2:hard_limit:2026-11-02T00:00:00.000Z:member"
+    }
+  },
+  {
+    "at": "2026-11-02T05:54:07.478Z",
+    "body": {
+      "id": "ntf_8e6b6b34-3807-474a-abd2-c3811928018c",
+      "at": "2026-11-02T05:54:07.100Z",
+      "kind": "member_blocked",
+      "audience": "manager",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Hard limit reached: Mira",
+      "body": "Mira reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.",
+      "link": "http://127.0.0.1:18082/members/mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "dedupeKey": "threshold:mem_51589bae-bf65-4a20-8748-83907b7448d2:hard_limit:2026-11-02T00:00:00.000Z:manager"
+    }
+  },
+  {
+    "at": "2026-11-02T05:54:07.581Z",
+    "body": {
+      "id": "ntf_6fc74239-8dba-49f3-9d72-4fa18426385e",
+      "at": "2026-11-02T05:54:07.100Z",
+      "kind": "grace",
+      "audience": "member",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_51589bae-bf65-4a20-8748-83907b7448d2",
+      "title": "Budget reached: grace period",
+      "body": "Mira reached the daily budget (USD 0.02 of USD 0.02). Spend inside the grace share stays allowed until USD 0.03.",
+      "link": "http://127.0.0.1:18082/me",
+      "dedupeKey": "threshold:mem_51589bae-bf65-4a20-8748-83907b7448d2:grace:2026-11-02T00:00:00.000Z:member"
+    }
+  },
+  {
+    "at": "2026-11-02T06:02:57.461Z",
+    "body": {
+      "id": "ntf_7d582f5c-8698-49d1-a91c-f386319712eb",
+      "at": "2026-11-02T06:02:57.145Z",
+      "kind": "unusual_spend",
+      "audience": "manager",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "title": "Unusual spend: Rune",
+      "body": "Today's spend USD 0.01 is above the unusual-spend threshold USD 0.01 (14-day median USD 0.00, minimum USD 0.01).",
+      "link": "http://127.0.0.1:18082/members/mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "dedupeKey": "unusual:mem_24f7758d-b90f-4940-9697-da2d8f1694be:2026-11-02"
+    }
+  },
+  {
+    "at": "2026-11-02T06:04:22.451Z",
+    "body": {
+      "id": "ntf_35e9b416-57cf-4df2-ac77-6bb6e1d5b62a",
+      "at": "2026-11-02T06:04:22.154Z",
+      "kind": "soft_limit",
+      "audience": "member",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "title": "Soft limit reached",
+      "body": "Rune passed 70% of the daily budget (USD 0.01 of USD 0.02).",
+      "link": "http://127.0.0.1:18082/me",
+      "dedupeKey": "threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be:soft_limit:2026-11-02T00:00:00.000Z:member"
+    }
+  },
+  {
+    "at": "2026-11-02T06:09:07.556Z",
+    "body": {
+      "id": "ntf_e6b2f5ea-0683-4367-a9d3-256c85e69e0c",
+      "at": "2026-11-02T06:09:07.184Z",
+      "kind": "hard_limit",
+      "audience": "member",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "title": "Hard limit reached",
+      "body": "Rune reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.",
+      "link": "http://127.0.0.1:18082/me",
+      "dedupeKey": "threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be:hard_limit:2026-11-02T00:00:00.000Z:member"
+    }
+  },
+  {
+    "at": "2026-11-02T06:09:07.580Z",
+    "body": {
+      "id": "ntf_a93ab9cd-93f7-4746-be31-e13d8e76a18a",
+      "at": "2026-11-02T06:09:07.184Z",
+      "kind": "member_blocked",
+      "audience": "manager",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "title": "Hard limit reached: Rune",
+      "body": "Rune reached the hard limit (USD 0.02 of USD 0.02 plus 30% grace). The gateway refuses further requests.",
+      "link": "http://127.0.0.1:18082/members/mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "dedupeKey": "threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be:hard_limit:2026-11-02T00:00:00.000Z:manager"
+    }
+  },
+  {
+    "at": "2026-11-02T06:09:07.596Z",
+    "body": {
+      "id": "ntf_8e6e8955-2d95-4e33-a053-94d470da0804",
+      "at": "2026-11-02T06:09:07.184Z",
+      "kind": "grace",
+      "audience": "member",
+      "teamId": "team_e77782f3-9588-4850-9016-410209a0fd2f",
+      "memberId": "mem_24f7758d-b90f-4940-9697-da2d8f1694be",
+      "title": "Budget reached: grace period",
+      "body": "Rune reached the daily budget (USD 0.02 of USD 0.02). Spend inside the grace share stays allowed until USD 0.03.",
+      "link": "http://127.0.0.1:18082/me",
+      "dedupeKey": "threshold:mem_24f7758d-b90f-4940-9697-da2d8f1694be:grace:2026-11-02T00:00:00.000Z:member"
+    }
+  }
+]

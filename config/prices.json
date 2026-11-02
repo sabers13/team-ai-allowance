@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "unit": "USD per 1M tokens",
+  "retrieved": "2026-10-31",
+  "models": [
+    {
+      "id": "flash",
+      "displayName": "Example cheap model",
+      "inputPer1MUsd": 0.3,
+      "outputPer1MUsd": 1.2,
+      "source": "https://api-docs.deepseek.com/quick_start/pricing",
+      "sourceRetrieved": "2026-10-31",
+      "note": "Peak cache-miss list price. Off-peak is half; cache-hit input is far cheaper and is not modelled."
+    },
+    {
+      "id": "flagship",
+      "displayName": "Example flagship model",
+      "inputPer1MUsd": 1.32,
+      "outputPer1MUsd": 3.96,
+      "source": "https://api-docs.deepseek.com/quick_start/pricing",
+      "sourceRetrieved": "2026-10-31",
+      "note": "Peak cache-miss list price; approval-required in the demo catalogue. The sim agent only calls flash."
+    }
+  ]
+}
